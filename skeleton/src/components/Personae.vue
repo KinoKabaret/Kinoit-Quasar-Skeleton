@@ -8,9 +8,40 @@
 </template>
 
 <script>
-export default {
-  name: 'personae'
-}
+  import {
+    openURL,
+    QLayout,
+    QToolbar,
+    QToolbarTitle,
+    QBtn,
+    QIcon,
+    QList,
+    QListHeader,
+    QItem,
+    QItemSide,
+    QItemMain
+  } from 'quasar'
+
+  export default {
+    name: 'personae',
+    components: {
+      QLayout,
+      QToolbar,
+      QToolbarTitle,
+      QBtn,
+      QIcon,
+      QList,
+      QListHeader,
+      QItem,
+      QItemSide,
+      QItemMain
+    },
+    methods: {
+      launch (url) {
+        openURL(url)
+      }
+    }
+  }
 </script>
 
 <style scoped>

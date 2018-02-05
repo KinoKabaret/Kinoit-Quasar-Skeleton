@@ -19,9 +19,40 @@
 </template>
 
 <script>
-export default {
-  name: 'watch'
-}
+  import {
+    openURL,
+    QLayout,
+    QToolbar,
+    QToolbarTitle,
+    QBtn,
+    QIcon,
+    QList,
+    QListHeader,
+    QItem,
+    QItemSide,
+    QItemMain
+  } from 'quasar'
+
+  export default {
+    name: 'watch',
+    components: {
+      QLayout,
+      QToolbar,
+      QToolbarTitle,
+      QBtn,
+      QIcon,
+      QList,
+      QListHeader,
+      QItem,
+      QItemSide,
+      QItemMain
+    },
+    methods: {
+      launch (url) {
+        openURL(url)
+      }
+    }
+  }
 </script>
 
 <style scoped>

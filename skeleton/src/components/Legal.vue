@@ -11,8 +11,39 @@
 </template>
 
 <script>
+  import {
+    openURL,
+    QLayout,
+    QToolbar,
+    QToolbarTitle,
+    QBtn,
+    QIcon,
+    QList,
+    QListHeader,
+    QItem,
+    QItemSide,
+    QItemMain
+  } from 'quasar'
+
   export default {
-    name: 'legal'
+    name: 'legal',
+    components: {
+      QLayout,
+      QToolbar,
+      QToolbarTitle,
+      QBtn,
+      QIcon,
+      QList,
+      QListHeader,
+      QItem,
+      QItemSide,
+      QItemMain
+    },
+    methods: {
+      launch (url) {
+        openURL(url)
+      }
+    }
   }
 </script>
 

@@ -35,6 +35,9 @@ const messages = {
     lang: {
       native: 'English'
     },
+    interface: {
+      close: 'close'
+    },
     site: {
       title: 'KINOÏT',
       subtitle: 'Working together since 1999'
