@@ -31,16 +31,22 @@ export default new VueRouter({
       children:
       [
         { path: '/About',
+          name: 'About',
           component: load('About') },
         { path: '/Personae',
+          name: 'Personæ',
           component: load('Personae') },
         { path: '/Watch',
+          name: 'Watch',
           component: load('Watch') },
         { path: '/Downloads',
+          name: 'Downloads',
           component: load('Downloads') },
         { path: '/Contact',
+          name: 'Contact',
           component: load('Contact') },
         { path: '/Legal',
+          name: 'Legal',
           component: load('Legal') }
       ]
     },

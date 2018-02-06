@@ -12,8 +12,10 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-runtime": "^6.25.0",
     "deps": "^0.1.2",
+    "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "quasar-extras": "0.x",
     "quasar-framework": "0.14.9",
@@ -50,7 +52,12 @@
     "glob": "^7.1.2",
     "html-webpack-plugin": "^2.30.1",
     "http-proxy-middleware": "^0.17.0",
+    "jasmine-core": "^2.9.1",
     "json-loader": "^0.5.7",
+    "karma": "^2.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.1",
+    "karma-requirejs": "^1.1.0",
     "opn": "^5.0.0",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "postcss-loader": "^1.0.0",
