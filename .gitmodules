@@ -1,0 +1,4 @@
+[submodule "skeleton/src/statics/region-flags"]
+	path = skeleton/src/statics/region-flags
+	url = git@github.com:KinoKabaret/region-flags.git
+	branch = gh-pages

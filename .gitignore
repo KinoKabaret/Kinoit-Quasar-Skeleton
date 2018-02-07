@@ -112,3 +112,6 @@ IOS/www/
 .idea/
 node_modules/
 certs/
+
+# DON'T PUSH THE SUBMODULE!!!
+skeleton/src/statics/region-flags/*

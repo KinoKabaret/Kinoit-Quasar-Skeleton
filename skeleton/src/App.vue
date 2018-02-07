@@ -14,21 +14,38 @@
       </q-item>
 
       <q-toolbar-title dir="auto">
-        <h5 class="text-tertiary text-bold">{{$t('site.title')}}
+        <h5 class="text-bold">
+          <a class="text-tertiary" href="/" target="_self" >{{$t('site.title')}}</a>
         <span class="light-paragraph text-light" slot="subtitle" dir="auto">
           {{$t('site.subtitle')}}
         </span>
         </h5>
       </q-toolbar-title>
 
-      <q-select v-model="select"
+      <q-item ref="target" icon="fa-language" :display-value="selected">
+        {{$t(locale)}}
+        <q-popover ref="popover" v-model="selector"
+                   >
+          <!--
+            The DOM element(s) that make up the popup,
+            in this case a list:
+          -->
+          <q-list separator link>
+            <q-item @click="localeChange('fr'), $refs.popover.close()">
+              ...
+            </q-item>
+          </q-list>
+        </q-popover>
+      </q-item>
+      <!--
+      <q-dialog-select v-model="selector"
                 :display-value="selected"
                 icon="fa-language"
                 :options="selectOptions"
                 @change="localeChange"
       >
-      </q-select>
-
+      </q-dialog-select>
+      -->
 
     </q-toolbar>
 
@@ -118,6 +135,7 @@
     QToolbarTitle,
     QBtn,
     QSelect,
+    QPopover,
     QIcon,
     QList,
     QListHeader,
@@ -135,6 +153,7 @@
       QToolbarTitle,
       QBtn,
       QSelect,
+      QPopover,
       QIcon,
       QList,
       QListHeader,
@@ -196,21 +215,31 @@
       }
     },
     watch: {
-      select (val) {
+      selector (val) {
         this.$i18n.locale = val
       }
     },
     mounted: function () {
       this.$nextTick(function () {
-        alert(Cookies.get('locale'))
+        if (Cookies.get('miniNav') === 'closed') {
+          this.$refs.layout.toggleLeft()
+          var threebar = document.querySelector('#threebar')
+          var mininav = document.querySelector('#mininav')
+          threebar.classList.remove('cross')
+          threebar.classList.add('hamburger')
+          mininav.classList.remove('hidden')
+          this.$refs.active = true
+        }
         this.locale_cookie = Cookies.get('locale')
         if (this.locale_cookie) {
           this.$i18n.locale = this.locale_cookie
-          let language = document.querySelector('.locale')
-          language.value = this.locale_cookie
+          document.querySelector('.locale').value = this.locale_cookie
         }
         else {
           alert('NO COOKIE')
+        }
+        if (Cookies.get('miniNav') === 'closed') {
+          this.$refs.layout.toggleLeft()
         }
       }
       )
@@ -234,10 +263,10 @@
         // https://github.com/kazupon/vue-i18n/issues/2
         this.$i18n.locale = val
         Cookies.set('locale', val, {
-          secure: true,
+          // domain: 'kinokabaret.com',
+          // secure: true,
           expires: 14,
-          path: '/',
-          domain: 'kinokabaret.com'
+          path: '/'
         })
       },
       toggleMiniNav () {
@@ -250,12 +279,24 @@
           threebar.classList.add('cross')
           mininav.classList.add('hidden')
           this.$refs.active = false
+          Cookies.set('miniNav', 'open', {
+            // domain: 'kinokabaret.com',
+            // secure: true,
+            expires: 14,
+            path: '/'
+          })
         }
         else {
           threebar.classList.remove('cross')
           threebar.classList.add('hamburger')
           mininav.classList.remove('hidden')
           this.$refs.active = true
+          Cookies.set('miniNav', 'closed', {
+            // domain: 'kinokabaret.com',
+            // secure: true,
+            expires: 14,
+            path: '/'
+          })
         }
       }
     }
