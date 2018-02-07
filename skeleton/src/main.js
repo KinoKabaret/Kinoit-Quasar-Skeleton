@@ -31,8 +31,9 @@ import 'quasar-extras/fontawesome'
 
 // Create VueI18n instance with options
 export const i18n = new VueI18n({
-  locale: 'es', // set locale
-  messages: locales // set locale messages
+  locale: 'en', // set locale
+  messages: locales, // set locale messages
+  fallbackLocale: 'en'
 })
 
 Quasar.start(() => {

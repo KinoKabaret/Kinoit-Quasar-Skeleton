@@ -297,9 +297,9 @@ export default {
     pages: {
       home: {
         title: 'שדרג את הקינו!',
-        p1: 'We are starting the journey towards the KinoKabaret app and we need you!',
-        p2: 'This app will revolutionize the way we Kino. No more lost material, no more hours of foraging the net or Vimeo for a film from years past, no more forwarding to multiple people about a project.',
-        p3: 'Easier online and offline access to all the movies and their assets, location scouting, photo mapping, cell information, integrated screening player and event management. Everything together in one app, on one blockchain and stored on the distributed web.'
+        p1: 'אנחנו מתחילים את המסע לעבר האפליקציה KinoKabaret ואנחנו צריכים אותך!',
+        p2: 'יישום זה יהיה לחולל מהפכה בדרך שאנחנו הקינו. לא עוד חומר אבוד, לא יותר שעות של חיפוש אחר הרשת או Vimeo לסרט משנים עברו, לא עוד העברת מספר אנשים על פרויקט.',
+        p3: 'גישה מקוונת לא מקוונת לכל הסרטים והנכסים שלהם, תצפיות מיקום, מיפוי תמונות, מידע תא, נגן הקרנה משולב וניהול אירועים. הכל יחד באפליקציה אחת, על בלוקצ\'ין אחד ומאוחסנים באינטרנט מבוזרות.'
       },
       mailing: {
         title: 'רשימת דיוור',
