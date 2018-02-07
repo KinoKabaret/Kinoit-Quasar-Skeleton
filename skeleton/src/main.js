@@ -14,9 +14,9 @@ import Vue from 'vue'
 import Quasar from 'quasar'
 import VueI18n from 'vue-i18n'
 import router from './router'
-import 'quasar-extras/animate'
 import locales from './lang/locale'
 // import axios from 'axios'
+// import 'quasar-extras/animate'
 
 // AddressbarColor.set('#a2e3fa')
 Vue.config.productionTip = true

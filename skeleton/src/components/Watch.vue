@@ -4,14 +4,9 @@
       <h4>
         Here are some things to watch right now.
       </h4>
-      <div class="q-video">
-        <iframe
-          width="853"
-          height="480"
-          src="https://www.youtube.com/embed/k3_tw44QsZQ?rel=0"
-          frameborder="0"
-          allowfullscreen
-        ></iframe>
+      <div class="video column" style="height:400px">
+          <iframe class="row" src="https://drive.google.com/file/d/1zHKXpSjDJMue0exTpfT2bW0CpXsJy6ir/preview" frameborder="0" height="200" allowfullscreen="true" style="height:600px; border:0;"/>
+        </iframe>
       </div>
     </div>
 

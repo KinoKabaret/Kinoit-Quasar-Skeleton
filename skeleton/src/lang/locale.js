@@ -68,34 +68,34 @@ export default {
     pages: {
       home: {
         title: 'キノをアップグレードしてください！',
-        p1: 'We are starting the journey towards the KinoKabaret app and we need you!',
-        p2: 'This app will revolutionize the way we Kino. No more lost material, no more hours of foraging the net or Vimeo for a film from years past, no more forwarding to multiple people about a project.',
-        p3: 'Easier online and offline access to all the movies and their assets, location scouting, photo mapping, cell information, integrated screening player and event management. Everything together in one app, on one blockchain and stored on the distributed web.'
+        p1: '私たちはKinoKabaretアプリへの旅を始めようとしていて、あなたを必要としています！',
+        p2: 'このアプリは私たちがKinoをするためのやり方を革命を起こすでしょう。もう作品を失うこともなく、ネットやVimeoで数年前の映画を引っ掻き回して探すこともなく、何人もの人にプロジェクトのことを送る必要もありません。',
+        p3: 'オンラインやオフライン上で、全ての映画とその資源、ロケーションスカウト、写真マッピング、セル情報、統合映画プレーヤー、そしてイベント管理に簡単にアクセスができます。あらゆるものが一つのブロックチェーン上の一つのアプリに一緒にされ、分散したウェブ上に格納されます。'
       },
       mailing: {
         title: 'メーリングリスト',
-        p1: 'We would like to invite you to join the KinoKabaret App mailing list so we can keep you informed about our progress and ask for help when we need it. We will never send more than one email per week. (Who has the time for that?)',
+        p1: 'KinoKabaretアプリのメーリングリストに参加していただき、私たちの進捗をお伝えし続け、必要に応じてお手伝いいただけたらと考えております。週に一通を超えるメールを送ることはありません。（誰もそのような時間はありません。）',
         form: {
           email: 'メールアドレス',
-          btn: 'Subscribe',
-          small: 'We use Mailchimp for our Email campaigns.'
+          btn: '登録する',
+          small: 'メールキャンペーンにMailchimpを使用しています。'
         }
       },
       mining: {
         title: 'ブラウザマイニング',
-        p1: 'You can use the slider below to donate your computer\'s processor to help us mine Cryptonight based cryptocurrency. It uses your computer\'s processor to do some math that turns into money. The higher the H/s (hashes per second) the better. Just leave this browser tab open and let your computer raise money for KinoKabaret App Development.',
+        p1: '下のスライダーを使い、コンピュータのプロセッサを寄付していただくことも可能です。それによって、暗号通貨がベースのCryptonightを採掘するのをお手伝いいただけます。そしてコンピュータのプロセッサを使いお金に変えるための計算をします。H/s (ハッシュ/秒)の数値が大きいほど、より多くの計算ができます。このページを開いたままにして、コンピュータにKinoKabaretのアプリ開発のためのお金を集めさせましょう。',
         btn_mining: 'Begin Mining',
-        small_mining: 'Computer getting too slow? Lower the rate or close this tab.',
+        small_mining: 'コンピュータの動作が遅くなってきましたか？スライダーを下げて、このページを閉めてください。',
         hashes_found: 'Hashes found in this session: ',
         hashes_small: '50 H/s is about 0.005 USD / hour'
       },
       contact: {
-        title: 'Get in touch.',
-        p1: 'Our code is open source and you can find it at Github',
-        p2: 'You can write us an email at support@kinokabaret.com'
+        title: '連絡する',
+        p1: 'コードはオープンソースなので、Githubにて見つけることができます。',
+        p2: '気軽にsupport@kinokabaret.comへメールをください。'
       },
       downloads: {
-        p1: 'We\'ll be putting up things we find or that KINOÏTS want to share. You can send us something nice, and if we like it we\'ll transmit it. Send your stuff to: submissions@kinokabaret.com',
+        p1: '私たちが見つけたものやKINOITESがシェアしたいものをプレゼントいたします。素敵なものを送っていただき、私たちの好みに合えば、お届けいたします。submissions@kinokabaret.comに作品をお送りください。',
         link1: 'How to organize a KinoKabaret (EN)',
         link2: 'Tasks & Event Management (EN)'
       },
@@ -107,8 +107,8 @@ export default {
         win_a_prize: 'きっと賞が当たるでしょう!'
       },
       lukas: {
-        p1: 'BTW, here we have a Lukas in his native environment.',
-        p2: 'You may think that he is giving you the thumbs up, but really he is counting. That is German for "one".'
+        p1: 'ちなみに、ルーカスさんが自然環境の中にいます。',
+        p2: 'ゴーサインを出しているように思われるでしょうが、実際は数を数えているのです。それがドイツ語での「一」なのです。'
       }
     }
   },
@@ -239,34 +239,34 @@ export default {
     pages: {
       home: {
         title: 'Migliora il tuo Kino!',
-        p1: 'We are starting the journey towards the KinoKabaret app and we need you!',
-        p2: 'This app will revolutionize the way we Kino. No more lost material, no more hours of foraging the net or Vimeo for a film from years past, no more forwarding to multiple people about a project.',
-        p3: 'Easier online and offline access to all the movies and their assets, location scouting, photo mapping, cell information, integrated screening player and event management. Everything together in one app, on one blockchain and stored on the distributed web.'
+        p1: 'Stiamo iniziando il viaggio verso la KinoKabaret app e abbiamo bisogno di te!',
+        p2: 'Questa app rivoluzionerà il modo in cui facciamo Kino. Basta materiale andato perso, basta con le ore passate in rete o su Vimeo a cercare un film degli anni precedenti, basta scrivere a più persone per cercare un progetto.',
+        p3: 'Accesso più semplice, online e offline, a tutti i film e alle loro risorse, ricerca delle location, mappatura fotografica, informazione sulla cellula, riproduttore dei film integrato e gestione degli eventi. Tutto nella stessa app, su un sistema blockchain e conservato sul web distribuito.'
       },
       mailing: {
         title: 'Mailing List',
-        p1: 'We would like to invite you to join the KinoKabaret App mailing list so we can keep you informed about our progress and ask for help when we need it. We will never send more than one email per week. (Who has the time for that?)',
+        p1: 'Vorremmo invitarti a iscriverti alla mailing list della KinoKabaret App, in modo da poterti tenere informato sui nostri progressi e chiederti aiuto quando ne abbiamo bisogno. Non manderemo mai più di una mail per settimana. (Chi ha tempo per mandarne di più?)',
         form: {
           email: 'Indirizzo email',
-          btn: 'Subscribe',
-          small: 'We use Mailchimp for our Email campaigns.'
+          btn: 'Iscriviti',
+          small: 'Usiamo Mailchimp per le nostre campagne email.'
         }
       },
       mining: {
         title: 'Mining tramite browser',
-        p1: 'You can use the slider below to donate your computer\'s processor to help us mine Cryptonight based cryptocurrency. It uses your computer\'s processor to do some math that turns into money. The higher the H/s (hashes per second) the better. Just leave this browser tab open and let your computer raise money for KinoKabaret App Development.',
+        p1: 'Puoi usare lo slider in basso per donare parte della capacità del processore del tuo computer per aiutarci a fare il “mining” della moneta basata su Cryptonight. Usa il processore del tuo computer per fare dei calcoli matematici che diventano denaro. Più sono alti gli H/s (hashes al secondo) meglio è. Lascia solo aperta questa barra del browser e lascia il tuo computer creare denaro per il KinoKabaret App Development.',
         btn_mining: 'Begin Mining',
-        small_mining: 'Computer getting too slow? Lower the rate or close this tab.',
+        small_mining: 'Il computer diventa troppo lento? Abbassa la quantità o chiudi questa tab del browser.',
         hashes_found: 'Hashes found in this session: ',
         hashes_small: '50 H/s is about 0.005 USD / hour'
       },
       contact: {
         title: 'Get in touch.',
-        p1: 'Our code is open source and you can find it at Github',
-        p2: 'You can write us an email at support@kinokabaret.com'
+        p1: 'Il nostro codice è open source e puoi trovarlo su Github.',
+        p2: 'Puoi mandarci una mail a support@kinokabaret.com'
       },
       downloads: {
-        p1: 'We\'ll be putting up things we find or that KINOÏTS want to share. You can send us something nice, and if we like it we\'ll transmit it. Send your stuff to: submissions@kinokabaret.com',
+        p1: 'Metteremo sulla app cose che troviamo o che i kinoiti vogliono condividere. Puoi mandarci qualcosa di bello e se ci piace lo trasmetteremo. Manda le tue cose a: submissions@kinokabaret.com',
         link1: 'How to organize a KinoKabaret (EN)',
         link2: 'Tasks & Event Management (EN)'
       },
@@ -278,8 +278,8 @@ export default {
         win_a_prize: 'Dovresti vincere un premio!'
       },
       lukas: {
-        p1: 'BTW, here we have a Lukas in his native environment.',
-        p2: 'You may think that he is giving you the thumbs up, but really he is counting. That is German for "one".'
+        p1: 'Comunque, ecco qui Lukas nel suo ambiente naturale.',
+        p2: 'Potresti pensare che ti stia facendo il segno del pollice in su, Ma in realtà sta contando. È come si dice in tedesco “uno”.'
       }
     }
   },
@@ -297,42 +297,42 @@ export default {
     pages: {
       home: {
         title: 'שדרג את הקינו!',
-        p1: 'אנחנו מתחילים את המסע לעבר האפליקציה KinoKabaret ואנחנו צריכים אותך!',
-        p2: 'יישום זה יהיה לחולל מהפכה בדרך שאנחנו הקינו. לא עוד חומר אבוד, לא יותר שעות של חיפוש אחר הרשת או Vimeo לסרט משנים עברו, לא עוד העברת מספר אנשים על פרויקט.',
-        p3: 'גישה מקוונת לא מקוונת לכל הסרטים והנכסים שלהם, תצפיות מיקום, מיפוי תמונות, מידע תא, נגן הקרנה משולב וניהול אירועים. הכל יחד באפליקציה אחת, על בלוקצ\'ין אחד ומאוחסנים באינטרנט מבוזרות.'
+        p1: 'אנחנו יוצרים את אפליקציית "KinoKabaret" ואנחנו צריכים אותך!',
+        p2: 'האפליקציה תחולל מהפכה בדרך בה מתנהל הקינו. סיימנו עם להשקיע שעות בחיפושים ב- Vimeo אחרי סרט שעשינו לפני שנים, לא עוד נאבק למצוא חומרים שאבדו לעד.',
+        p3: 'האפליקציה תספק גישה קלה באופן  מקוון ולא מקוון לכל הסרטים והחומרים שלהם, חיפושי לוקיישנים לצילום, מיפוי תמונות, מידע אודות תאי הקינו ברחבי העולם, ניהול אירועים וכן יכולת לנהל את ההקרנה דרך האפליקציה. כל זה תחת אפליקציה אחת, על בלוקצ\'ין אחד ומאוחסנים באינטרנט מבוזרות.(on one blockchain and stored on the distributed web.)'
       },
       mailing: {
         title: 'רשימת דיוור',
-        p1: 'We would like to invite you to join the KinoKabaret App mailing list so we can keep you informed about our progress and ask for help when we need it. We will never send more than one email per week. (Who has the time for that?)',
+        p1: 'רצינו להזמין אותך להצטרף לרשימת התפוצה של KinoKabaret App כדי שנוכל לעדכן אותך לגבי ההתקדמות שלנו וגם לבקש עזרה כשנזדקק לה. לעולם לא נשלח יותר מדוא"ל אחד בשבוע. (למי יש זמן לזה?)',
         form: {
-          email: 'תהיה מעורב',
-          btn: 'Subscribe',
-          small: 'We use Mailchimp for our Email campaigns.'
+          email: 'כתובת מייל',
+          btn: 'הירשם',
+          small: 'אנו משתמשים ב- Mailchimp עבור יצירת קשר עם חברים מרשימת התפוצה.'
         }
       },
       mining: {
         title: 'Browser Mining',
-        p1: 'You can use the slider below to donate your computer\'s processor to help us mine Cryptonight based cryptocurrency. It uses your computer\'s processor to do some math that turns into money. The higher the H/s (hashes per second) the better. Just leave this browser tab open and let your computer raise money for KinoKabaret App Development.',
+        p1: 'ניתן ללחוץ על הסליידר למטה כדי לתאום את המעבד של המחשב שלך כדי לעזור לנו לכרות Cryptonight. המבוסס על cryptocurrency. כך ניתן להשתמש במעבד של המחשב שלך כדי לעשות חישובים שיתורגמו לכסף. ככל שה-H/s גבוה יותר , יותר טוב (hashes per second). ניתן בפשטות להשאיר את הכרטיסייה בדפדפן פתוחה, כך יתאפשר למחשב לגייס לבד כסף עבור פיתוח KinoKabaret App .',
         btn_mining: 'Begin Mining',
-        small_mining: 'Computer getting too slow? Lower the rate or close this tab.',
+        small_mining: 'המחשב נהיה איטי? תפחית את המהירות או סגור את הכרטיסייה.',
         hashes_found: 'Hashes found in this session: ',
         hashes_small: '50 H/s is about 0.005 USD / hour'
       },
       contact: {
-        title: 'Get in touch.',
-        p1: 'Our code is open source and you can find it at Github',
-        p2: 'You can write us an email at support@kinokabaret.com'
+        title: 'צור קשר',
+        p1: 'הקוד שלנו פתוח לכולם וניתן למצוא אותו ב- Github',
+        p2: 'ניתן לפנות אלינו בכתובת support@kinokabaret.com'
       },
       downloads: {
-        p1: 'We\'ll be putting up things we find or that KINOÏTS want to share. You can send us something nice, and if we like it we\'ll transmit it. Send your stuff to: submissions@kinokabaret.com',
+        p1: 'אנחנו נשתף בדברים שנמצא בעצמנן או בדברים שקינואיסטים מעוניינים לחלוק. אז כאן אתם נכנסים לתמונה, מוזמנים לשלוח אלינו דברים מגניבים ואם זה יתאים נעלה את זה. שלחו לכתובת: submissions@kinokabaret.com',
         link1: 'How to organize a KinoKabaret (EN)',
         link2: 'Tasks & Event Management (EN)'
       },
       get_involved: {
-        title: 'Get Involved',
+        title: 'תהיה מעורב',
         wanna_help: 'רוצה לעזור?',
         right_on: 'ממש עכשיו!',
-        hear_from: 'מקווים לשמוע ממך!',
+        hear_from: 'מקווים לשמוע ממך!!',
         win_a_prize: 'מגיע לך פרס!'
       },
       lukas: {
@@ -355,34 +355,34 @@ export default {
     pages: {
       home: {
         title: '升級你的Kino!',
-        p1: 'We are starting the journey towards the KinoKabaret app and we need you!',
-        p2: 'This app will revolutionize the way we Kino. No more lost material, no more hours of foraging the net or Vimeo for a film from years past, no more forwarding to multiple people about a project.',
-        p3: 'Easier online and offline access to all the movies and their assets, location scouting, photo mapping, cell information, integrated screening player and event management. Everything together in one app, on one blockchain and stored on the distributed web.'
+        p1: '我們即將打造全新的 KinoKabaret App，所以我們需要你！',
+        p2: '這個App將會重新創造我們Kino的方式。不會再失去的珍貴的影片資料、不用浪費數小時在網路上尋找數前年的影片、不再需要將專案轉發給多數人。',
+        p3: '簡單又快速的搜尋到線上與線下的影片、它們的材料、拍攝地點、相片縮圖、微小資料、現場播放頻道、和活動管理系統。所有東西都包含在一個App裡、在一個Blockchain 和儲存在分散式的網站。'
       },
       mailing: {
         title: '郵件列表',
-        p1: 'We would like to invite you to join the KinoKabaret App mailing list so we can keep you informed about our progress and ask for help when we need it. We will never send more than one email per week. (Who has the time for that?)',
+        p1: '我們邀請你訂閱我們的KinoKabaret app新訊，這樣當我們有新的進展或我們需要支援時，我們有辦法通知你。每個禮拜你不會收到超過一封信。（誰會有這時間？)',
         form: {
           email: 'Email',
-          btn: 'Subscribe',
-          small: 'We use Mailchimp for our Email campaigns.'
+          btn: '訂閱',
+          small: '我們利用Mailchimp來郵寄新訊。'
         }
       },
       mining: {
         title: '瀏覽器採礦',
-        p1: 'You can use the slider below to donate your computer\'s processor to help us mine Cryptonight based cryptocurrency. It uses your computer\'s processor to do some math that turns into money. The higher the H/s (hashes per second) the better. Just leave this browser tab open and let your computer raise money for KinoKabaret App Development.',
+        p1: '请透过您的电脑挖掘网路货币来协助我们! 点及下方按键，利用您电脑多余的运算量可用来赚取基于加密协定Cryptonight的加密货币。杂凑值运算速度(hashes per second)越快越好。您可让浏览器分页保持开启，来资助我们开发KinoKabaret。',
         btn_mining: 'Begin Mining',
-        small_mining: 'Computer getting too slow? Lower the rate or close this tab.',
+        small_mining: '你的電腦變慢了嗎？ 關閉這個頁面。',
         hashes_found: 'Hashes found in this session: ',
         hashes_small: '50 H/s is about 0.005 USD / hour'
       },
       contact: {
-        title: 'Get in touch.',
-        p1: 'Our code is open source and you can find it at Github',
-        p2: 'You can write us an email at support@kinokabaret.com'
+        title: '聯絡我們',
+        p1: '我們的程式碼是公開資源，你可以在Github找到它。',
+        p2: '你可以寫信到這裡給我們support@kinokabaret.com'
       },
       downloads: {
-        p1: 'We\'ll be putting up things we find or that KINOÏTS want to share. You can send us something nice, and if we like it we\'ll transmit it. Send your stuff to: submissions@kinokabaret.com',
+        p1: '我們將會公布我們發現的和KINOÏTS想要分享的東西。你可以寄給我們一些你認為好的作品給我們，如果我們也很喜歡，我們將會發表與大家分享。歡迎將你的作品寄給我們:submissions@kinokabaret.com',
         link1: 'How to organize a KinoKabaret (EN)',
         link2: 'Tasks & Event Management (EN)'
       },
@@ -394,8 +394,8 @@ export default {
         win_a_prize: '你應該得到你應得的!'
       },
       lukas: {
-        p1: 'BTW, here we have a Lukas in his native environment.',
-        p2: 'You may think that he is giving you the thumbs up, but really he is counting. That is German for "one".'
+        p1: '你可能以为人见人爱的Lukas在给你竖大拇指，',
+        p2: '但其实他是在数数而已，这是德国文化里的一噢！'
       }
     }
   }

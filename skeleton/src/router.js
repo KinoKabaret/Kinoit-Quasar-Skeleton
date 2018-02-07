@@ -32,7 +32,7 @@ export default new VueRouter({
     },
     {
       path: '/About',
-      name: 'pages.home.title',
+      name: 'About',
       component: load('About') },
     {
       path: '/Personae',

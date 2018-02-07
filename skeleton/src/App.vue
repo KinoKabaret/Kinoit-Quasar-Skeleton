@@ -14,10 +14,11 @@
       </q-item>
 
       <q-toolbar-title dir="auto">
-        {{$t('site.title')}}
-        <div slot="subtitle" dir="auto">
+        <h5 class="text-tertiary text-bold">{{$t('site.title')}}
+        <span class="light-paragraph text-light" slot="subtitle" dir="auto">
           {{$t('site.subtitle')}}
-        </div>
+        </span>
+        </h5>
       </q-toolbar-title>
 
       <q-select v-model="select"
@@ -94,7 +95,7 @@
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
           <q-item-side icon="fa-fw fa-balance-scale" />
         </q-item>
-        <q-item to="/Legal" class="relative-position row-1">
+        <q-item to="/Settings" class="relative-position row-1">
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
           <q-item-side icon="fa-fw fa-cog" />
         </q-item>
@@ -144,7 +145,6 @@
     data () {
       return {
         appVersion: 'v0.1.0',
-        select: '',
         selected: '',
         selectOptions: [
           {
@@ -202,6 +202,7 @@
     },
     mounted: function () {
       this.$nextTick(function () {
+        alert(Cookies.get('locale'))
         this.locale_cookie = Cookies.get('locale')
         if (this.locale_cookie) {
           this.$i18n.locale = this.locale_cookie
@@ -229,10 +230,10 @@
       launch (url) {
         openURL(url)
       },
-      localeChange (value) {
+      localeChange (val) {
         // https://github.com/kazupon/vue-i18n/issues/2
-        this.$i18n.locale = value
-        Cookies.set('locale', value, {
+        this.$i18n.locale = val
+        Cookies.set('locale', val, {
           secure: true,
           expires: 14,
           path: '/',
@@ -289,6 +290,9 @@
 </script>
 
 <style scoped>
+  p {
+    text-justify: newspaper;
+  }
   .text-brand {
     color: #321;
   }
