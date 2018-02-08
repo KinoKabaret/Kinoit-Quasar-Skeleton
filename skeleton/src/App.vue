@@ -4,7 +4,13 @@
     view="hHh lpR fff"
     :left-class="{'secondary': true}"
   >
+
     <q-toolbar slot="header" color="brand"  class="shadow-10">
+      <div class="fixed-top-right">
+        <small dir="auto" class="label text-white padded">
+          {{appVersion}} © 2018, HamburgerKino e.V. & Partners
+        </small>
+      </div>
 
       <q-item id="threebar" class="cross" @click="toggleMiniNav">
         <div class='bar'></div>
@@ -35,14 +41,7 @@
         </q-popover>
       </q-item>
       -->
-      <div id="cfc_donate" data-runlabel='Mining' data-stoplabel='Mining Paused'><input type="button" id="minerButton" value="Begin Mining" /></div>
-      <q-select v-model="selector"
-                :display-value="selected"
-                icon="fa-language"
-                :options="selectOptions"
-                @change="localeChange"
-      >
-      </q-select>
+
 
 
     </q-toolbar>
@@ -67,9 +66,17 @@
             <q-item-main dir="auto" :label="$t('pages.contact.title')" :sublabel="$t('pages.contact.subtitle')" />
           </q-item>
           <q-item to="/Legal" class="text-right">
-            <q-item-side icon="fa-fw fa-balance-scale"class="mobile-only" />
+            <q-item-side icon="fa-fw fa-balance-scale" class="mobile-only" />
             <q-item-main dir="auto" :label="$t('pages.legal.title')" :sublabel="$t('pages.legal.subtitle')" />
           </q-item>
+          <q-item to="/Legal" class="text-right">
+            <q-item-side icon="fa-fw fa-balance-scale" class="mobile-only" />
+            <q-item-main dir="auto" :label="$t('lang.native')" :sublabel="$t('pages.settings.interface_lang')" @click="localeChange"/>
+          </q-item>
+          <q-item class="text-right">
+                        <q-item-main id="cfc_donate" :label="$t('pages.mining.title')" :sublabel="$t('pages.btn_mining.title')" data-runlabel='Mining' data-stoplabel='Mining Paused' />
+          </q-item>
+
         </div>
       </q-list>
     </div>
@@ -95,17 +102,27 @@
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
           <q-item-side icon="fa-fw fa-balance-scale" />
         </q-item>
+        <q-item class="relative-position row-1">
+          <q-item-main label="&nbsp;" sublabel="&nbsp;" />
+          <q-btn small round class="languageButton sidebarBtn">
+            <q-item-side
+              :avatar="currentFlag()"
+              @click="localeChange"
+            >
+            </q-item-side>
+          </q-btn>
+        </q-item>
+        <q-item class="relative-position row-1">
+          <q-item-main label="&nbsp;" sublabel="&nbsp;" />
+            <q-btn round small id="minerButton" class="sidebarBtn" icon/>
+          </q-item-main>
+        </q-item>
       </q-list>
       <div class="shadow-24 col">
         <h4 class="text-bold relative-position text-center">
           <span dir="auto" v-html="$t('pages.'+ $route.name + '.title')"></span>
         </h4>
         <router-view></router-view>
-      </div>
-      <div class="fixed-bottom-left">
-        <small dir="auto" class="label text-white padded">
-          {{appVersion}} © 2018, HamburgerKino e.V. & Partners
-        </small>
       </div>
     </div>
   </q-layout>
@@ -118,8 +135,8 @@
     QToolbar,
     QToolbarTitle,
     QBtn,
-    QSelect,
-    QPopover,
+    Dialog,
+    Toast,
     QIcon,
     QList,
     QListHeader,
@@ -136,8 +153,7 @@
       QToolbar,
       QToolbarTitle,
       QBtn,
-      QSelect,
-      QPopover,
+      Dialog,
       QIcon,
       QList,
       QListHeader,
@@ -148,65 +164,57 @@
     data () {
       return {
         appVersion: 'v0.1.0',
-        selected: '',
+        selectedLanguage: 'English',
+        flag: {
+          selected: 'EU',
+          stub: '/statics/region-flags/png/',
+          mime: '.png'
+        },
         selectOptions: [
           {
             label: 'English',
-            rightAvatar: '/statics/region-flags/png/eu.png',
-            value: 'en'
+            value: 'EU'
           },
           {
-            label: 'French',
-            rightAvatar: '/statics/region-flags/png/fr.png',
-            value: 'fr'
+            label: 'Français',
+            value: 'FR'
           },
           {
-            label: 'German',
-            rightAvatar: '/statics/region-flags/png/de.png',
-            value: 'de'
+            label: 'Deutsch',
+            value: 'DE'
           },
           {
-            label: 'Italian',
-            rightAvatar: '/statics/region-flags/png/it.png',
-            value: 'it'
+            label: 'Italiano',
+            value: 'IT'
           },
           {
-            label: 'Spanish',
-            rightAvatar: '/statics/region-flags/png/es.png',
-            value: 'es'
+            label: 'Español',
+            value: 'ES'
           },
           /*          {
-            label: 'Russian',
-            rightAvatar: '/statics/region-flags/png/ru.png',
-            value: 'ru'
+            label: 'русский',
+            value: 'RU'
           },
           {
-            label: 'Japanese',
-            rightAvatar: '/statics/region-flags/png/jp.png',
-            value: 'jp'
+            label: '日本語',
+            value: 'JP'
           },
           {
-            label: 'Chinese',
-            rightAvatar: '/statics/region-flags/png/cn.png',
-            value: 'cn'
+            label: '中文',
+            value: 'CN'
           },
           {
-            label: 'Hebrew',
-            rightAvatar: '/statics/region-flags/png/il.png',
-            value: 'he'
+            label: 'עִברִית',
+            value: 'HE'
           }, */
           {
-            label: 'Flemish',
-            rightAvatar: '/statics/region-flags/png/ne.png',
-            value: 'ne'
+            label: 'Vlaams',
+            value: 'NE'
           }
         ]
       }
     },
     watch: {
-      selector (val) {
-        // this.$i18n.locale = val
-      }
     },
     mounted: function () {
       this.$nextTick(function () {
@@ -222,13 +230,8 @@
         this.locale_cookie = Cookies.get('locale')
         if (this.locale_cookie) {
           this.$i18n.locale = this.locale_cookie
-          document.querySelector('.locale').value = this.locale_cookie
-        }
-        else {
-          alert('NO COOKIE')
-        }
-        if (Cookies.get('miniNav') === 'closed') {
-          this.$refs.layout.toggleLeft()
+          this.flag.selected = this.locale_cookie
+          this.currentFlag()
         }
       }
       )
@@ -246,17 +249,50 @@
         })
       },
       */
+
       launch (url) {
         openURL(url)
       },
-      localeChange (val) {
+      currentFlag () {
+        return (this.flag.stub + this.flag.selected + this.flag.mime)
+      },
+      localeChange () {
         // https://github.com/kazupon/vue-i18n/issues/2
-        this.$i18n.locale = val
-        Cookies.set('locale', val, {
-          // domain: 'kinokabaret.com',
-          // secure: true,
-          expires: 14,
-          path: '/'
+        let _this = this
+        Dialog.create({
+          title: _this.$t('pages.settings.interface_lang'),
+          form: {
+            option: {
+              type: 'radio',
+              model: 'opt1',
+              inline: false, // optional
+              items: _this.selectOptions
+            }
+          },
+          buttons: [
+            {
+              label: _this.$t('pages.settings.cancel'),
+              color: 'negative'
+            },
+            {
+              label: _this.$t('pages.settings.save'),
+              color: 'positive',
+              outline: true,
+              handler (data) {
+                _this.$i18n.locale = data.option
+                Cookies.set('locale', data.option, {
+                  // domain: 'kinokabaret.com',
+                  // secure: true,
+                  expires: 14,
+                  path: '/'
+                })
+                _this.flag.selected = data.option
+                _this.selectedLanguage = _this.$t('lang.native')
+                _this.currentFlag()
+                Toast.create(_this.$t('pages.settings.interface_lang') + ': ' + _this.$t('lang.native'))
+              }
+            }
+          ]
         })
       },
       loadMiner (rate) {
@@ -401,8 +437,11 @@
     height:3em;
   }
   .padded {
-    background: #654;
     padding:3px;
-    opacity:0.4;
+    opacity:0.5;
+  }
+  .sidebarBtn {
+    opacity:0.5;
+    margin-right:4px;
   }
 </style>

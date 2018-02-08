@@ -1,7 +1,8 @@
 export default {
-  en: {
+  EU: {
     lang: {
-      native: 'English'
+      native: 'English',
+      flag: 'EU'
     },
     interface: {
       close: 'close'
@@ -115,7 +116,8 @@ export default {
           ja: 'Japanese',
           ch: 'Chinese',
           he: 'Hebrew',
-          pl: 'Polish'
+          pl: 'Polish',
+          ne: 'Flemish'
         },
         save: 'Save Settings',
         clear: 'Clear Settings',
@@ -136,9 +138,10 @@ export default {
       }
     }
   },
-  es: {
+  ES: {
     lang: {
-      native: 'Spanish'
+      native: 'Español',
+      flag: 'ES'
     },
     site: {
       title: 'KINOÏT',
@@ -262,9 +265,10 @@ export default {
       }
     }
   },
-  fr: {
+  FR: {
     lang: {
-      native: 'French'
+      native: 'Français',
+      flag: 'FR'
     },
     interface: {
       close: 'close'
@@ -392,9 +396,10 @@ export default {
       }
     }
   },
-  it: {
+  IT: {
     lang: {
-      native: 'Italian'
+      native: 'Italiano',
+      flag: 'IT'
     },
     interface: {
       close: 'close'
@@ -521,9 +526,10 @@ export default {
       }
     }
   },
-  de: {
+  DE: {
     lang: {
-      native: 'German'
+      native: 'Deutsch',
+      flag: 'DE'
     },
     interface: {
       close: 'close'
@@ -651,9 +657,10 @@ export default {
       }
     }
   },
-  ne: {
+  NE: {
     lang: {
-      native: 'Flemish'
+      native: 'Vlaams',
+      flag: 'NE'
     },
     interface: {
       close: 'sluiten'

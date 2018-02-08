@@ -31,16 +31,16 @@ import 'quasar-extras/fontawesome'
 
 // Create VueI18n instance with options
 export const i18n = new VueI18n({
-  locale: 'en', // set locale
+  locale: 'EU', // set locale
   messages: locales, // set locale messages
-  fallbackLocale: 'en'
+  fallbackLocale: 'EU'
 })
 
 Quasar.start(() => {
   /* eslint-disable no-new */
   new Vue({
-    i18n,
     el: '#q-app',
+    i18n,
     router,
     rippleEnabled: true,
     render: h => h(require('./App').default)

@@ -103,10 +103,10 @@
       load () {
         this.iframe.loaded = true
       },
-      loadIframe (id,title) {
+      loadIframe (id, title) {
         this.iframe.loaded = false
         this.iframe.src = 'https://drive.google.com/file/d/' + id
-        this.banner=title
+        this.banner = title
       }
     }
   }
