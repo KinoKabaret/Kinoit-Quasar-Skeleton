@@ -656,7 +656,7 @@ export default {
         },
         save: 'Einstellungen speichern',
         clear: 'Einstellungen löschen',
-        cancel: 'verwerfen/löschen'
+        cancel: 'verwerfen'
       },
       claim: {
         title: 'Rechteinhaber',

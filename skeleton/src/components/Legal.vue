@@ -10,7 +10,7 @@
         Christian Wehde / christian (at) hamburgerkino.de (Organisatorischer Leiter)<br/>
         <br/>
         <strong>Design & Programmierung:</strong><br/>
-        quasarandvuejskickass (at) hamburgerkino.de<br/>
+        quasarandvuejskickass (at) kinokabaret.com<br/>
         <br/>
         Vereinsregister: Amtsgericht Hamburg / Register Nr. 18 550<br/>
         Finanzamt: Hamburg-Nord / Steuer Nr. 17 431 12195<br/>

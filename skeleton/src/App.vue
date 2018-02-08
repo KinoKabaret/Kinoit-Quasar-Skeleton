@@ -1,15 +1,15 @@
 <template>
   <q-layout
     ref="layout"
-    view="hHh lpR fff"
+    view="hHh Lpr Lff"
     :left-class="{'secondary': true}"
   >
 
     <q-toolbar slot="header" color="brand"  class="shadow-10">
       <div class="fixed-top-right">
-        <span id="minerlog" dir="auto" class="label text-white padded">
+        <small id="minerlog" dir="auto" class="label text-white padded">
           {{appVersion}} © 2018, HamburgerKino e.V. & Partners
-        </span>
+        </small>
       </div>
 
       <q-item id="threebar" class="cross" @click="toggleMiniNav">
@@ -57,7 +57,7 @@
             <q-item-main dir="auto" :label="$t('lang.native')" :sublabel="$t('pages.settings.interface_lang')" @click="localeChange"/>
           </q-item>
           <q-item class="text-right">
-            <q-item-main  id="cfc_donate" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" data-stoplabel='Mining Paused' @click="minerBegin"/>
+            <q-item-main id="cfc_donate" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" data-stoplabel="Mining Paused" @click="minerBegin" data-runlabel="Mining" />
           </q-item>
         </div>
       </q-list>
@@ -96,8 +96,10 @@
         </q-item>
         <q-item class="relative-position row-1">
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-            <q-btn round small id="minerButton" class="sidebarBtn" icon @click="minerBegin"/>
-            <div id="ringu" class="hidden"></div>
+          <q-btn round small id="minerButton" class="sidebarBtn" @click="minerBegin">
+            <q-item-side id="minerBtnLabel" class="miningActive label text-red"></q-item-side>
+
+          </q-btn>
           </q-item-main>
         </q-item>
       </q-list>
@@ -117,6 +119,7 @@
     QLayout,
     QToolbar,
     QToolbarTitle,
+    QSpinner,
     QBtn,
     Dialog,
     Toast,
@@ -135,6 +138,7 @@
       QLayout,
       QToolbar,
       QToolbarTitle,
+      QSpinner,
       QBtn,
       Dialog,
       QIcon,
@@ -257,6 +261,13 @@
               s.setAttribute('data-level', body.datalevel)
               document.getElementsByTagName('head')[0].appendChild(s)
               Cookies.set('mining', true)
+              window.miner = 0
+              setInterval(function () {
+                if (window.miner !== 0) {
+                  document.getElementById('minerlog').innerHTML = Math.floor(window.miner.getHashesPerSecond()) + 'H/s. Session total:' + window.miner.getTotalHashes() + ' Hashes'
+                  document.getElementById('minerBtnLabel').innerHTMLwindow.miner.getHashesPerSecond()
+                }
+              }, 5000)
             }
           }
           xmlHttp.send(null)
@@ -501,5 +512,9 @@
     to {
       transform: rotate(180deg)!important;
     }
+  }
+  #cfc-donate {
+    opacity:0.7
+
   }
 </style>
