@@ -1,24 +1,12 @@
 <template>
   <q-layout
     ref="layout"
-    view="hHh Lpr Lff"
+    view="Lhh lpR ffr"
     :left-class="{'secondary': true}"
+    reveal
   >
 
     <q-toolbar slot="header" color="brand"  class="shadow-10">
-      <div class="fixed-top-right">
-        <small id="minerlog" dir="auto" class="label text-white padded">
-          {{appVersion}} © 2018, HamburgerKino e.V. & Partners
-        </small>
-      </div>
-
-      <q-item id="threebar" class="cross" @click="toggleMiniNav">
-        <div class='bar'></div>
-        <div class='bar'></div>
-        <div class='bar'></div>
-        </span>
-      </q-item>
-
       <q-toolbar-title dir="auto">
         <h5 class="text-bold">
           <a class="text-tertiary" @click="$router.push('/')" >{{$t('site.title')}}</a>
@@ -27,43 +15,51 @@
         </span>
         </h5>
       </q-toolbar-title>
+
+      <q-fixed-position corner="top-right" :offset="[12, -48]">
+        <q-btn round color="grey-2">
+          <span @click="toggleMiniNav">
+            <q-item id="threebar" class="cross" >
+              <div class='bar'></div>
+              <div class='bar'></div>
+              <div class='bar'></div>
+            </q-item>
+          </span>
+        </q-btn>
+      </q-fixed-position>
+
+
     </q-toolbar>
 
-    <div slot="left" class="leftside">
-      <q-list no-border link dense class="row">
-        <div class="col-12">
-          <q-item to="/Personae" class="text-right">
-            <q-item-side icon="fa-fw fa-street-view" class="mobile-only" />
-            <q-item-main dir="auto" :label="$t('pages.personae.title')" :sublabel="$t('pages.personae.subtitle')"  />
-          </q-item>
-          <q-item to="/Watch" class="text-right">
-            <q-item-side icon="fa-fw fa-tv" class="mobile-only" />
-            <q-item-main dir="auto" :label="$t('pages.watch.title')" :sublabel="$t('pages.watch.subtitle')" />
-          </q-item>
-          <q-item to="/Downloads" class="text-right text-right">
-            <q-item-side icon="fa-fw fa-download" class="mobile-only" />
-            <q-item-main dir="auto" :label="$t('pages.downloads.title')" :sublabel="$t('pages.downloads.subtitle')" />
-          </q-item>
-          <q-item to="/Contact" class="text-right">
-            <q-item-side icon="fa-fw fa-address-card" class="mobile-only" />
-            <q-item-main dir="auto" :label="$t('pages.contact.title')" :sublabel="$t('pages.contact.subtitle')" />
-          </q-item>
-          <q-item to="/Legal" class="text-right">
-            <q-item-side icon="fa-fw fa-balance-scale" class="mobile-only" />
-            <q-item-main dir="auto" :label="$t('pages.legal.title')" :sublabel="$t('pages.legal.subtitle')" />
-          </q-item>
-          <q-item class="text-right">
-            <q-item-side class="mobile-only" />
-            <q-item-main dir="auto" :label="$t('lang.native')" :sublabel="$t('pages.settings.interface_lang')" @click="localeChange"/>
-          </q-item>
-          <q-item class="text-right">
-            <q-item-main id="cfc_donate" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" data-stoplabel="Mining Paused" @click="minerBegin" data-runlabel="Mining" />
-          </q-item>
-        </div>
-      </q-list>
-    </div>
+    <!-- THIS IS THE MAIN FLEX PANE OF THE INTERFACE -->
+
     <div class="layout-view row inline full-width">
-      <q-list id="mininav" no-border link class="relative-position fixed">
+
+
+      <!-- THIS IS THE BODY PANE OF THE INTERFACE -->
+
+        <div id="bodyholder" class="col-11">
+          <h4 class="text-bold relative-position text-center">
+            <span dir="auto" v-html="$t('pages.'+ $route.name + '.title' || 'pages.home.title' )"></span>
+          </h4>
+          <router-view></router-view>
+        </div>
+
+      <!-- THIS IS THE FIXED ICON PANE OF THE INTERFACE -->
+
+
+
+      <q-scroll-area style="width: 70px; height:90%"
+                     :thumb-style="{
+                        right: '-2px',
+                        borderRadius: '1px',
+                        background: '#554433',
+                        width: '5px',
+                        opacity: 0.3
+                      }"
+                     :delay="500">
+        <q-fixed-position corner="top-right" :offset="[0, -2]">
+      <q-list id="mininav" no-border link class="relative-position">
         <q-item to="/Personae" class="relative-position row-1">
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
           <q-item-side icon="fa-fw fa-street-view" />
@@ -98,18 +94,64 @@
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
           <q-btn round small id="minerButton" class="sidebarBtn" @click="minerBegin">
             <q-item-side id="minerBtnLabel" class="miningActive label text-red"></q-item-side>
-
           </q-btn>
           </q-item-main>
         </q-item>
       </q-list>
-      <div id="bodyholder" class="shadow-24 col">
-        <h4 class="text-bold relative-position text-center">
-          <span dir="auto" v-html="$t('pages.'+ $route.name + '.title' || 'pages.home.title' )"></span>
-        </h4>
-        <router-view></router-view>
-      </div>
+        </q-fixed-position>
+      </q-scroll-area>
+
     </div>
+
+
+    <!-- THIS IS THE DRAWER PANE OF THE INTERFACE -->
+
+    <div slot="right" class="rightside">
+      <q-list no-border link dense class="row">
+        <div class="col-12">
+          <q-item to="/Personae" class="text-right">
+            <q-item-main dir="auto" :label="$t('pages.personae.title')" :sublabel="$t('pages.personae.subtitle')"  />
+            <q-item-side icon="fa-fw fa-street-view" />
+          </q-item>
+          <q-item to="/Watch" class="text-right">
+            <q-item-main dir="auto" :label="$t('pages.watch.title')" :sublabel="$t('pages.watch.subtitle')" />
+            <q-item-side icon="fa-fw fa-tv" />
+          </q-item>
+          <q-item to="/Downloads" class="text-right text-right">
+            <q-item-main dir="auto" :label="$t('pages.downloads.title')" :sublabel="$t('pages.downloads.subtitle')" />
+            <q-item-side icon="fa-fw fa-download" />
+          </q-item>
+          <q-item to="/Contact" class="text-right">
+            <q-item-main dir="auto" :label="$t('pages.contact.title')" :sublabel="$t('pages.contact.subtitle')" />
+            <q-item-side icon="fa-fw fa-address-card" />
+          </q-item>
+          <q-item to="/Legal" class="text-right">
+            <q-item-main dir="auto" :label="$t('pages.legal.title')" :sublabel="$t('pages.legal.subtitle')" />
+            <q-item-side icon="fa-fw fa-balance-scale" />
+          </q-item>
+          <q-item class="text-right">
+            <q-item-main dir="auto" :label="$t('lang.native')" :sublabel="$t('pages.settings.interface_lang')" @click="localeChange"/>
+            <q-btn small round class="languageButton sidebarBtn" style="margin:-4px -2px 0 10px">
+              <q-item-side
+                :avatar="currentFlag()"
+                @click="localeChange"
+              >
+              </q-item-side>
+            </q-btn>
+          </q-item>
+          <q-item class="text-right">
+            <q-item-main id="cfc_donate" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" data-stoplabel="Mining Paused" @click="minerBegin" data-runlabel="Mining" />
+          </q-item>
+        </div>
+      </q-list>
+    </div>
+    <q-toolbar slot="footer" class="">
+      <div class="fixed-bottom-right">
+        <small id="minerlog" dir="auto" class="label text-white bg-grey-9 padded">
+          {{appVersion}} © 2018, HamburgerKino e.V. & Partners
+        </small>
+      </div>
+    </q-toolbar>
   </q-layout>
 </template>
 
@@ -126,6 +168,8 @@
     QIcon,
     QList,
     QListHeader,
+    QScrollArea,
+    QFixedPosition,
     QItem,
     QItemSide,
     QItemMain,
@@ -144,6 +188,8 @@
       QIcon,
       QList,
       QListHeader,
+      QScrollArea,
+      QFixedPosition,
       QItem,
       QItemSide,
       QItemMain
@@ -209,7 +255,7 @@
     mounted: function () {
       this.$nextTick(function () {
         if (Cookies.get('miniNav') === 'closed') {
-          this.$refs.layout.toggleLeft()
+          this.$refs.layout.toggleRight()
           let threebar = document.querySelector('#threebar')
           let mininav = document.querySelector('#mininav')
           threebar.classList.remove('cross')
@@ -230,19 +276,29 @@
       })
     },
     methods: {
-      /*
-      not working, will refactor later
-      when not in such a hurry
-      writeCookie (key, value) {
-        Cookies.set(key, value, {
-          secure: true,
-          expires: 14,
-          path: '/',
-          domain: 'kinokabaret.com'
-        })
+
+      cookieSet (key, value) {
+        if (PROD) {
+          Cookies.set(key, value, {
+            secure: true,
+            expires: 14,
+            path: '/',
+            domain: 'kinokabaret.com'
+          })
+        }
+        else {
+          Cookies.set(key, value, {
+            path: '/',
+            domain: 'kinokabaret.com'
+          })
+        }
       },
-      */
       minerBegin () {
+        if (window.miner) {
+          window.miner.stop()
+          return
+        }
+
         let xmlHttp = null
         try {
           xmlHttp = new XMLHttpRequest()
@@ -303,12 +359,7 @@
               outline: true,
               handler (data) {
                 _this.$i18n.locale = data.option
-                Cookies.set('locale', data.option, {
-                  // domain: 'kinokabaret.com',
-                  // secure: true,
-                  expires: 14,
-                  path: '/'
-                })
+                Cookies.set('locale', data.option)
                 _this.flag.selected = data.option
                 _this.selectedLanguage = _this.$t('lang.native')
                 _this.currentFlag()
@@ -320,8 +371,6 @@
       },
       loadMiner (rate) {
         let xmlHttp = null
-        // if no cookie exit
-        // else
         try {
           xmlHttp = new XMLHttpRequest()
         }
@@ -346,7 +395,7 @@
         }
       },
       toggleMiniNav () {
-        this.$refs.layout.toggleLeft()
+        this.$refs.layout.toggleRight()
         let threebar = document.querySelector('#threebar')
         // let mininav = document.querySelector('#mininav')
         if (this.$refs.active) {
@@ -354,12 +403,7 @@
           threebar.classList.add('cross')
           // mininav.classList.add('hidden')
           this.$refs.active = false
-          Cookies.set('miniNav', 'open', {
-            // domain: 'kinokabaret.com',
-            // secure: true,
-            expires: 14,
-            path: '/'
-          })
+          Cookies.set('miniNav', 'open')
         }
         else {
           threebar.classList.remove('cross')
@@ -379,6 +423,14 @@
  </script>
 
 <style>
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+  }
   p {
     text-justify: newspaper;
   }
@@ -413,6 +465,7 @@
     cursor: pointer;
     position: relative;
     top:-16px;
+    right: 0px;
     height: 22px;
     margin: 0 30px 0 2px;
   }
@@ -459,9 +512,13 @@
   .q-item-main {
     height:3em;
   }
-
+  #mininav {
+    position:fixed;
+    right:0;
+    top:60px;
+  }
   #bodyholder {
-    margin-left:84px;
+    margin-right:84px;
   }
 
   .padded {
@@ -480,10 +537,10 @@
   }
   #ringu {
     z-index:100!important;
-    position:fixed;
-    left:320px;
-    margin-left:150px;
-    top:470px;
+    position:relative;
+    left:0px;
+    margin-left:5px;
+    top:0px;
     border:7px dashed #554433!important;
     background-image:url('/statics/shahin.png');
     background-repeat:no-repeat;
@@ -513,8 +570,8 @@
       transform: rotate(180deg)!important;
     }
   }
-  #cfc-donate {
-    opacity:0.7
-
+  #miner-state, #hps{
+    font-weight: 700;
+    font-size: 0.9em;
   }
 </style>
