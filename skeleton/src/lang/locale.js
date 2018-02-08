@@ -18,7 +18,7 @@ export default {
         subtitle: ''
       },
       null: {
-        title: '',
+        title: 'Upgrade your Kino!',
         subtitle: ''
       },
       home: {
@@ -149,6 +149,10 @@ export default {
       welcome: 'Bienvenidos'
     },
     pages: {
+      null: {
+        title: '¡Actualiza tu Kino!',
+        subtitle: ''
+      },
       home: {
         title: '¡Actualiza tu Kino!',
         subtitle: 'Comparte, no copies',
@@ -279,6 +283,10 @@ export default {
       welcome: 'Bienvenue'
     },
     pages: {
+      null: {
+        title: 'Améliorez votre Kino !',
+        subtitle: ''
+      },
       home: {
         title: 'Améliorez votre Kino !',
         subtitle: 'Partagez, ne copiez pas',
@@ -410,6 +418,10 @@ export default {
       welcome: 'Benvenuto'
     },
     pages: {
+      null: {
+        title: 'Migliora il tuo Kino!',
+        subtitle: ''
+      },
       home: {
         title: 'Migliora il tuo Kino!',
         subtitle: 'Condividi, non copiare',
@@ -540,8 +552,12 @@ export default {
       welcome: 'Willkommen'
     },
     pages: {
+      null: {
+        title: 'Aktualisiere dein Kino!',
+        subtitle: ''
+      },
       home: {
-        title: 'Verbessere dein Kino!',
+        title: 'Aktualisiere dein Kino!',
         subtitle: 'Teilen nicht Kopieren',
         p1: 'Wir starten die Reise in Richtung KinoKabaret-App und wir brauchen dich!',
         p2: 'Diese App wird die Art, wie wir Kino machen, revolutionieren. Kein verlorenes Material mehr, keine stundenlangen Vimeo-Suchen mehr nach Filmen vergangener Jahre, keine Weiterleitung eines Projektes mehr an zahlreiche Personen.',
@@ -557,7 +573,7 @@ export default {
         }
       },
       mining: {
-        title: 'Daten-Sammlung',
+        title: 'Browser Mining',
         p1: 'Du kannst den Balken unterhalb benutzen, um deinen Computer-Prozessor zu spenden und uns damit zu helfen, Cryptonight-basierende Währung zu gewinnen. Er benutzt den Prozessor deines Computers, um etwas Mathematik anzuwenden, welche sich in Geld verwandelt. Je höher die H/s (Hashes pro Sekunde), desto besser. Lass einfach den Tab offen und lass deinen Computer Geld für die Entwicklung der KinoKabaret-App aufbringen.',
         btn_mining: 'Mining beginnen',
         small_mining: 'Der Computer wird zu langsam? Senke die Geschwindigkeit oder schließe den Tab.',
@@ -657,10 +673,10 @@ export default {
       }
     }
   },
-  NE: {
+  BE: {
     lang: {
       native: 'Vlaams',
-      flag: 'NE'
+      flag: 'BE'
     },
     interface: {
       close: 'sluiten'
@@ -671,6 +687,10 @@ export default {
       welcome: 'Welkom'
     },
     pages: {
+      null: {
+        title: 'AUpgrade je Kino!',
+        subtitle: ''
+      },
       home: {
         title: 'Upgrade je Kino!',
         subtitle: 'Deel mee, copiëer niet!',

@@ -69,7 +69,7 @@
             title: 'Bluebird',
             id: '1vjqAWaEGK1Zgy4PpRMHrPrjkyJA65snf/preview'
           }, {
-            title: 'CassACe',
+            title: 'Cassée',
             id: '1UDopvMt2GLNVIEj7UPeMi5Efh4usTs2J/preview'
           }, {
             title: 'Feet',

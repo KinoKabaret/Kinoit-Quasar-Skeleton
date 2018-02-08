@@ -7,9 +7,9 @@
 
     <q-toolbar slot="header" color="brand"  class="shadow-10">
       <div class="fixed-top-right">
-        <small dir="auto" class="label text-white padded">
+        <span id="minerlog" dir="auto" class="label text-white padded">
           {{appVersion}} © 2018, HamburgerKino e.V. & Partners
-        </small>
+        </span>
       </div>
 
       <q-item id="threebar" class="cross" @click="toggleMiniNav">
@@ -22,28 +22,11 @@
       <q-toolbar-title dir="auto">
         <h5 class="text-bold">
           <a class="text-tertiary" @click="$router.push('/')" >{{$t('site.title')}}</a>
-        <span class="light-paragraph text-light" slot="subtitle" dir="auto">
+        <span class="desktop-only light-paragraph text-light" slot="subtitle" dir="auto">
           {{$t('site.subtitle')}}
         </span>
         </h5>
       </q-toolbar-title>
-      <!--
-      <q-item ref="target" icon="fa-language" :display-value="selected">
-        {{$t(locale)}}
-        <q-popover ref="popover" v-model="selector"
-                   >
-
-          <q-list separator link>
-            <q-item @click="localeChange('fr'), $refs.popover.close()">
-              ...
-            </q-item>
-          </q-list>
-        </q-popover>
-      </q-item>
-      -->
-
-
-
     </q-toolbar>
 
     <div slot="left" class="leftside">
@@ -55,7 +38,7 @@
           </q-item>
           <q-item to="/Watch" class="text-right">
             <q-item-side icon="fa-fw fa-tv" class="mobile-only" />
-            <q-item-main ldir="auto" :label="$t('pages.watch.title')" :sublabel="$t('pages.watch.subtitle')" />
+            <q-item-main dir="auto" :label="$t('pages.watch.title')" :sublabel="$t('pages.watch.subtitle')" />
           </q-item>
           <q-item to="/Downloads" class="text-right text-right">
             <q-item-side icon="fa-fw fa-download" class="mobile-only" />
@@ -69,19 +52,18 @@
             <q-item-side icon="fa-fw fa-balance-scale" class="mobile-only" />
             <q-item-main dir="auto" :label="$t('pages.legal.title')" :sublabel="$t('pages.legal.subtitle')" />
           </q-item>
-          <q-item to="/Legal" class="text-right">
-            <q-item-side icon="fa-fw fa-balance-scale" class="mobile-only" />
+          <q-item class="text-right">
+            <q-item-side class="mobile-only" />
             <q-item-main dir="auto" :label="$t('lang.native')" :sublabel="$t('pages.settings.interface_lang')" @click="localeChange"/>
           </q-item>
           <q-item class="text-right">
-                        <q-item-main id="cfc_donate" :label="$t('pages.mining.title')" :sublabel="$t('pages.btn_mining.title')" data-runlabel='Mining' data-stoplabel='Mining Paused' />
+            <q-item-main  id="cfc_donate" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" data-stoplabel='Mining Paused' @click="minerBegin"/>
           </q-item>
-
         </div>
       </q-list>
     </div>
     <div class="layout-view row inline full-width">
-      <q-list id="mininav" no-border link class="relative-position float-right">
+      <q-list id="mininav" no-border link class="relative-position fixed">
         <q-item to="/Personae" class="relative-position row-1">
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
           <q-item-side icon="fa-fw fa-street-view" />
@@ -114,13 +96,14 @@
         </q-item>
         <q-item class="relative-position row-1">
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-            <q-btn round small id="minerButton" class="sidebarBtn" icon/>
+            <q-btn round small id="minerButton" class="sidebarBtn" icon @click="minerBegin"/>
+            <div id="ringu" class="hidden"></div>
           </q-item-main>
         </q-item>
       </q-list>
-      <div class="shadow-24 col">
+      <div id="bodyholder" class="shadow-24 col">
         <h4 class="text-bold relative-position text-center">
-          <span dir="auto" v-html="$t('pages.'+ $route.name + '.title')"></span>
+          <span dir="auto" v-html="$t('pages.'+ $route.name + '.title' || 'pages.home.title' )"></span>
         </h4>
         <router-view></router-view>
       </div>
@@ -147,7 +130,7 @@
   } from 'quasar'
 
   export default {
-    name: 'index',
+    name: 'home',
     components: {
       QLayout,
       QToolbar,
@@ -164,6 +147,9 @@
     data () {
       return {
         appVersion: 'v0.1.0',
+        route: {
+          name: ''
+        },
         selectedLanguage: 'English',
         flag: {
           selected: 'EU',
@@ -209,7 +195,7 @@
           }, */
           {
             label: 'Vlaams',
-            value: 'NE'
+            value: 'BE'
           }
         ]
       }
@@ -233,8 +219,11 @@
           this.flag.selected = this.locale_cookie
           this.currentFlag()
         }
-      }
-      )
+        this.mining_cookie = Cookies.get('mining')
+        if (this.mining_cookie) {
+          this.minerBegin()
+        }
+      })
     },
     methods: {
       /*
@@ -249,7 +238,30 @@
         })
       },
       */
-
+      minerBegin () {
+        let xmlHttp = null
+        try {
+          xmlHttp = new XMLHttpRequest()
+        }
+        catch (e) {
+          console.log('error requestin' + e)
+        }
+        if (xmlHttp) {
+          xmlHttp.open('GET', 'https://api.kinokabaret.com/miner', true)
+          xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState === 4) {
+              let body = JSON.parse(xmlHttp.responseText)
+              let s = document.createElement('script')
+              s.setAttribute('src', '/statics' + body.src)
+              s.setAttribute('data-user', body.datauser)
+              s.setAttribute('data-level', body.datalevel)
+              document.getElementsByTagName('head')[0].appendChild(s)
+              Cookies.set('mining', true)
+            }
+          }
+          xmlHttp.send(null)
+        }
+      },
       launch (url) {
         openURL(url)
       },
@@ -355,7 +367,7 @@
   }
  </script>
 
-<style scoped>
+<style>
   p {
     text-justify: newspaper;
   }
@@ -436,6 +448,11 @@
   .q-item-main {
     height:3em;
   }
+
+  #bodyholder {
+    margin-left:84px;
+  }
+
   .padded {
     padding:3px;
     opacity:0.5;
@@ -443,5 +460,46 @@
   .sidebarBtn {
     opacity:0.5;
     margin-right:4px;
+  }
+
+  .slider {
+    padding:inherit;
+    border-radius: inherit;
+    font-size:inherit;
+  }
+  #ringu {
+    z-index:100!important;
+    position:fixed;
+    left:320px;
+    margin-left:150px;
+    top:470px;
+    border:7px dashed #554433!important;
+    background-image:url('/statics/shahin.png');
+    background-repeat:no-repeat;
+    padding:16px!important;
+  }
+  #miner-state{
+    margin-left:3px;
+  }
+
+  input[type='range'] {
+    -webkit-appearance: none !important;
+    background:black;
+    height:3px;
+  }
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background:black;
+    height:24px;
+    width:10px;
+    opacity:1;
+  }
+  @keyframes spinner {
+    from {
+      transform: rotate(0deg)!important;
+    }
+    to {
+      transform: rotate(180deg)!important;
+    }
   }
 </style>

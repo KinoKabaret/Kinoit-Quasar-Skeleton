@@ -2,31 +2,27 @@
   <q-layout>
     <div class="layout-padding">
       <p>
-        Verantwortlich für den Inhalt dieser Website ist HamburgerKino e.V.<br/>
+        <strong>{{$t('pages.claim.title')}}:</strong> {{$t('pages.claim.subtitle')}}<br/>
         <br/>
-        Vorstand:<br/>
-        <br/>
+        <strong>Vorstand:</strong><br/>
         Lukas Scheper / lukas (at) hamburgerkino.de (Vorsitzender und Initiator)<br/>
         Shahin Shokoui / shahin (at) hamburgerkino.de (Künstlerischer Leiter)<br/>
         Christian Wehde / christian (at) hamburgerkino.de (Organisatorischer Leiter)<br/>
         <br/>
-        Design & Programmierung: team (at) hamburgerkino.de<br/>
+        <strong>Design & Programmierung:</strong><br/>
+        quasarandvuejskickass (at) hamburgerkino.de<br/>
         <br/>
         Vereinsregister: Amtsgericht Hamburg / Register Nr. 18 550<br/>
-        <br/>
         Finanzamt: Hamburg-Nord / Steuer Nr. 17 431 12195<br/>
-        <br/>
         Telefon (FilmFabrique): 040 7699 7840<br/>
         <br/>
-        Postanschrift<br/>
-        <br/>
+        <strong>Postanschrift</strong><br/>
         HamburgerKino e.V.<br/>
         c/o FilmFabrique Coworking<br/>
         Stockmeyerstrasse 43<br/>
         20457 Hamburg<br/>
         <br/>
-        Zweckbestimmung des Vereins<br/>
-        <br/>
+        <strong>Zweckbestimmung des Vereins</strong><br/>
         Der Verein HamburgerKino e.V. macht es sich zur Aufgabe ausschließlich und unmittelbar im Sinne § 52 Abs. 2 Nr. 1 AO und Anlage 1 zu § 48 Abs. 2 Nr. 3a EStDV Kunst und Kultur für die Allgemeinheit zu fördern und in diesem gemeinnützigen Rahmen jeder interessierten Person die Möglichkeit zu geben, Kurzfilme mit nicht kommerziellem Auswertungsziel in In- und Ausland zu produzieren.<br/>
         <br/>
         Im Konkreten geht es dem Verein und seinen Mitgliedern darum, der Allgemeinheit zu ermöglichen, den Erschaffungsprozess der Kurzfilme zu erleben, sich darüber auszutauschen und die entstandenen Kurzfilme zu präsentieren. Nach Möglichkeit stellt der Verein Rat und technische Hilfsmittel zur Verfügung. Des Weiteren veranstaltet der Verein Gesprächsrunden und Workshops zum Thema Film.<br/>
@@ -87,7 +83,15 @@
 </template>
 
 <script>
+  import {
+    // openURL,
+    QLayout
+  } from 'quasar'
+
   export default {
+    components: {
+      QLayout
+    },
     name: 'legal'
   }
 </script>

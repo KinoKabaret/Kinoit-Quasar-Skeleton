@@ -31,12 +31,14 @@
 <script>
   import {
     openURL,
+    QLayout,
     QDataTable,
     QBtn
   } from 'quasar'
 
   export default {
     components: {
+      QLayout,
       QDataTable,
       QBtn
     },
@@ -86,12 +88,12 @@
             type: 'string'
           }
         ],
-        config: [{
-          rowHeight: '40px',
-          title: 'Data Table',
+        config: {
+          rowHeight: '30px',
+          title: '<strong>Personæ Project List</strong>',
           noHeader: true,
-          refresh: true,
-          columnPicker: true,
+          refresh: false,
+          columnPicker: false,
           leftStickyColumns: 1,
           bodyStyle: {
             maxHeight: '500px'
@@ -100,7 +102,7 @@
             rowsPerPage: 5,
             options: [5, 10, 15, 30, 50, 500]
           },
-          selection: 'multiple',
+          // selection: 'multiple',
           messages: {
             // TODO: Translation strings
             noData: '<i>warning</i> No data available to show.',
@@ -119,7 +121,7 @@
             search: 'Search',
             all: 'All'
           }
-        }],
+        },
         data: [
           {
             name: 'KinoAPP',
