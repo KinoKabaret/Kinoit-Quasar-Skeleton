@@ -12,6 +12,14 @@ export default {
       welcome: 'Welcome'
     },
     pages: {
+      undefined: {
+        title: '',
+        subtitle: ''
+      },
+      null: {
+        title: '',
+        subtitle: ''
+      },
       home: {
         title: 'Upgrade your Kino!',
         subtitle: 'Share, don\'t copy',
@@ -62,10 +70,10 @@ export default {
         subtitle: 'What is this?',
         p1: 'The KINOÏT Platform is a project of the non-profit Filmmakers Cooperative known as HamburgerKino e.V. (Hamburg, Germany) in partnership with Kino00 (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Netherlands) and KinoCaen (Caen, France).'
       },
-      personas: {
-        title: 'Personas',
+      personae: {
+        title: 'Personae',
         subtitle: 'Beta Access Program',
-        p1: 'Personas are like little parts of the platform that you can switch between in order to use the APP for different parts of your projects. ',
+        p1: 'Personæ are like little parts of the platform that you can switch between in order to use the APP for different parts of your projects. ',
         p2: 'Here is a list (in English):'
       },
       watch: {
@@ -142,7 +150,7 @@ export default {
         title: '¡Actualiza tu Kino!',
         subtitle: 'Comparte, no copies',
         p1: 'Estamos iniciando el viaje hacia la app de KinoKabaret, ¡y te necesitamos!',
-        p2: 'Esta app revolucionará la forma en la que hacemos Kino. No más material perdido, no más horas de buscar por toda la red y Vimeo un filme de hace unos años, no más reenvíos de proyectos a múltiples personas.',
+        p2: 'Esta app revolucionará la forma en la que hacemos Kino. No más material perdido, no más horas de buscar por toda la red y Vimeo un filme de hace unos años, no más reenvíos de proyectos a múltiples personae.',
         p3: 'Acceso más fácil tanto online como offline a todas las películas y sus recursos, búsqueda de locaciones, asignación de fotos, información de células, reproductor integrado y manejo de eventos. Todo junto en una app, en un blockchain y almacenado en la web distribuida.'
       },
       mailing: {
@@ -188,10 +196,10 @@ export default {
         subtitle: '¿Qué es esto?',
         p1: 'La plataforma KINOÏT es un projecto de la cooperativa de cineastas sin fines de lucro conocida como HamburgerKino e.V. (Hamburgo, Alemania) en asociación con Kino00 (Montreal, Canadá), Kinoonik Holland (Vlaardingen/Roterdam, Holanda) y KinoCaen (Caen, Francia).'
       },
-      personas: {
-        title: 'Personas',
+      personae: {
+        title: 'Personae',
         subtitle: 'Programa de Acceso Beta',
-        p1: 'Personas somo como partes pequeñas de la plataforma que se pueden alternar y así usar la APP para diferentes partes de tus proyectos.',
+        p1: 'Personae somo como partes pequeñas de la plataforma que se pueden alternar y así usar la APP para diferentes partes de tus proyectos.',
         p2: 'Aquí una lista (en inglés): '
       },
       watch: {
@@ -317,10 +325,10 @@ export default {
         subtitle: 'Qu\'est-ce que c\'est ?',
         p1: 'La plateforme KINOÏT est un projet de plusieurs associations sans but lucratif de vidéastes, connues en tant que HamburgerKino e.V. (Hambourg, Allemagne) en partenariat avec Kino00 (Montréal, Canada), Kinoonik Holland (Flardingue/Rotterdam, Pays-Bas) et KinoCaen (Caen, France.)'
       },
-      personas: {
-        title: 'Personas',
+      personae: {
+        title: 'Personae',
         subtitle: 'programme en accès Beta',
-        p1: 'Les personas sont comme de petits bouts de programme entre lesquels vous' +
+        p1: 'Les personae sont comme de petits bouts de programme entre lesquels vous' +
         ' pouvez naviguer pour utiliser l’APP dans les parties différentes de vos projets. ',
         p2: 'Voici une liste (en anglais): '
       },
@@ -447,10 +455,10 @@ export default {
         subtitle: 'Che cos’è?',
         p1: 'La Piattaforma KINOÏT è un progetto della cooperativa di filmmakers conosciuta come HamburgerKino e.V. (Amburgo, Germania) in partnership con Kino00 (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Olanda) e KinoCaen (Caen, Francia).'
       },
-      personas: {
-        title: 'Personas',
+      personae: {
+        title: 'Personae',
         subtitle: 'Programma di accesso Beta',
-        p1: 'Personas sono come piccole parti della piattaforma tra le quali puoi muoverti in modo da usare la APP per parti differenti del tuo progetto.',
+        p1: 'Personae sono come piccole parti della piattaforma tra le quali puoi muoverti in modo da usare la APP per parti differenti del tuo progetto.',
         p2: 'Eccone una lista (in inglese): '
       },
       watch: {
@@ -538,7 +546,7 @@ export default {
         p1: 'Wir laden dich ein, dich für die Mail-Liste der KinoKabaret-App einzutragen, um dich über unsere Fortschritte auf dem Laufenden zu halten und dich, wenn benötigt, um Hilfe zu fragen. Wir werden nie mehr als ein E-Mail pro Woche schicken (wer hat denn für so etwas Zeit?).',
         form: {
           email: 'E-Mail-Adresse',
-          btn: 'Unterschreibe',
+          btn: 'Abschicken',
           small: 'Wir nutzen MailChimp für unsere E-Mail-Kampagnen.'
         }
       },
@@ -577,11 +585,11 @@ export default {
         p1: 'Die KINOIT Plattform ist ein Projekt der Non-Profit Filmemacher' +
         ' Kooperativen Hamburger Kino e.V. ( Hamburg, Deutschland) in Zusammenarbeit mit Kino 00 ( Montreal Kanada), Kinoonik Holland ( Vlaadingen/ Rotterdam, Niederlande) und Kino Caen ( Caen, Frankreich).'
       },
-      personas: {
-        title: 'Personas',
-        subtitle: 'Zugangs Programm Beta',
-        p1: 'Personas sind kleine Einheiten der Plattform zwischen denen du wechseln kannst, um die APP für verschiedene Teile deiner Projekte nutzen zu können.',
-        p2: 'Hier ist eine Liste der Personas (in English): '
+      personae: {
+        title: 'Personae',
+        subtitle: 'Zugang zur Betaprogramm ',
+        p1: 'Personae sind kleine Einheiten der Plattform zwischen denen du wechseln kannst, um die APP für verschiedene Teile deiner Projekte nutzen zu können.',
+        p2: 'Hier ist eine Liste der Personae (in English): '
       },
       watch: {
         title: 'Ansehen',
@@ -727,10 +735,10 @@ export default {
         ' (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Nederland) en' +
         ' KinoCaen (Caen, Frankrijk).'
       },
-      personas: {
-        title: 'Personas',
+      personae: {
+        title: 'Personae',
         subtitle: 'Programma in Beta Toegang',
-        p1: 'Personas zijn als kleine delen van de platform, tussen welke je kunt' +
+        p1: 'Personae zijn als kleine delen van de platform, tussen welke je kunt' +
         ' schakelen om de APP te gebruiken voor verschillende onderdelen van je' +
         ' project.',
         p2: 'Hier is een lijst (in het Engels): '

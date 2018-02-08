@@ -3,12 +3,14 @@
     <div class="layout-padding">
       <q-item dir="auto" v-html="$t('pages.downloads_old.p1')"></q-item>
 
-
-      <iframe src="https://drive.google.com/embeddedfolderview?id=1XO8d2DtH_3Z1v4qWYrGe1U57U642_x_X#grid" style="width:100%; border:0;">
+      <div ref="frame" class="loader row" v-show="!iframe.loaded">
+        <h4 class="text-center col-12 light-paragraph">
+          <q-spinner :size="36"/>
+          <span>Loading</span>
+        </h4>
+      </div>
+      <iframe :src="iframe.src" ref="frame" style="width:100%; border:0;" @load="load" v-show="iframe.loaded">
       </iframe>
-      <noframe>
-        <h4>LOADING</h4>
-      </noframe>
 
       <!--
         Coming soon: we will use tree:
@@ -33,7 +35,8 @@
     QListHeader,
     QItem,
     QItemSide,
-    QItemMain
+    QItemMain,
+    QSpinner
   } from 'quasar'
 
   export default {
@@ -48,11 +51,23 @@
       QListHeader,
       QItem,
       QItemSide,
-      QItemMain
+      QItemMain,
+      QSpinner
+    },
+    data () {
+      return {
+        iframe: {
+          src: 'https://drive.google.com/embeddedfolderview?id=1XO8d2DtH_3Z1v4qWYrGe1U57U642_x_X#grid',
+          loaded: false
+        }
+      }
     },
     methods: {
       launch (url) {
         openURL(url)
+      },
+      load () {
+        this.iframe.loaded = true
       }
     }
   }
@@ -61,5 +76,6 @@
 <style scoped>
   iframe {
     height:400px;
+    background: none;
   }
-</style>
+ </style>

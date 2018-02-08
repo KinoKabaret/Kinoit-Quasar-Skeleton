@@ -47,51 +47,34 @@
 
     </q-toolbar>
 
-    <div slot="left" class="transition-0">
+    <div slot="left" class="leftside">
       <q-list no-border link dense class="row">
         <div class="col-12">
-          <q-item to="/About" class="relative-position row-1 text-right">
-            <q-item-side icon="fa-fw fa-info-circle" class="mobile-only"/>
-            <q-item-main dir="auto" label="About" sublabel="What is this?" />
-          </q-item>
-          <q-item to="/Personae" class="relative-position row-1 text-right">
+          <q-item to="/Personae" class="text-right">
             <q-item-side icon="fa-fw fa-street-view" class="mobile-only" />
-            <q-item-main dir="auto" label="Personæ" sublabel="Beta Access Program" />
+            <q-item-main dir="auto" :label="$t('pages.personae.title')" :sublabel="$t('pages.personae.subtitle')"  />
           </q-item>
-          <q-item to="/Watch" class="relative-position row-1 text-right">
+          <q-item to="/Watch" class="text-right">
             <q-item-side icon="fa-fw fa-tv" class="mobile-only" />
-            <q-item-main ldir="auto" label="Watch" sublabel="Things to watch right now" />
+            <q-item-main ldir="auto" :label="$t('pages.watch.title')" :sublabel="$t('pages.watch.subtitle')" />
           </q-item>
-          <q-item to="/Downloads" class="relative-position row-1 text-right text-right">
+          <q-item to="/Downloads" class="text-right text-right">
             <q-item-side icon="fa-fw fa-download" class="mobile-only" />
-            <q-item-main dir="auto" label="Downloads" sublabel="Cool stuff people like you send us" />
+            <q-item-main dir="auto" :label="$t('pages.downloads.title')" :sublabel="$t('pages.downloads.subtitle')" />
           </q-item>
-          <q-item to="/Contact" class="relative-position row-1 text-right">
+          <q-item to="/Contact" class="text-right">
             <q-item-side icon="fa-fw fa-address-card" class="mobile-only" />
-            <q-item-main dir="auto" label="Contact" sublabel="Get in touch with us" />
+            <q-item-main dir="auto" :label="$t('pages.contact.title')" :sublabel="$t('pages.contact.subtitle')" />
           </q-item>
-          <q-item to="/Legal" class="relative-position row-1 text-right">
+          <q-item to="/Legal" class="text-right">
             <q-item-side icon="fa-fw fa-balance-scale"class="mobile-only" />
-            <q-item-main dir="auto" label="Legal" sublabel="TOC, Trademark, Copyright" />
-          </q-item>
-          <q-item to="/Settings" class="relative-position row-1 text-right">
-            <q-item-side icon="fa-fw fa-cog" class="mobile-only"/>
-            <q-item-main dir="auto" label="Settings" sublabel="Language and other settings" />
+            <q-item-main dir="auto" :label="$t('pages.legal.title')" :sublabel="$t('pages.legal.subtitle')" />
           </q-item>
         </div>
       </q-list>
-      <q-item class="fixed-bottom">
-        <small dir="auto" class="light-paragraph">
-          {{appVersion}} © 2018, HamburgerKino e.V. & Partners
-        </small>
-      </q-item>
     </div>
     <div class="layout-view row inline full-width">
-      <q-list id="mininav" dense no-border link class="relative-position float-right">
-        <q-item to="/About" class="row-1 center">
-          <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-          <q-item-side icon="fa-fw fa-info-circle fa-fw fa-primary" />
-        </q-item>
+      <q-list id="mininav" no-border link class="relative-position float-right">
         <q-item to="/Personae" class="relative-position row-1">
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
           <q-item-side icon="fa-fw fa-street-view" />
@@ -112,19 +95,17 @@
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
           <q-item-side icon="fa-fw fa-balance-scale" />
         </q-item>
-        <q-item to="/Settings" class="relative-position row-1">
-          <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-          <q-item-side icon="fa-fw fa-cog" />
-        </q-item>
       </q-list>
       <div class="shadow-24 col">
         <h4 class="text-bold relative-position text-center">
           <span dir="auto" v-html="$t('pages.'+ $route.name + '.title')"></span>
         </h4>
-        <h5 class="text-center">
-          <span dir="auto" v-html="$t('pages.'+ $route.name + '.subtitle')"></span>
-        </h5>
         <router-view></router-view>
+      </div>
+      <div class="fixed-bottom-left">
+        <small dir="auto" class="label text-white padded">
+          {{appVersion}} © 2018, HamburgerKino e.V. & Partners
+        </small>
       </div>
     </div>
   </q-layout>
@@ -194,12 +175,12 @@
             rightAvatar: '/statics/region-flags/png/es.png',
             value: 'es'
           },
-          {
+          /*          {
             label: 'Russian',
             rightAvatar: '/statics/region-flags/png/ru.png',
             value: 'ru'
           },
-          /* {
+          {
             label: 'Japanese',
             rightAvatar: '/statics/region-flags/png/jp.png',
             value: 'jp'
@@ -224,15 +205,15 @@
     },
     watch: {
       selector (val) {
-        this.$i18n.locale = val
+        // this.$i18n.locale = val
       }
     },
     mounted: function () {
       this.$nextTick(function () {
         if (Cookies.get('miniNav') === 'closed') {
           this.$refs.layout.toggleLeft()
-          var threebar = document.querySelector('#threebar')
-          var mininav = document.querySelector('#mininav')
+          let threebar = document.querySelector('#threebar')
+          let mininav = document.querySelector('#mininav')
           threebar.classList.remove('cross')
           threebar.classList.add('hamburger')
           mininav.classList.remove('hidden')
@@ -255,6 +236,7 @@
     methods: {
       /*
       not working, will refactor later
+      when not in such a hurry
       writeCookie (key, value) {
         Cookies.set(key, value, {
           secure: true,
@@ -305,10 +287,9 @@
         }
       },
       toggleMiniNav () {
-        // console.log(this.$refs.layout.sides.left)
         this.$refs.layout.toggleLeft()
-        var threebar = document.querySelector('#threebar')
-        // var mininav = document.querySelector('#mininav')
+        let threebar = document.querySelector('#threebar')
+        // let mininav = document.querySelector('#mininav')
         if (this.$refs.active) {
           threebar.classList.remove('hamburger')
           threebar.classList.add('cross')
@@ -336,34 +317,7 @@
       }
     }
   }
-  /*
-  // var mining = Cookies.get('mining') // false or 0 do not enable the miner. otherwise the miner should automatically restart
-     // optional:
-    dismiss: {
-      // label is used only for iOS theme
-      label: 'Cancel',
-      // tell what to do when Action Sheet
-      // is dismised (doesn't trigger when
-      // any of the actions above are clicked/tapped)
-      handler: function() {
-        console.log('Cancelled...')
-      }
-    }
-  })
-  import { animate, easing } from 'quasar'
-  animate.start({
-    from: 0,
-    to: 90,
-    easing: easing.standard,
-    apply (pos) {
-      el.style.rotation = `${pos}degrees`
-    },
-    done () {
-      console.log(`we're done!`)
-    }
-  })
-  */
-</script>
+ </script>
 
 <style scoped>
   p {
@@ -401,7 +355,7 @@
     position: relative;
     top:-16px;
     height: 22px;
-    margin: 0 32px 0 -2px;
+    margin: 0 30px 0 2px;
   }
   #threebar .bar {
     position: absolute;
@@ -436,5 +390,19 @@
   }
   #threebar.arrow .bar:nth-child(2) {
     opacity: 0;
+  }
+  .q-item-label {
+    font-weight:500;
+  }
+  .q-item-sublabel {
+    font-size:0.8em;
+  }
+  .q-item-main {
+    height:3em;
+  }
+  .padded {
+    background: #654;
+    padding:3px;
+    opacity:0.4;
   }
 </style>

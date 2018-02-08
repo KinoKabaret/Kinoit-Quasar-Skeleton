@@ -36,7 +36,7 @@ export default new VueRouter({
       component: load('About') },
     {
       path: '/Personae',
-      name: 'personas',
+      name: 'personae',
       component: load('Personae') },
     {
       path: '/Watch',
@@ -58,11 +58,12 @@ export default new VueRouter({
       name: 'legal',
       component: load('Legal')
     },
-    {
+    /* {
       path: '/Settings',
       name: 'settings',
       component: load('Settings')
     },
+    */
     // Always leave this last one
     { path: '*',
       component: load('Error404') } // Not found

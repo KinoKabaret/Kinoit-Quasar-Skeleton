@@ -1,10 +1,10 @@
 <template>
   <q-layout>
     <div class="layout-padding">
-      <p dir="auto" v-html="$t('pages.personas.p1')"></p>
-      <p dir="auto" v-html="$t('pages.personas.p2')"></p>
+      <p dir="auto" v-html="$t('pages.personae.p1')"></p>
+      <p dir="auto" v-html="$t('pages.personae.p2')"></p>
 
-      <q-btn class="label text-white bg-primary padded right" to="https://goo.gl/forms/YrJXYI6gLzuAZgDd2">BETA SIGNUP (English only)</q-btn>
+      <q-btn push class="label text-white bg-primary padded2 pull-right" @click="launch('https://goo.gl/forms/YrJXYI6gLzuAZgDd2')">Register for the Beta</q-btn>
 
       <q-data-table
         :data="data"
@@ -24,18 +24,13 @@
       <small>
         Last Update: February 8th, 2018
       </small>
-      <h5>Built with:</h5>
-      <q-item-avatar src="/statics/IPFS.png"></q-item-avatar>
-      <q-item-avatar src="/statics/vuejs.png"></q-item-avatar>
-      <q-item-avatar src="/statics/docker.png"></q-item-avatar>
-      <q-item-avatar src="/statics/nginx.png"></q-item-avatar>
-      <q-item-avatar src="/statics/.png"></q-item-avatar>
     </div>
   </q-layout>
 </template>
 
 <script>
   import {
+    openURL,
     QDataTable,
     QBtn
   } from 'quasar'
@@ -47,6 +42,9 @@
     },
     name: 'personae',
     methods: {
+      launch (url) {
+        openURL(url)
+      }
     },
     data () {
       return {
@@ -207,5 +205,8 @@
     border-radius: 3px;
     box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     opacity:0.7;
+  }
+  .padded2 {
+    padding: 10px;
   }
 </style>
