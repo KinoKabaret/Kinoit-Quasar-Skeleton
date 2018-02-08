@@ -27,40 +27,40 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      name: 'pages.home.title',
+      name: 'home',
       component: load('Landing')
     },
     {
       path: '/About',
-      name: 'About',
+      name: 'about',
       component: load('About') },
     {
       path: '/Personae',
-      name: 'Personæ',
+      name: 'personas',
       component: load('Personae') },
     {
       path: '/Watch',
-      name: 'Watch',
+      name: 'watch',
       component: load('Watch')
     },
     {
       path: '/Downloads',
-      name: 'Downloads',
+      name: 'downloads',
       component: load('Downloads')
     },
     {
       path: '/Contact',
-      name: 'Contact',
+      name: 'contact',
       component: load('Contact')
     },
     {
       path: '/Legal',
-      name: 'Legal',
+      name: 'legal',
       component: load('Legal')
     },
     {
       path: '/Settings',
-      name: 'Settings',
+      name: 'settings',
       component: load('Settings')
     },
     // Always leave this last one

@@ -1,8 +1,14 @@
 <template>
   <q-layout>
     <div class="layout-padding">
+      <q-item dir="auto" v-html="$t('pages.downloads_old.p1')"></q-item>
+
+
       <iframe src="https://drive.google.com/embeddedfolderview?id=1XO8d2DtH_3Z1v4qWYrGe1U57U642_x_X#grid" style="width:100%; border:0;">
       </iframe>
+      <noframe>
+        <h4>LOADING</h4>
+      </noframe>
 
       <!--
         Coming soon: we will use tree:

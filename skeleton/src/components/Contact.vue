@@ -2,7 +2,7 @@
   <q-layout>
     <div class="layout-padding row">
       <p class="col-lg-7">
-        The KINOÏT Platform is a project of the non-profit Filmmakers Cooperative known as HamburgerKino e.V. (Hamburg, Germany) in partnership with Kino00 (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Netherlands) and KinoCaen (Caen, France).
+        <q-item dir="auto" v-html="$t('pages.downloads_old.p1')"></q-item>
       </p>
 
       <q-list class="col-lg-5" link inset-delimiter>

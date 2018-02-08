@@ -1,55 +1,33 @@
 <template>
   <q-layout>
     <div class="layout-padding">
-      <h4>
-        Here are some things to watch right now.
-      </h4>
-      <div class="video column" style="height:400px">
-          <iframe class="row" src="https://drive.google.com/file/d/1zHKXpSjDJMue0exTpfT2bW0CpXsJy6ir/preview" frameborder="0" height="200" allowfullscreen="true" style="height:600px; border:0;"/>
-        </iframe>
+      <div class="q-video">
+        <iframe class="row" src="https://drive.google.com/file/d/11QVHCIKAA1D-Gir-KDxy-jp_y8fgYO-G/preview" frameborder="0" allowfullscreen="true"/>
       </div>
     </div>
-
   </q-layout>
 </template>
-
 <script>
   import {
-    openURL,
-    QLayout,
-    QToolbar,
-    QToolbarTitle,
-    QBtn,
-    QIcon,
-    QList,
-    QListHeader,
-    QItem,
-    QItemSide,
-    QItemMain
+    QVideo
   } from 'quasar'
-
   export default {
-    name: 'watch',
     components: {
-      QLayout,
-      QToolbar,
-      QToolbarTitle,
-      QBtn,
-      QIcon,
-      QList,
-      QListHeader,
-      QItem,
-      QItemSide,
-      QItemMain
+      QVideo
     },
+    name: 'watch',
     methods: {
-      launch (url) {
-        openURL(url)
-      }
     }
   }
 </script>
 
 <style scoped>
-
+  iframe {
+    height:400px;
+    max-height:100%;
+    max-width:100%;
+  }
+  img {
+    height:400px
+  }
 </style>

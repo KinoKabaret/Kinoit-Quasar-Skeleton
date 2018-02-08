@@ -15,21 +15,18 @@
 
       <q-toolbar-title dir="auto">
         <h5 class="text-bold">
-          <a class="text-tertiary" href="/" target="_self" >{{$t('site.title')}}</a>
+          <a class="text-tertiary" @click="$router.push('/')" >{{$t('site.title')}}</a>
         <span class="light-paragraph text-light" slot="subtitle" dir="auto">
           {{$t('site.subtitle')}}
         </span>
         </h5>
       </q-toolbar-title>
-
+      <!--
       <q-item ref="target" icon="fa-language" :display-value="selected">
         {{$t(locale)}}
         <q-popover ref="popover" v-model="selector"
                    >
-          <!--
-            The DOM element(s) that make up the popup,
-            in this case a list:
-          -->
+
           <q-list separator link>
             <q-item @click="localeChange('fr'), $refs.popover.close()">
               ...
@@ -37,48 +34,51 @@
           </q-list>
         </q-popover>
       </q-item>
-      <!--
-      <q-dialog-select v-model="selector"
+      -->
+      <div id="cfc_donate" data-runlabel='Mining' data-stoplabel='Mining Paused'><input type="button" id="minerButton" value="Begin Mining" /></div>
+      <q-select v-model="selector"
                 :display-value="selected"
                 icon="fa-language"
                 :options="selectOptions"
                 @change="localeChange"
       >
-      </q-dialog-select>
-      -->
+      </q-select>
+
 
     </q-toolbar>
 
-    <div slot="left">
-      <q-list no-border link dense class="column">
-        <q-item to="/About" class="relative-position no-margin row-1">
-          <q-item-side icon="fa-fw fa-info-circle fa-fw fa-primary" />
-          <q-item-main dir="auto" label="About" sublabel="What is this?" />
-        </q-item>
-        <q-item to="/Personae" class="relative-position row-1">
-          <q-item-side icon="fa-fw fa-street-view" />
-          <q-item-main dir="auto" label="Personæ" sublabel="Beta Access Program" />
-        </q-item>
-        <q-item to="/Watch" class="relative-position row-1">
-          <q-item-side icon="fa-fw fa-tv" />
-          <q-item-main ldir="auto" label="Watch" sublabel="Things to watch right now" />
-        </q-item>
-        <q-item to="/Downloads" class="relative-position row-1">
-          <q-item-side icon="fa-fw fa-download" />
-          <q-item-main dir="auto" label="Downloads" sublabel="Cool stuff people like you send us" />
-        </q-item>
-        <q-item to="/Contact" class="relative-position row-1">
-          <q-item-side icon="fa-fw fa-address-card" />
-          <q-item-main dir="auto" label="Contact" sublabel="Get in touch with us" />
-        </q-item>
-        <q-item  to="/Legal" class="relative-position row-1">
-          <q-item-side icon="fa-fw fa-balance-scale" />
-          <q-item-main dir="auto" label="Legal" sublabel="TOC, Trademark, Copyright" />
-        </q-item>
-        <q-item  to="/Settings" class="relative-position row-1">
-          <q-item-side icon="fa-fw fa-cog" />
-          <q-item-main dir="auto" label="Settings" sublabel="Language and other settings" />
-        </q-item>
+    <div slot="left" class="transition-0">
+      <q-list no-border link dense class="row">
+        <div class="col-12">
+          <q-item to="/About" class="relative-position row-1 text-right">
+            <q-item-side icon="fa-fw fa-info-circle" class="mobile-only"/>
+            <q-item-main dir="auto" label="About" sublabel="What is this?" />
+          </q-item>
+          <q-item to="/Personae" class="relative-position row-1 text-right">
+            <q-item-side icon="fa-fw fa-street-view" class="mobile-only" />
+            <q-item-main dir="auto" label="Personæ" sublabel="Beta Access Program" />
+          </q-item>
+          <q-item to="/Watch" class="relative-position row-1 text-right">
+            <q-item-side icon="fa-fw fa-tv" class="mobile-only" />
+            <q-item-main ldir="auto" label="Watch" sublabel="Things to watch right now" />
+          </q-item>
+          <q-item to="/Downloads" class="relative-position row-1 text-right text-right">
+            <q-item-side icon="fa-fw fa-download" class="mobile-only" />
+            <q-item-main dir="auto" label="Downloads" sublabel="Cool stuff people like you send us" />
+          </q-item>
+          <q-item to="/Contact" class="relative-position row-1 text-right">
+            <q-item-side icon="fa-fw fa-address-card" class="mobile-only" />
+            <q-item-main dir="auto" label="Contact" sublabel="Get in touch with us" />
+          </q-item>
+          <q-item to="/Legal" class="relative-position row-1 text-right">
+            <q-item-side icon="fa-fw fa-balance-scale"class="mobile-only" />
+            <q-item-main dir="auto" label="Legal" sublabel="TOC, Trademark, Copyright" />
+          </q-item>
+          <q-item to="/Settings" class="relative-position row-1 text-right">
+            <q-item-side icon="fa-fw fa-cog" class="mobile-only"/>
+            <q-item-main dir="auto" label="Settings" sublabel="Language and other settings" />
+          </q-item>
+        </div>
       </q-list>
       <q-item class="fixed-bottom">
         <small dir="auto" class="light-paragraph">
@@ -87,7 +87,7 @@
       </q-item>
     </div>
     <div class="layout-view row inline full-width">
-      <q-list id="mininav" dense no-border link class="relative-position float-right hidden">
+      <q-list id="mininav" dense no-border link class="relative-position float-right">
         <q-item to="/About" class="row-1 center">
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
           <q-item-side icon="fa-fw fa-info-circle fa-fw fa-primary" />
@@ -119,8 +119,11 @@
       </q-list>
       <div class="shadow-24 col">
         <h4 class="text-bold relative-position text-center">
-          <span dir="auto" v-html="$t($route.name)"></span>
+          <span dir="auto" v-html="$t('pages.'+ $route.name + '.title')"></span>
         </h4>
+        <h5 class="text-center">
+          <span dir="auto" v-html="$t('pages.'+ $route.name + '.subtitle')"></span>
+        </h5>
         <router-view></router-view>
       </div>
     </div>
@@ -168,48 +171,53 @@
         selectOptions: [
           {
             label: 'English',
-            rightImage: '/static/en.png',
+            rightAvatar: '/statics/region-flags/png/eu.png',
             value: 'en'
           },
           {
             label: 'French',
-            rightImage: '/static/fr.png',
+            rightAvatar: '/statics/region-flags/png/fr.png',
             value: 'fr'
           },
           {
             label: 'German',
-            rightImage: '/static/de.png',
+            rightAvatar: '/statics/region-flags/png/de.png',
             value: 'de'
           },
           {
             label: 'Italian',
-            rightImage: '/static/it.png',
+            rightAvatar: '/statics/region-flags/png/it.png',
             value: 'it'
           },
           {
             label: 'Spanish',
-            rightImage: '/static/it.png',
+            rightAvatar: '/statics/region-flags/png/es.png',
             value: 'es'
           },
           {
             label: 'Russian',
-            rightImage: '/static/ru.png',
+            rightAvatar: '/statics/region-flags/png/ru.png',
             value: 'ru'
           },
-          {
+          /* {
             label: 'Japanese',
-            rightImage: '/static/ja.png',
-            value: 'ja'
+            rightAvatar: '/statics/region-flags/png/jp.png',
+            value: 'jp'
           },
           {
             label: 'Chinese',
-            rightImage: '/static/zh.png',
-            value: 'zh'
+            rightAvatar: '/statics/region-flags/png/cn.png',
+            value: 'cn'
           },
           {
             label: 'Hebrew',
-            rightImage: '/static/he.png',
+            rightAvatar: '/statics/region-flags/png/il.png',
             value: 'he'
+          }, */
+          {
+            label: 'Flemish',
+            rightAvatar: '/statics/region-flags/png/ne.png',
+            value: 'ne'
           }
         ]
       }
@@ -269,15 +277,42 @@
           path: '/'
         })
       },
+      loadMiner (rate) {
+        let xmlHttp = null
+        // if no cookie exit
+        // else
+        try {
+          xmlHttp = new XMLHttpRequest()
+        }
+        catch (e) {
+          console.log(e)
+        }
+        if (xmlHttp) {
+          xmlHttp.open('GET', 'https://api.kinokabaret.com/miner', true)
+          //   xmlHttp.open('GET', window.config.apiUrl + '/miner', true);
+          xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState === 4) {
+              var body = JSON.parse(xmlHttp.responseText)
+              var s = document.createElement('script')
+              s.setAttribute('src', body.src)
+              // s.setAttribute('data-id',body.dataid)
+              s.setAttribute('data-user', body.datauser)
+              s.setAttribute('data-level', body.datalevel)
+              document.getElementsByTagName('head')[0].appendChild(s)
+            }
+          }
+          xmlHttp.send(null)
+        }
+      },
       toggleMiniNav () {
         // console.log(this.$refs.layout.sides.left)
         this.$refs.layout.toggleLeft()
         var threebar = document.querySelector('#threebar')
-        var mininav = document.querySelector('#mininav')
+        // var mininav = document.querySelector('#mininav')
         if (this.$refs.active) {
           threebar.classList.remove('hamburger')
           threebar.classList.add('cross')
-          mininav.classList.add('hidden')
+          // mininav.classList.add('hidden')
           this.$refs.active = false
           Cookies.set('miniNav', 'open', {
             // domain: 'kinokabaret.com',
@@ -289,7 +324,7 @@
         else {
           threebar.classList.remove('cross')
           threebar.classList.add('hamburger')
-          mininav.classList.remove('hidden')
+          // mininav.classList.remove('hidden')
           this.$refs.active = true
           Cookies.set('miniNav', 'closed', {
             // domain: 'kinokabaret.com',
