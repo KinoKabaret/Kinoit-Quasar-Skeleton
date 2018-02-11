@@ -5,7 +5,11 @@ export default {
       flag: 'EU'
     },
     interface: {
-      close: 'close'
+      close: 'Close',
+      error: {
+        name: 'Error',
+        connect: 'Could not connect with the server'
+      }
     },
     site: {
       title: 'KINOÏT',
@@ -72,7 +76,7 @@ export default {
         p1: 'The KINOÏT Platform is a project of the non-profit Filmmakers Cooperative known as HamburgerKino e.V. (Hamburg, Germany) in partnership with Kino00 (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Netherlands) and KinoCaen (Caen, France).'
       },
       personae: {
-        title: 'Personae',
+        title: 'Personæ',
         subtitle: 'Beta Access Program',
         p1: 'Personæ are like little parts of the platform that you can switch between in order to use the APP for different parts of your projects. ',
         p2: 'Here is a list (in English):'
@@ -204,9 +208,9 @@ export default {
         p1: 'La plataforma KINOÏT es un projecto de la cooperativa de cineastas sin fines de lucro conocida como HamburgerKino e.V. (Hamburgo, Alemania) en asociación con Kino00 (Montreal, Canadá), Kinoonik Holland (Vlaardingen/Roterdam, Holanda) y KinoCaen (Caen, Francia).'
       },
       personae: {
-        title: 'Personae',
+        title: 'Personæ',
         subtitle: 'Programa de Acceso Beta',
-        p1: 'Personae somo como partes pequeñas de la plataforma que se pueden alternar y así usar la APP para diferentes partes de tus proyectos.',
+        p1: 'Personæ somo como partes pequeñas de la plataforma que se pueden alternar y así usar la APP para diferentes partes de tus proyectos.',
         p2: 'Aquí una lista (en inglés): '
       },
       watch: {
@@ -291,29 +295,39 @@ export default {
         title: 'Améliorez votre Kino !',
         subtitle: 'Partagez, ne copiez pas',
         p1: 'Nous commençons le voyage vers l’application KinoKabaret et nous avons besoin de vous.',
-        p2: 'Cette app va révolutionner notre manière de “Kinoter”. Plus de rushs perdus, plus d’heures perdues à fouiller le net ou Vimeo à la recherche d’un film des années passées, plus de transferts multiples à propos des projets.',
-        p3: 'Un accès en ou hors ligne à tous les films et à leurs éléments, repérages, photo cartographie, information des cellules, player ed visionnage intégré et gestion d’événements. Tout cela réunit en une seule application, via une chaîne de blocs sur le web distribué.'
+        p2: 'Cette app va révolutionner notre manière de “Kinoter”. Plus de rushs' +
+        ' perdus, plus d’heures perdues à fouiller le net ou Vimeo à la recherche d’un' +
+        ' film des années précédentes, plus de transferts multiples à propos des' +
+        ' projets.',
+        p3: 'Un accès en ou hors ligne à tous les films et à leurs éléments,' +
+        ' repérages, photos, cartographie, informations des cellules, player et' +
+        ' visionnage intégrés et gestion d’événements. Tout cela réuni en une seule' +
+        ' application, via une chaîne de blocs sur le web distribué.'
       },
       mailing: {
         title: 'Liste de diffusion',
         p1: 'Nous aimerions vous inviter à rejoindre la liste de diffusion KinoKabaret App pour que nous vous gardions informés de nos progrès et demandions votre aide, si besoin est. Nous n’enverrons jamais plus d’un courriel par semaine (qui aurait du temps pour ça ?)',
         form: {
           email: 'Adresse de courriel',
-          btn: 'Abonnez-vous',
+          btn: 'Je m\'abonne!',
           small: 'Nous utilisons Mailchimp pour nos envois.'
         }
       },
       mining: {
         title: 'Collecte par navigateur',
-        p1: 'Vous pouvez utiliser le curseur ci-dessous pour donner du temps de votre processeur afin de nous aider à extraire une monnaie cryptée : votre ordinateur fait des calculs qui deviennent de l’argent. Plus le H/s (hashes par seconde) est haut, curseur vers la droite, mieux c’est. Laissez l’onglet ouvert et votre ordinateur récupère de l’argent pour le développement de la KinoKabaret App.',
-        btn_mining: 'Commencez à miner',
+        p1: 'Vous pouvez utiliser le curseur ci-dessous pour donner du temps de votre' +
+        ' processeur afin de nous aider à extraire une monnaie cryptée : votre' +
+        ' ordinateur fait des calculs qui sont convertis en monnaie sonnante et' +
+        ' trébuchante. Plus le H/s' +
+        ' (hashes par seconde) est haut, curseur vers la droite, mieux c’est. Laissez l’onglet ouvert et votre ordinateur récupère de l’argent pour le développement de la KinoKabaret App.',
+        btn_mining: 'Je commence à miner',
         small_mining: 'Votre ordinateur ralentit trop ? Baissez le taux de H/s ou fermez l’onglet.',
         hashes_found: 'Hashes trouvés dans cette session: ',
-        hashes_small: '50 H/s équivaut environ à 0.005 USD/h'
+        hashes_small: '50 H/s équivalent environ à 0.005 USD/h'
       },
       contact_old: {
         title: 'Contactez-nous.',
-        p1: 'Notre code est en source ouverte et vous pouvez le trouver sur Github.',
+        p1: 'Notre code est open source et vous pouvez le trouver sur Github.',
         p2: 'Pour nous contacter (en anglais)  : support@kinokabaret.com'
       },
       downloads_old: {
@@ -338,14 +352,14 @@ export default {
         p1: 'La plateforme KINOÏT est un projet de plusieurs associations sans but lucratif de vidéastes, connues en tant que HamburgerKino e.V. (Hambourg, Allemagne) en partenariat avec Kino00 (Montréal, Canada), Kinoonik Holland (Flardingue/Rotterdam, Pays-Bas) et KinoCaen (Caen, France.)'
       },
       personae: {
-        title: 'Personae',
-        subtitle: 'programme en accès Beta',
+        title: 'Personæ',
+        subtitle: 'Programmes en accès Beta',
         p1: 'Les personae sont comme de petits bouts de programme entre lesquels vous' +
         ' pouvez naviguer pour utiliser l’APP dans les parties différentes de vos projets. ',
         p2: 'Voici une liste (en anglais): '
       },
       watch: {
-        title: 'Regarder',
+        title: 'Visionner',
         subtitle: 'Documents à voir tout de suite'
       },
       downloads: {
@@ -361,11 +375,11 @@ export default {
       },
       contact: {
         title: 'Contact',
-        subtitle: 'nous joindre'
+        subtitle: 'Nous joindre'
       },
       legal: {
         title: 'Mentions légales',
-        subtitle: 'consitions, marque déposée, droits d\'auteur'
+        subtitle: 'Conditions, marque déposée, droits d\'auteur'
       },
       settings: {
         title: 'Paramètres',
@@ -473,9 +487,9 @@ export default {
         p1: 'La Piattaforma KINOÏT è un progetto della cooperativa di filmmakers conosciuta come HamburgerKino e.V. (Amburgo, Germania) in partnership con Kino00 (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Olanda) e KinoCaen (Caen, Francia).'
       },
       personae: {
-        title: 'Personae',
+        title: 'Personæ',
         subtitle: 'Programma di accesso Beta',
-        p1: 'Personae sono come piccole parti della piattaforma tra le quali puoi muoverti in modo da usare la APP per parti differenti del tuo progetto.',
+        p1: 'Personæ sono come piccole parti della piattaforma tra le quali puoi muoverti in modo da usare la APP per parti differenti del tuo progetto.',
         p2: 'Eccone una lista (in inglese): '
       },
       watch: {
@@ -608,10 +622,10 @@ export default {
         ' Kooperativen Hamburger Kino e.V. ( Hamburg, Deutschland) in Zusammenarbeit mit Kino 00 ( Montreal Kanada), Kinoonik Holland ( Vlaadingen/ Rotterdam, Niederlande) und Kino Caen ( Caen, Frankreich).'
       },
       personae: {
-        title: 'Personae',
+        title: 'Personæ',
         subtitle: 'Zugang zur Betaprogramm ',
-        p1: 'Personae sind kleine Einheiten der Plattform zwischen denen du wechseln kannst, um die APP für verschiedene Teile deiner Projekte nutzen zu können.',
-        p2: 'Hier ist eine Liste der Personae (in English): '
+        p1: 'Personæ sind kleine Einheiten der Plattform zwischen denen du wechseln kannst, um die APP für verschiedene Teile deiner Projekte nutzen zu können.',
+        p2: 'Hier ist eine Liste der Personæ (in English): '
       },
       watch: {
         title: 'Ansehen',
@@ -673,13 +687,13 @@ export default {
       }
     }
   },
-  BE: {
+  NL: {
     lang: {
-      native: 'Vlaams',
-      flag: 'BE'
+      native: 'Nederlands',
+      flag: 'NL'
     },
     interface: {
-      close: 'sluiten'
+      close: 'Sluiten'
     },
     site: {
       title: 'KINOÏT',
@@ -687,70 +701,66 @@ export default {
       welcome: 'Welkom'
     },
     pages: {
-      null: {
-        title: 'AUpgrade je Kino!',
-        subtitle: ''
-      },
       home: {
-        title: 'Upgrade je Kino!',
-        subtitle: 'Deel mee, copiëer niet!',
-        p1: 'Wij zijn begonnen met ons reis naar de KinoKabaret app en wij hebben jou' +
+        title: 'Waardeer je Kino op!',
+        subtitle: 'Delen, niet copiëeren!',
+        p1: 'Wij zijn begonnen met onze reis naar de KinoKabaret app en wij hebben jou' +
         ' nodig!',
-        p2: 'Deze app zal een revolutie teweerbrengen op de manier waarop wij Kino' +
-        ' maken. Geen verloren materiaal meer, geen urenlang foerageren op het net op' +
-        ' Vimeo voor een film uit het verleden, geen doorverwijzing naar meerdere mensen over een project.',
-        p3: 'Gemakkelijkere online en offline toegang tot alle films en hun middelen, locatiescouting, fotomapping, celinformatie, geïntegreerde screening-speler en evenementenbeheer. Alles samen in één app, op één blockchain en opgeslagen op het gedistribueerde web.'
+        p2: 'Deze app zal een revolutie teweeg brengen voor de manier hoe wij Kino' +
+        ' doen. Geen verloren materiaal meer, niet urenlang spitten op het net' +
+        ' geen Vimeo voor een film uit het verleden, geen doorverwijzing naar meerdere mensen over een project.',
+        p3: 'Gemakkelijk online en offline toegang tot alle films en hun middelen, locatiescouting, fotomapping, celinformatie, geïntegreerde screener-speler en evenementenbeheer. Alles samen in één app, op één blockchain en opgeslagen op het gedeelde web.'
       },
       mailing: {
         title: 'Mailingliist',
-        p1: 'We willen je graag uitnodigen om deel te nemen aan de KinoKabaret' +
-        ' App-mailinglijst, zodat we jij op de hoogte kunnen houden van onze' +
-        ' vorderingen en om hulp kunnen vragen wanneer we die nodig hebben. We zullen' +
-        ' nooit meer dan één e-mail per week verzenden. (Wie heeft eigenlijk daar de' +
+        p1: 'We willen je graag uitnodigen voor de KinoKabaret' +
+        ' App-mailinglijst, zodat we je op de hoogte kunnen houden van onze' +
+        ' vorderingen en om hulp te vragen waar nodig is. We zullen' +
+        ' nooit meer dan één e-mail per week sturen. (Wie heeft daar eigenlijk nog de' +
         ' tijd voor?)',
         form: {
-          email: 'E-mailadres',
-          btn: 'Subscribe',
+          email: 'Emailadres',
+          btn: 'abonneren',
           small: 'We gebruiken Mailchimp voor onze e-mailcampagnes.'
         }
       },
       mining: {
         title: 'Browser Mining',
-        p1: 'Je kunt de onderstaande schuifregelaar gebruiken om een beetje van de' +
-        ' strengte je computer processor te doneren, allé. Het helpt ons om' +
+        p1: 'Je kunt de onderstaande schuif gebruiken om een beetje van' +
+        ' je computer processor sterkte te doneren, allé. Het helpt ons om' +
         ' Cryptoinght-gebaseerde cryptocurrency te maken.' +
         ' Het gebruikt de processor van je computer om wat rekenwerk te doen dat in' +
-        ' geld verandert. Hoe hoger de H / s (hashes per seconde) hoe beter. Laat' +
-        ' maar dit browsertabblad open, en je computer zamelt geld in voor' +
-        ' KinoKabaret App Development.',
+        ' geld verandert. Hoe hoger de H / s (hashes per seconde) des te beter het is. Laat' +
+        ' je browsertabblad open, en je computer zamelt geld in voor de' +
+        ' KinoKabaret App Ontwikkeling.',
         btn_mining: 'Begin Mining',
-        small_mining: 'Computer te langzaam? Verlaag het tarief of sluit dit tabblad.',
+        small_mining: 'Computer te langzaam? Schuif de schuif naar links of sluit het tabblad.',
         hashes_found: 'Hashes gevonden in deze sessie: ',
         hashes_small: '50 H / s is ongeveer 0,005 USD / uur'
       },
       contact_old: {
         title: 'Neem contact op.',
-        p1: 'Onze code is open source en je kunt hem vinden op Github',
+        p1: 'Onze code is open source en je kunt deze vinden op Github',
         p2: 'Je kunt ons een e-mail sturen op support@kinokabaret.com'
       },
       downloads_old: {
-        p1: 'Hier vind je dingen die we zelf hebben gevonden of die door' +
-        ' andere KINOÏTS met ons meegedeeld werden. Je kunt zelf naar ons' +
-        ' iets leuks sturen, en als we het ook leuk vinden, dan geven het wij door.' +
+        p1: 'Hier vind je dingen die we voor jullie hebben gevonden of door' +
+        ' andere KINOÏTS met ons gedeeld zijn. Je kunt natuurlijk ook zelf' +
+        ' iets leuks opsturen, en als wij dit ook leuk vinden, dan delen wij het.' +
         ' Stuur je spullen naar: submissions@kinokabaret.com',
-        link1: 'How to organize a KinoKabaret (EN)',
+        link1: 'how to organize a KinoKabaret (EN)',
         link2: 'Tasks & Event Management (EN)'
       },
       get_involved: {
         title: 'Get Involved',
-        wanna_help: 'Je wilt helpen?',
+        wanna_help: 'Wil je helpen?',
         right_on: 'Perfect!',
         hear_from: 'Hoop van je te horen!',
         win_a_prize: 'Je zou een prijs moeten winnen!'
       },
       lukas: {
         p1: 'Trouwens, hier hebben we een Lukas in zijn eigen omgeving.',
-        p2: 'Je denkt misschien dat hij je de duimen geeft, maar hij is echt aan het tellen. Dat is Duits voor "één".'
+        p2: 'Je denkt misschien dat hij je de duim geeft, maar hij is toch echt aan het tellen. Dit is Duits voor "één".'
       },
       about: {
         title: 'About',
@@ -763,20 +773,20 @@ export default {
         ' KinoCaen (Caen, Frankrijk).'
       },
       personae: {
-        title: 'Personae',
+        title: 'Personæ',
         subtitle: 'Programma in Beta Toegang',
-        p1: 'Personae zijn als kleine delen van de platform, tussen welke je kunt' +
+        p1: 'Personas zijn kleine delen van het platform, waar je tussen kunt' +
         ' schakelen om de APP te gebruiken voor verschillende onderdelen van je' +
         ' project.',
         p2: 'Hier is een lijst (in het Engels): '
       },
       watch: {
         title: 'Kijk maar',
-        subtitle: 'Al dingen om nu naar te kijken'
+        subtitle: 'dingen om nu te kijken'
       },
       downloads: {
         title: 'Downloads',
-        subtitle: 'Leuke Dingen Mensen Zoals Jou naar Ons gestruurd Hebben',
+        subtitle: 'Leuke Dingen Die Mensen Zoals Jij naar Ons Gestruurd Hebben',
         fname: 'Bestandsnaam',
         fsize: 'Bestandsgrootte',
         ftype: 'Bestandstype',
@@ -787,7 +797,7 @@ export default {
       },
       contact: {
         title: 'Contact',
-        subtitle: 'Neem contact op met ons'
+        subtitle: 'Neem contact met ons op'
       },
       legal: {
         title: 'Wettelijk',
@@ -806,7 +816,7 @@ export default {
           it: 'Italiaans',
           es: 'Spaans',
           ru: 'Russisch',
-          ja: 'Japaans',
+          ja: 'Japans',
           ch: 'Chinees',
           he: 'Hebreeuws',
           pl: 'Pools'
@@ -822,11 +832,11 @@ export default {
       dates: {
         today: 'vandaag',
         yesterday: 'gisteren',
-        days_ago: '{$num} dagen tevoren',
+        days_ago: '{$num} dagen geleden',
         this_month: 'deze maand',
         this_year: 'dit jaar',
         last_year: 'vorige jaar',
-        years_ago: '{$num} jaren tevoren'
+        years_ago: '{$num} jaren geleden'
       }
     }
   }

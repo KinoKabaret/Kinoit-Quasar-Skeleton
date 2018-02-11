@@ -73,7 +73,7 @@
             label: 'Beta',
             field: 'delivery',
             // [REQUIRED] Column width
-            width: '50px',
+            width: '70px',
             filter: true,
             sort: true,
             type: 'date'
@@ -82,7 +82,7 @@
             label: 'Status',
             field: 'status',
             // [REQUIRED] Column width
-            width: '50px',
+            width: '60px',
             filter: true,
             sort: true,
             type: 'string'

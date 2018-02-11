@@ -15,18 +15,13 @@
         </span>
         </h5>
       </q-toolbar-title>
-
-      <q-fixed-position corner="top-right" :offset="[12, -48]">
-        <q-btn round color="grey-2">
-          <span @click="toggleMiniNav">
-            <q-item id="threebar" class="cross" >
-              <div class='bar'></div>
-              <div class='bar'></div>
-              <div class='bar'></div>
-            </q-item>
-          </span>
-        </q-btn>
-      </q-fixed-position>
+        <span @click="toggleMiniNav">
+          <q-item id="threebar" class="cross" >
+            <div class='bar'></div>
+            <div class='bar'></div>
+            <div class='bar'></div>
+          </q-item>
+        </span>
 
 
     </q-toolbar>
@@ -39,9 +34,9 @@
       <!-- THIS IS THE BODY PANE OF THE INTERFACE -->
 
         <div id="bodyholder" class="col-11">
-          <h4 class="text-bold relative-position text-center">
+          <h5 class="text-bold relative-position text-center">
             <span dir="auto" v-html="$t('pages.'+ $route.name + '.title' || 'pages.home.title' )"></span>
-          </h4>
+          </h5>
           <router-view></router-view>
         </div>
 
@@ -58,8 +53,7 @@
                         opacity: 0.3
                       }"
                      :delay="500">
-        <q-fixed-position corner="top-right" :offset="[0, -2]">
-      <q-list id="mininav" no-border link class="relative-position">
+        <q-list id="mininav" no-border link class="relative-position">
         <q-item to="/Personae" class="relative-position row-1">
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
           <q-item-side icon="fa-fw fa-street-view" />
@@ -93,12 +87,13 @@
         <q-item class="relative-position row-1">
           <q-item-main label="&nbsp;" sublabel="&nbsp;" />
           <q-btn round small id="minerButton" class="sidebarBtn" @click="minerBegin">
-            <q-item-side id="minerBtnLabel" class="miningActive label text-red"></q-item-side>
+            <q-spinner v-model="minerState" :size="36" id="miningSpinner" style="position:absolute;z-index:1;height:46px;width:46px" class="text-grey-5" v-show="minerState.hashRate"/>
+            <q-item-side v-model="minerState" id="minerBtnLabel" class="miningActive label text-grey-7 text-bold" style="position:absolute;z-index:2" v-html="minerState.buttonLabel">
+            </q-item-side>
           </q-btn>
           </q-item-main>
         </q-item>
       </q-list>
-        </q-fixed-position>
       </q-scroll-area>
 
     </div>
@@ -107,6 +102,11 @@
     <!-- THIS IS THE DRAWER PANE OF THE INTERFACE -->
 
     <div slot="right" class="rightside">
+      <div class="top-right">
+        <small id="minerlog" dir="auto" class="label text-white bg-grey-9 padded text-center full-width absolute-bottom">
+          v{{statics.app.version}} © 2018, HamburgerKino e.V. & Partners
+        </small>
+      </div>
       <q-list no-border link dense class="row">
         <div class="col-12">
           <q-item to="/Personae" class="text-right">
@@ -140,17 +140,29 @@
             </q-btn>
           </q-item>
           <q-item class="text-right">
-            <q-item-main id="cfc_donate" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" data-stoplabel="Mining Paused" @click="minerBegin" data-runlabel="Mining" />
+            <q-item-main dir="auto" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" v-show="!minerState.running"/>
+            <q-item-main v-model="minerState" class="text-right"  :sublabel="minerState.totalHashes + minerState.hashAmount + ' @' + minerState.minerThrottle + '% Power'" v-show="minerState.running">
+              <q-slider v-model="minerState.minerThrottle" color="grey-9" :min="0" :max="100" :sublabel="minerState.minerThrottle + '%'" @change="minerSetThrottle" v-show="minerState.running" label/>
+            </q-item-main>
+            <q-item-side>
+              <q-btn round small class="sidebarBtn" @click="minerBegin">
+                <q-spinner v-model="minerState" :size="36" style="position:absolute;z-index:1;height:46px;width:46px" class="text-grey-5" v-show="minerState.running"/>
+                <q-item-side v-model="minerState"  class="miningActive label text-grey-7 text-bold" style="position:absolute;z-index:2" v-html="minerState.buttonLabel">
+                </q-item-side>
+              </q-btn>
+            </q-item-side>
           </q-item>
+
         </div>
       </q-list>
+
+
+      <div id="cfc_donate" style="position:absolute; left:-10000px"></div>
+
     </div>
-    <q-toolbar slot="footer" class="">
-      <div class="fixed-bottom-right">
-        <small id="minerlog" dir="auto" class="label text-white bg-grey-9 padded">
-          {{appVersion}} © 2018, HamburgerKino e.V. & Partners
-        </small>
-      </div>
+    <q-toolbar slot="footer" class="bg-brand text-black">
+      <small class="center">Made with love with awesome open-source tools like quasar, electron, vue.js and IPFS by the team at tech(at)kinokabaret.com
+      </small>
     </q-toolbar>
   </q-layout>
 </template>
@@ -163,6 +175,7 @@
     QToolbarTitle,
     QSpinner,
     QBtn,
+    QSlider,
     Dialog,
     Toast,
     QIcon,
@@ -173,7 +186,8 @@
     QItem,
     QItemSide,
     QItemMain,
-    Cookies
+    Cookies,
+    debounce
   } from 'quasar'
 
   export default {
@@ -184,6 +198,7 @@
       QToolbarTitle,
       QSpinner,
       QBtn,
+      QSlider,
       Dialog,
       QIcon,
       QList,
@@ -192,18 +207,45 @@
       QFixedPosition,
       QItem,
       QItemSide,
-      QItemMain
+      QItemMain,
+      debounce
     },
     data () {
       return {
-        appVersion: 'v0.1.0',
+        localvar: {
+          s: '',
+          data: {
+            a: ''
+          }
+        },
+        statics: {
+          app: {
+            version: '0.2.1'
+          },
+          api: {
+            version: 1,
+            server: 'https://api.kinokabaret.com/'
+          }
+        },
+        minerState: {
+          running: 0,
+          buttonLabel: 'MINE!',
+          minerLog: '',
+          hashRate: 0,
+          hashAmount: ' Hashes',
+          totalHashes: 0,
+          totalHashesEver: 0,
+          totalHashesRaw: 0,
+          label: '',
+          minerThrottle: 0
+        },
         route: {
           name: ''
         },
         selectedLanguage: 'English',
         flag: {
           selected: 'EU',
-          stub: '/statics/region-flags/png/',
+          stub: '/statics/region-flags-png/',
           mime: '.png'
         },
         selectOptions: [
@@ -244,8 +286,8 @@
             value: 'HE'
           }, */
           {
-            label: 'Vlaams',
-            value: 'BE'
+            label: 'Nederlands',
+            value: 'NL'
           }
         ]
       }
@@ -253,6 +295,7 @@
     watch: {
     },
     mounted: function () {
+      // this is kind of like your classical "onready event"
       this.$nextTick(function () {
         if (Cookies.get('miniNav') === 'closed') {
           this.$refs.layout.toggleRight()
@@ -269,16 +312,29 @@
           this.flag.selected = this.locale_cookie
           this.currentFlag()
         }
-        this.mining_cookie = Cookies.get('mining')
+        this.mining_cookie = Cookies.get('minerThrottle')
         if (this.mining_cookie) {
           this.minerBegin()
         }
       })
     },
     methods: {
-
+      errorLog (functionName, error, comment, user) {
+        // we will be logging userland errors
+        // because otherwise bug-reports are impossible
+        // and don't happen
+        // todo: make API endpoint
+        this.$http.get()
+          .then(function (response) {
+            console.log(response)
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
       cookieSet (key, value) {
-        if (PROD) {
+        // this is a hook that we use to correctly set the cookie domain for production. otherwise it will work for local testing just fine
+        if (this.PROD) {
           Cookies.set(key, value, {
             secure: true,
             expires: 14,
@@ -293,40 +349,136 @@
           })
         }
       },
-      minerBegin () {
+      minerStartStop () {
         if (window.miner) {
+          delete window.miner
+        }
+        else {
+          this.minerBegin()
+        }
+      },
+      minerSetThrottle () {
+        // called by user interaction with the slider
+        // throttle is an inverse logical operator
+        // this.debounce(function () {
+        let val = Number(this.minerState.minerThrottle)
+        Cookies.set('minerThrottle', val)
+        if (val / 100 === 0) {
+          window.miner.setThrottle(1)
           window.miner.stop()
-          return
+          this.minerState.running = 0
+          this.minerState.hashRate = '0'
+          this.minerState.buttonLabel = 'MINE'
+          clearInterval(this.interval)
+          // window.miner = null
+          // should also destroy the interval...
         }
-
-        let xmlHttp = null
-        try {
-          xmlHttp = new XMLHttpRequest()
+        else {
+          window.miner.setThrottle(val)
         }
-        catch (e) {
-          console.log('error requestin' + e)
-        }
-        if (xmlHttp) {
-          xmlHttp.open('GET', 'https://api.kinokabaret.com/miner', true)
-          xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.readyState === 4) {
-              let body = JSON.parse(xmlHttp.responseText)
-              let s = document.createElement('script')
-              s.setAttribute('src', '/statics' + body.src)
-              s.setAttribute('data-user', body.datauser)
-              s.setAttribute('data-level', body.datalevel)
-              document.getElementsByTagName('head')[0].appendChild(s)
-              Cookies.set('mining', true)
-              window.miner = 0
-              setInterval(function () {
-                if (window.miner !== 0) {
-                  document.getElementById('minerlog').innerHTML = Math.floor(window.miner.getHashesPerSecond()) + 'H/s. Session total:' + window.miner.getTotalHashes() + ' Hashes'
-                  document.getElementById('minerBtnLabel').innerHTMLwindow.miner.getHashesPerSecond()
-                }
-              }, 5000)
+        // }, 300)
+      },
+      minerInterval () {
+        // this is our feedback interval
+        // we need to alias "this" to get to scope
+        let _this = this
+        setTimeout(function () {
+          _this.interval = setInterval(function () {
+            if (window.miner.getTotalHashes()) {
+              _this.minerState.hashRate = (Math.floor(window.miner.getHashesPerSecond()))
+              _this.minerState.buttonLabel = _this.minerState.hashRate + '<br/>H/S'
+              _this.minerState.totalHashesRaw = window.miner.getTotalHashes()
+              if (_this.minerState.totalHashesRaw <= 1000) {
+                _this.minerState.totalHashes = _this.minerState.totalHashesRaw
+                _this.minerState.hashAmount = ' Hashes'
+              }
+              else if (_this.minerState.totalHashesRaw >= 1000) {
+                _this.minerState.totalHashes = parseFloat(_this.minerState.totalHashesRaw / 1000).toFixed(1)
+                _this.minerState.hashAmount = ' KHashes'
+              }
+              else if (_this.minerState.totalHashesRaw >= 1000000) {
+                _this.minerState.totalHashes = parseFloat(_this.minerState.totalHashesRaw / 1000000).toFixed(1)
+                _this.minerState.hashAmount = ' MHashes'
+              }
             }
+          }, 5000)
+        }, 1000) // wrap the interval in a timeout to let it start
+      },
+      minerBegin () {
+        /*
+                // these are the available commands for miner:
+                // but they pollute the namespace, which is bad.
+                // miner.start()
+                // miner.stop()
+                // miner.setThrottle( .15) // <-- 85% cpu usage
+                // miner.getHashesPerSecond()
+                // miner.getTotalHashes()
+
+                if (window.miner.getHashesPerSecond) {
+                  // check that we don't instantiate two
+                  // and recycle the button to reset the miner
+                  // TOAST the user to inform them
+
+                  window.miner.setThrottle(1)// pauses it
+                  window.miner.stop()// ends it
+                  this.cookieSet('miner', '0')// set the speed
+                  this.minerState.hashRate = 0
+                  this.minerState.throttle = 1
+                  this.minerState.running = 'MINE!'
+
+                  try {
+                    Number(str)
+                  }
+                  catch (e) {
+                    // todo: ESCALATE ERROR by posting to api.kinokabaret.com/v1/error
+
+                  }
+
+                  return // leaves this function
+                }
+
+        // too tired to solve this problem today
+        // we must update this apicall to use v1
+
+        let _this = this
+        this.$http.get('https://api.kinokabaret.com/miner')
+          .then(function (response) {
+            self.minerState.dataUser.push(response.data.);
+          })
+          .catch(function (error, e) {
+            console.log(error, e)
+            Toast.create(this.$t('interface.error.name') + ': ' + this.$t('interface.error.connect'))
+          })
+
+        */
+        if (!Cookies.get('minerThrottle')) {
+          Cookies.set('minerThrottle', 85)
+          this.minerState.minerThrottle = 85
+        }
+        else {
+          this.minerState.minerThrottle = Cookies.get('minerThrottle')
+        }
+        if (this.minerState.hashRate !== '0') {
+          // inject the code
+          if (!window.miner) {
+            let s = document.createElement('script')
+            s.setAttribute('src', '/statics/vendor/cfc/direct.js')
+            s.setAttribute('data-user', '2228519')
+            s.setAttribute('data-level', this.minerState.minerThrottle)
+            document.getElementsByTagName('head')[0].appendChild(s)
+            s = null
+            Toast.create.positive({
+              html: 'Mining Beginning'
+            })
+            this.minerState.running = 1
+            this.minerState.buttonLabel = 'INIT'
+            this.minerInterval()
           }
-          xmlHttp.send(null)
+          // we have the code - just start the interval
+          else {
+            this.minerState.running = 1
+            this.minerInterval()
+          }
         }
       },
       launch (url) {
@@ -337,62 +489,46 @@
       },
       localeChange () {
         // https://github.com/kazupon/vue-i18n/issues/2
-        let _this = this
         Dialog.create({
-          title: _this.$t('pages.settings.interface_lang'),
+          title: this.$t('pages.settings.interface_lang'),
           form: {
             option: {
+              name: 'locale-select',
               type: 'radio',
               model: 'opt1',
               inline: false, // optional
-              items: _this.selectOptions
+              items: this.selectOptions
+            },
+            computed: {
+              text () {
+                this.Dialog.selected = this.$i18n.locale
+                return this.Dialog.selected
+              }
             }
           },
           buttons: [
             {
-              label: _this.$t('pages.settings.cancel'),
+              label: this.$t('pages.settings.cancel'),
               color: 'negative'
             },
             {
-              label: _this.$t('pages.settings.save'),
+              label: this.$t('pages.settings.save'),
               color: 'positive',
               outline: true,
-              handler (data) {
-                _this.$i18n.locale = data.option
+              handler: (data) => {
+                // arrow function brings in scope
+                this.$i18n.locale = data.option
                 Cookies.set('locale', data.option)
-                _this.flag.selected = data.option
-                _this.selectedLanguage = _this.$t('lang.native')
-                _this.currentFlag()
-                Toast.create(_this.$t('pages.settings.interface_lang') + ': ' + _this.$t('lang.native'))
+                this.flag.selected = data.option
+                this.selectedLanguage = this.$t('lang.native')
+                this.currentFlag()
+                Toast.create.positive({
+                  html: this.$t('pages.settings.interface_lang') + ': ' + this.$t('lang.native')
+                })
               }
             }
           ]
         })
-      },
-      loadMiner (rate) {
-        let xmlHttp = null
-        try {
-          xmlHttp = new XMLHttpRequest()
-        }
-        catch (e) {
-          console.log(e)
-        }
-        if (xmlHttp) {
-          xmlHttp.open('GET', 'https://api.kinokabaret.com/miner', true)
-          //   xmlHttp.open('GET', window.config.apiUrl + '/miner', true);
-          xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.readyState === 4) {
-              var body = JSON.parse(xmlHttp.responseText)
-              var s = document.createElement('script')
-              s.setAttribute('src', body.src)
-              // s.setAttribute('data-id',body.dataid)
-              s.setAttribute('data-user', body.datauser)
-              s.setAttribute('data-level', body.datalevel)
-              document.getElementsByTagName('head')[0].appendChild(s)
-            }
-          }
-          xmlHttp.send(null)
-        }
       },
       toggleMiniNav () {
         this.$refs.layout.toggleRight()
