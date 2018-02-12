@@ -1,0 +1,101 @@
+<template>
+  <q-layout>
+    <div class="layout-padding">
+      <p>
+        <strong>{{$t('pages.claim.title')}}:</strong> {{$t('pages.claim.subtitle')}}<br/>
+        <br/>
+        <strong>Vorstand:</strong><br/>
+        Lukas Scheper / lukas (at) hamburgerkino.de (Vorsitzender und Initiator)<br/>
+        Shahin Shokoui / shahin (at) hamburgerkino.de (Künstlerischer Leiter)<br/>
+        Christian Wehde / christian (at) hamburgerkino.de (Organisatorischer Leiter)<br/>
+        <br/>
+        <strong>Design & Programmierung:</strong><br/>
+        quasarandvuejskickass (at) kinokabaret.com<br/>
+        <br/>
+        Vereinsregister: Amtsgericht Hamburg / Register Nr. 18 550<br/>
+        Finanzamt: Hamburg-Nord / Steuer Nr. 17 431 12195<br/>
+        Telefon (FilmFabrique): 040 7699 7840<br/>
+        <br/>
+        <strong>Postanschrift</strong><br/>
+        HamburgerKino e.V.<br/>
+        c/o FilmFabrique Coworking<br/>
+        Stockmeyerstrasse 43<br/>
+        20457 Hamburg<br/>
+        <br/>
+        <strong>Zweckbestimmung des Vereins</strong><br/>
+        Der Verein HamburgerKino e.V. macht es sich zur Aufgabe ausschließlich und unmittelbar im Sinne § 52 Abs. 2 Nr. 1 AO und Anlage 1 zu § 48 Abs. 2 Nr. 3a EStDV Kunst und Kultur für die Allgemeinheit zu fördern und in diesem gemeinnützigen Rahmen jeder interessierten Person die Möglichkeit zu geben, Kurzfilme mit nicht kommerziellem Auswertungsziel in In- und Ausland zu produzieren.<br/>
+        <br/>
+        Im Konkreten geht es dem Verein und seinen Mitgliedern darum, der Allgemeinheit zu ermöglichen, den Erschaffungsprozess der Kurzfilme zu erleben, sich darüber auszutauschen und die entstandenen Kurzfilme zu präsentieren. Nach Möglichkeit stellt der Verein Rat und technische Hilfsmittel zur Verfügung. Des Weiteren veranstaltet der Verein Gesprächsrunden und Workshops zum Thema Film.<br/>
+        <br/>
+        Da auf internationaler Ebene ein regelmäßiger und aktiver Austausch mit anderen Kinogruppen zur gemeinsamen Produktion von Kurzfilmen stattfindet, versucht der Verein Reisen zu besagten Kinogruppen zu ermöglichen um dort wiederum Kurzfilmprojekte zu organisieren und zu verwirklichen.<br/>
+        <br/>
+        Der Verein verwirklicht diesen Zweck gemäß § 57 Abs. 1 AO selbst.<br/>
+        <br/>
+        Haftungsausschluss<br/>
+        <br/>
+        1. Inhalt des Onlineangebotes<br/>
+        <br/>
+        HamburgerKino übernimmt keinerlei Gewähr für die Aktualität, Korrektheit, Vollständigkeit oder Qualität der bereitgestellten Informationen. Haftungsansprüche gegen HamburgerKino, welche sich auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und unvollständiger Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens HamburgerKinos kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt.<br/>
+        Alle Angebote sind freibleibend und unverbindlich. HamburgerKino behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig einzustellen.<br/>
+        <br/>
+        2. Verweise und Links<br/>
+        <br/>
+        Bei direkten oder indirekten Verweisen auf fremde Webseiten („Hyperlinks“), die außerhalb des Verantwortungsbereiches HamburgerKinos liegen, würde eine Haftungsverpflichtung ausschließlich in dem Fall in Kraft treten, in dem HamburgerKino von den Inhalten Kenntnis hat und es ihm technisch möglich und zumutbar wäre, die Nutzung im Falle rechtswidriger Inhalte zu verhindern.<br/>
+        HamburgerKino erklärt hiermit ausdrücklich, dass zum Zeitpunkt der Linksetzung keine illegalen Inhalte auf den zu verlinkenden Seiten erkennbar waren. Auf die aktuelle und zukünftige Gestaltung, die Inhalte oder die Urheberschaft der verlinkten/verknüpften Seiten hat HamburgerKino keinerlei Einfluss. Deshalb distanziert HamburgerKino sich hiermit ausdrücklich von allen Inhalten aller verlinkten /verknüpften Seiten, die nach der Linksetzung verändert wurden. Diese Feststellung gilt für alle innerhalb des eigenen Internetangebotes gesetzten Links und Verweise sowie für Fremdeinträge in von HamburgerKino eingerichteten Gästebüchern, Diskussionsforen, Linkverzeichnissen, Mailinglisten und in allen anderen Formen von Datenbanken, auf deren Inhalt externe Schreibzugriffe möglich sind. Für illegale, fehlerhafte oder unvollständige Inhalte und insbesondere für Schäden, die aus der Nutzung oder Nichtnutzung solcherart dargebotener Informationen entstehen, haftet allein der Anbieter der Seite, auf welche verwiesen wurde, nicht derjenige, der über Links auf die jeweilige Veröffentlichung lediglich verweist.<br/>
+        <br/>
+        3. Urheber- und Kennzeichenrecht<br/>
+        <br/>
+        HamburgerKino ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu beachten, von HamburgerKino selbst erstellte Bilder, Grafiken, Tondokumente, Videosequenzen und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, Videosequenzen und Texte zurückzugreifen.<br/>
+        Alle innerhalb des Internetangebotes genannten und ggf. durch Dritte geschützten Marken- und Warenzeichen unterliegen uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen eingetragenen Eigentümer. Allein aufgrund der bloßen Nennung ist nicht der Schluss zu ziehen, dass Markenzeichen nicht durch Rechte Dritter geschützt sind!<br/>
+        <br/>
+        4. Datenschutz<br/>
+        <br/>
+        Sofern innerhalb des Internetangebotes die Möglichkeit zur Eingabe persönlicher oder geschäftlicher Daten (Emailadressen, Namen, Anschriften) besteht, so erfolgt die Preisgabe dieser Daten seitens des Nutzers auf ausdrücklich freiwilliger Basis. Die Inanspruchnahme und Bezahlung aller angebotenen Dienste ist – soweit technisch möglich und zumutbar – auch ohne Angabe solcher Daten bzw. unter Angabe anonymisierter Daten oder eines Pseudonyms gestattet. Die Nutzung der im Rahmen des Impressums oder vergleichbarer Angaben veröffentlichten Kontaktdaten wie Postanschriften, Telefon- und Faxnummern sowie Emailadressen durch Dritte zur Übersendung von nicht ausdrücklich angeforderten Informationen ist nicht gestattet. Rechtliche Schritte gegen die Versender von sogenannten Spam-Mails bei Verstössen gegen dieses Verbot sind ausdrücklich vorbehalten.<br/>
+        <br/>
+        5. Rechtswirksamkeit dieses Haftungsausschlusses<br/>
+        <br/>
+        Dieser Haftungsausschluss ist als Teil des Internetangebotes zu betrachten, von dem aus auf diese Seite verwiesen wurde. Sofern Teile oder einzelne Formulierungen dieses Textes der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.<br/>
+        <br/>
+        Disclaimer<br/>
+        <br/>
+        1. Content<br/>
+        <br/>
+        The author reserves the right not to be responsible for the topicality, correctness, completeness or quality of the information provided. Liability claims regarding damage caused by the use of any information provided, including any kind of information which is incomplete or incorrect,will therefore be rejected.  All offers are not-binding and without obligation. Parts of the pages or the complete publication including all offers and information might be extended, changed or partly or completely deleted by the author without separate announcement.<br/>
+        <br/>
+        2. Referrals and links<br/>
+        <br/>
+        The author is not responsible for any contents linked or referred to from his pages – unless he has full knowledge of illegal contents and would be able to prevent the visitors of his site fromviewing those pages. If any damage occurs by the use of information presented there, only the author of the respective pages might be liable, not the one who has linked to these pages. Furthermore the author is not liable for any postings or messages published by users of discussion boards, guestbooks or mailinglists provided on his page.<br/>
+        <br/>
+        3. Copyright<br/>
+        <br/>
+        The author intended not to use any copyrighted material for the publication or, if not possible, to indicate the copyright of the respective object.  The copyright for any material created by the author is reserved. Any duplication or use of objects such as images, diagrams, sounds or texts in other electronic or printed publications is not permitted without the author’s agreement.<br/>
+        <br/>
+        4. Privacy policy<br/>
+        <br/>
+        If the opportunity for the input of personal or business data (email addresses, name, addresses) is given, the input of these data takes place voluntarily. The use and payment of all offered services are permitted – if and so far technically possible and reasonable – without specification of any personal data or under specification of anonymized data or an alias. The use of published postal addresses, telephone or fax numbers and email addresses for marketing purposes is prohibited, offenders sending unwanted spam messages will be punished.<br/>
+        <br/>
+        5. Legal validity of this disclaimer<br/>
+        <br/>
+        This disclaimer is to be regarded as part of the internet publication which you were referred from. If sections or individual terms of this statement are not legal or correct, the content or validity of the other parts remain uninfluenced by this fact.
+      </p>
+    </div>
+  </q-layout>
+</template>
+
+<script>
+  import {
+    // openURL,
+    QLayout
+  } from 'quasar'
+
+  export default {
+    components: {
+      QLayout
+    },
+    name: 'legal'
+  }
+</script>
+
+<style scoped>
+
+</style>
