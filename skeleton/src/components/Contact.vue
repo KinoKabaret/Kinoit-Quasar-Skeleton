@@ -67,11 +67,11 @@
           <q-item-side icon="fa-wikipedia-w fa-fw" />
           <q-item-main label="Wikipedia" sublabel="Kino_(Movement)" />
         </q-item>
-        <q-item @click="launch('https://archive.org/search.php?query=kinokabaret')">
+        <!-- <q-item @click="launch('https://archive.org/search.php?query=kinokabaret')">
           <q-item-side avatar="/statics/Internet_Archive_logotype.png"
           />
           <q-item-main label="Archive.org" sublabel="kinokabaret" />
-        </q-item>
+        </q-item>-->
       </q-list>
     </div>
 

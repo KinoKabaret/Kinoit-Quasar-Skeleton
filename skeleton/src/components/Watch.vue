@@ -1,19 +1,17 @@
 <template>
   <div class="layout-padding row" >
-    <q-list class="col-4 scroll" no-border link style="max-height: 500px">
+    <q-list class="col-3" no-border dense link>
       <div class="row" v-for="film in films" >
         <q-item @click="loadIframe(film.id, film.title)" to="">
-          <q-item-side>
-            <img :src="'/statics/video-poster/' +
-               film.title + '.png'" width="100" height="auto"/>
-          </q-item-side>
-          <q-item-main>
-            {{ film.title }}
-          </q-item-main>
+          <small>{{ film.title }}<br/></small>
+          <img :src="'/statics/video-poster/' +
+             film.title + '.png'" width="100" height="auto"/>
+          <p></p>
         </q-item>
       </div>
+
     </q-list>
-    <div class="col-8">
+    <div class="col-9">
       <h5 v-text="banner"></h5>
       <div ref="frame" class="loader" v-show="!iframe.loaded">
         <h4 class="text-center light-paragraph">
@@ -21,7 +19,7 @@
           <span>Loading</span>
         </h4>
       </div>
-      <iframe src="/statics/video-poster/Kino Kabaret blues.png" :src="iframe.src" ref="frame" style="width:100%; border:0;" @load="load" v-show="iframe.loaded" frameborder="0" allowfullscreen="true" autoplay="true">
+      <iframe src="/statics/video-poster/Kino Kabaret blues.png" :src="iframe.src" ref="frame" @load="load" v-show="iframe.loaded" frameborder="0" allowfullscreen="true" autoplay="true">
       </iframe>
     </div>
   </div>
@@ -114,7 +112,8 @@
   iframe {
     width: 50vw!important;
     height: 25.5125vw!important; /* 100/56.25 = 560/315 = 1.778 */
-    background:black;
+    background: black;
+    border: 0;
   }
   img {
   }

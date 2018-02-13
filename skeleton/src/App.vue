@@ -1,7 +1,7 @@
 <template>
   <q-layout
     ref="layout"
-    view="Lhh lpR ffr"
+    view="Lhh lpR ffR"
     :left-class="{'secondary': true}"
     reveal
   >
@@ -45,22 +45,18 @@
 
 
 
-        <q-list id="mininav" no-border link class="relative-position scroll" style="max-height:80vh">
-          <q-item to="/About" class="relative-position row-1">
-            <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-            <q-item-side icon="fa-fw fa-info" />
-          </q-item>
+        <q-list id="mininav" no-border link class="relative-position scroll shadow-10" style="max-height:80vh; border-bottom-left-radius: 8px; border-top-left-radius: 8px">
           <q-item to="/Personae" class="relative-position row-1">
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-            <q-item-side icon="fa-fw fa-street-view" />
+            <q-item-side icon="fa-fw fa-lg fa-street-view" />
           </q-item>
           <q-item to="/Watch" class="relative-position row-1">
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-            <q-item-side icon="fa-fw fa-tv" />
+            <q-item-side icon="fa-fw fa-lg fa-tv" />
           </q-item>
           <q-item to="/Downloads" class="relative-position row-1">
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-            <q-item-side icon="fa-fw fa-download" />
+            <q-item-side icon="fa-fw fa-lg fa-download" />
           </q-item>
           <q-item class="relative-position row-1">
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
@@ -75,7 +71,7 @@
           <q-item class="relative-position row-1">
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
             <q-btn round small id="minerButton" class="sidebarBtn" @click="minerBegin">
-              <q-spinner v-model="minerState" :size="36" id="miningSpinner" style="position:absolute;z-index:1;height:46px;width:46px" class="text-grey-5" v-show="minerState.hashRate"/>
+              <q-spinner v-model="minerState" :size="36" id="miningSpinner" style="position:absolute;z-index:1;height:46px;width:46px" class="text-grey-5" v-show="minerState.running"/>
               <q-item-side v-model="minerState" id="minerBtnLabel" class="miningActive label text-grey-7 text-bold" style="position:absolute;z-index:2" v-html="minerState.buttonLabel">
               </q-item-side>
             </q-btn>
@@ -91,21 +87,17 @@
     <div slot="right" class="rightside">
       <q-list no-border link dense class="row">
         <div class="col-12">
-          <q-item to="/About" class="text-right">
-            <q-item-main dir="auto" :label="$t('pages.about.title')" :sublabel="$t('pages.about.subtitle')" />
-            <q-item-side icon="fa-fw fa-info" />
-          </q-item>
           <q-item to="/Personae" class="text-right">
             <q-item-main dir="auto" :label="$t('pages.personae.title')" :sublabel="$t('pages.personae.subtitle')"  />
-            <q-item-side icon="fa-fw fa-street-view" />
+            <q-item-side icon="fa-fw fa-lg fa-street-view" />
           </q-item>
           <q-item to="/Watch" class="text-right">
             <q-item-main dir="auto" :label="$t('pages.watch.title')" :sublabel="$t('pages.watch.subtitle')" />
-            <q-item-side icon="fa-fw fa-tv" />
+            <q-item-side icon="fa-fw fa-lg fa-tv" />
           </q-item>
           <q-item to="/Downloads" class="text-right">
             <q-item-main dir="auto" :label="$t('pages.downloads.title')" :sublabel="$t('pages.downloads.subtitle')" />
-            <q-item-side icon="fa-fw fa-download" />
+            <q-item-side icon="fa-fw fa-lg fa-download" />
           </q-item>
           <!--
 
@@ -156,7 +148,7 @@
             </q-item-main>
             <q-item-side>
               <q-btn round small class="sidebarBtn" @click="minerBegin">
-                <q-spinner v-model="minerState" :size="36" style="position:absolute;z-index:1;height:46px;width:46px" class="text-grey-5" v-show="minerState.running"/>
+                <q-spinner v-model="minerState" :size="36" style="position:absolute;z-index:1;height:48px;width:48px" class="text-grey-2" v-show="minerState.running"/>
                 <q-item-side v-model="minerState"  class="miningActive label text-grey-7 text-bold" style="position:absolute;z-index:2" v-html="minerState.buttonLabel">
                 </q-item-side>
               </q-btn>
@@ -181,12 +173,14 @@
         <q-item to="/Legal">
           <q-item-main dir="auto" :label="$t('pages.legal.title')"/>
         </q-item>
+        <!--
         <q-item to="/Contributors">
           <q-item-main dir="auto" :label="$t('pages.contributors.title')"/>
         </q-item>
         <q-item to="/Donate">
           <q-item-main dir="auto" :label="$t('pages.donate.title')"/>
         </q-item>
+        -->
       </q-list>
       <small id="minerlog" dir="auto" class="label text-white bg-grey-9 padded text-center full-width absolute-bottom">
         v{{statics.app.version}} © 2018, HamburgerKino e.V. & Partners
@@ -252,7 +246,7 @@
         },
         statics: {
           app: {
-            version: '0.2.3'
+            version: '0.2.4'
           },
           api: {
             version: 1,
@@ -304,11 +298,11 @@
             label: 'Español',
             value: 'ES'
           },
-          {
+          /* {
             label: 'русский',
             value: 'RU'
           },
-          /*  {
+          {
             label: '日本語',
             value: 'JP'
           },
@@ -610,7 +604,6 @@
   }
   body {
     -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
   }
   p {
     text-justify: newspaper;
@@ -701,7 +694,6 @@
   #bodyholder {
     margin-right:84px;
   }
-
   .padded {
     padding:3px;
     opacity:0.5;
