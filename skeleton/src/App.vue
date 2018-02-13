@@ -220,7 +220,7 @@
         },
         statics: {
           app: {
-            version: '0.2.1'
+            version: '0.2.2'
           },
           api: {
             version: 1,
@@ -365,18 +365,19 @@
         // this.debounce(function () {
         let val = Number(this.minerState.minerThrottle)
         Cookies.set('minerThrottle', val)
-        if (val / 100 === 0) {
+        if (1 - (val / 100) === 1) {
           window.miner.setThrottle(1)
           window.miner.stop()
-          this.minerState.running = 0
+          this.minerState.running = 0 // means it ran
           this.minerState.hashRate = '0'
           this.minerState.buttonLabel = 'MINE'
           clearInterval(this.interval)
+          val = null
           // window.miner = null
           // should also destroy the interval...
         }
         else {
-          window.miner.setThrottle(val)
+          window.miner.setThrottle(1 - (val / 100))
         }
         // }, 300)
       },
@@ -385,6 +386,7 @@
         // we need to alias "this" to get to scope
         let _this = this
         setTimeout(function () {
+          // todo: count 15 seconds, alarm user if not working
           _this.interval = setInterval(function () {
             if (window.miner.getTotalHashes()) {
               _this.minerState.hashRate = (Math.floor(window.miner.getHashesPerSecond()))
@@ -460,7 +462,7 @@
         else {
           this.minerState.minerThrottle = Cookies.get('minerThrottle')
         }
-        if (this.minerState.hashRate !== '0') {
+        if (this.minerState.running === 0) {
           // inject the code
           if (!window.miner) {
             let s = document.createElement('script')
