@@ -251,7 +251,9 @@
         selectOptions: [
           {
             label: 'English',
-            value: 'EU'
+            value: 'EU',
+            image: '/statics/region-flags-png/',
+            selected: true
           },
           {
             label: 'Français',
@@ -269,11 +271,11 @@
             label: 'Español',
             value: 'ES'
           },
-          /*          {
+          {
             label: 'русский',
             value: 'RU'
           },
-          {
+          /*  {
             label: '日本語',
             value: 'JP'
           },
@@ -495,7 +497,7 @@
             option: {
               name: 'locale-select',
               type: 'radio',
-              model: 'opt1',
+              model: this.flag.selected,
               inline: false, // optional
               items: this.selectOptions
             },
@@ -664,50 +666,5 @@
   .sidebarBtn {
     opacity:0.5;
     margin-right:4px;
-  }
-
-  .slider {
-    padding:inherit;
-    border-radius: inherit;
-    font-size:inherit;
-  }
-  #ringu {
-    z-index:100!important;
-    position:relative;
-    left:0px;
-    margin-left:5px;
-    top:0px;
-    border:7px dashed #554433!important;
-    background-image:url('/statics/shahin.png');
-    background-repeat:no-repeat;
-    padding:16px!important;
-  }
-  #miner-state{
-    margin-left:3px;
-  }
-
-  input[type='range'] {
-    -webkit-appearance: none !important;
-    background:black;
-    height:3px;
-  }
-  input[type='range']::-webkit-slider-thumb {
-    -webkit-appearance: none !important;
-    background:black;
-    height:24px;
-    width:10px;
-    opacity:1;
-  }
-  @keyframes spinner {
-    from {
-      transform: rotate(0deg)!important;
-    }
-    to {
-      transform: rotate(180deg)!important;
-    }
-  }
-  #miner-state, #hps{
-    font-weight: 700;
-    font-size: 0.9em;
   }
 </style>
