@@ -1,48 +1,29 @@
 <template>
-  <q-layout>
     <div class="layout-padding">
       <p>
-        The KINOÏT Platform is a project of the non-profit Filmmakers Cooperative known as HamburgerKino e.V. (Hamburg, Germany) in partnership with Kino00 (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Netherlands) and KinoCaen (Caen, France).
+        <strong>{{$t('pages.about.subtitle')}}</strong><br/>
+        {{$t('pages.about.p1')}}
+      </p>
+      <p><strong>{{$t('pages.mining.title')}}</strong><br/>
+        {{$t('pages.mining.p1')}}<br/>
+        {{$t('pages.mining.small_mining')}}
+      </p>
+      <p>
+        <strong>Code</strong><br/>
+        {{$t('pages.contact_old.p1')}}
+        <br/>
+        <a href="https://github.com/KinoKabaret/Kinoit-Quasar-Skeleton">Repo</a> ||
+        <a href="https://github.com/KinoKabaret/Kinoit-Quasar-Skeleton/issues">Issues</a> ||
+        <a href="https://github.com/KinoKabaret/Kinoit-Quasar-Skeleton/releases">Releases</a> ||
+        <a href="https://raw.githubusercontent.com/KinoKabaret/Kinoit-Quasar-Skeleton/master/LICENSE">License</a> ||
+        <a href="/statics/Fiduciary-License-Agreement-(MIT-GPL).pdf">Developer Agreement</a>
       </p>
     </div>
-
-  </q-layout>
 </template>
 
 <script>
-  import {
-    openURL,
-    QLayout,
-    QToolbar,
-    QToolbarTitle,
-    QBtn,
-    QIcon,
-    QList,
-    QListHeader,
-    QItem,
-    QItemSide,
-    QItemMain
-  } from 'quasar'
-
   export default {
-    name: 'contact',
-    components: {
-      QLayout,
-      QToolbar,
-      QToolbarTitle,
-      QBtn,
-      QIcon,
-      QList,
-      QListHeader,
-      QItem,
-      QItemSide,
-      QItemMain
-    },
-    methods: {
-      launch (url) {
-        openURL(url)
-      }
-    }
+    name: 'about'
   }
 </script>
 

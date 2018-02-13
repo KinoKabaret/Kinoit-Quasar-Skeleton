@@ -44,29 +44,34 @@
 
       <q-list class="col-lg-4" link inset-delimiter>
         <q-item @click="launch('mailto:web@kinokabaret.com')">
-          <q-item-side icon="fa-at" />
+          <q-item-side icon="fa-at fa-fw" />
           <q-item-main label="Email" sublabel="web@kinokabaret.com" />
         </q-item>
         <q-item @click="launch('https://instagram.com/Kinoitplatform')">
-          <q-item-side icon="fa-instagram" />
+          <q-item-side icon="fa-instagram fa-fw" />
           <q-item-main label="Instagram" sublabel="Kinoitplatform" />
         </q-item>
         <q-item @click="launch('https://facebook.com/KinoitAPP')">
-          <q-item-side icon="fa-facebook-square" />
+          <q-item-side icon="fa-facebook-square fa-fw" />
           <q-item-main label="Facebook" sublabel="KinoitAPP" />
         </q-item>
         <q-item @click="launch('https://twitter.com/quasarframework')">
-          <q-item-side icon="fa-twitter-square" />
+          <q-item-side icon="fa-twitter-square fa-fw" />
           <q-item-main label="Twitter" sublabel="@kinoit1999" />
         </q-item>
         <q-item @click="launch('https://github.com/KinoKabaret')">
-          <q-item-side icon="fa-github-square" />
+          <q-item-side icon="fa-github-square fa-fw" />
           <q-item-main label="Github" sublabel="KinoKabaret" />
         </q-item>
         <q-item @click="launch('https://en.wikipedia.org/wiki/Kino_(movement)')">
-          <q-item-side icon="fa-wikipedia-w" />
+          <q-item-side icon="fa-wikipedia-w fa-fw" />
           <q-item-main label="Wikipedia" sublabel="Kino_(Movement)" />
         </q-item>
+        <!-- <q-item @click="launch('https://archive.org/search.php?query=kinokabaret')">
+          <q-item-side avatar="/statics/Internet_Archive_logotype.png"
+          />
+          <q-item-main label="Archive.org" sublabel="kinokabaret" />
+        </q-item>-->
       </q-list>
     </div>
 

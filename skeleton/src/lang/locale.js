@@ -25,6 +25,12 @@ export default {
         title: 'Upgrade your Kino!',
         subtitle: ''
       },
+      contributors: {
+        title: 'Contributors'
+      },
+      donate: {
+        title: 'Donate'
+      },
       home: {
         title: 'Upgrade your Kino!',
         subtitle: 'Share, don\'t copy',
@@ -43,7 +49,7 @@ export default {
       },
       mining: {
         title: 'Browser Mining',
-        p1: 'You can use the slider below to donate your computer\'s processor to help us mine Cryptonight based cryptocurrency. It uses your computer\'s processor to do some math that turns into money. The higher the H/s (hashes per second) the better. Just leave this browser tab open and let your computer raise money for KinoKabaret App Development.',
+        p1: 'You can use the slider to donate your computer\'s processor to help us mine Cryptonight based cryptocurrency. It uses your computer\'s processor to do some math that turns into money. The higher the H/s (hashes per second) the better. Just leave this browser tab open and let your computer raise money for KinoKabaret App Development.',
         btn_mining: 'Begin Mining',
         small_mining: 'Computer getting too slow? Lower the rate or close this tab.',
         hashes_found: 'Hashes found in this session: ',
@@ -588,7 +594,7 @@ export default {
       },
       mining: {
         title: 'Browser Mining',
-        p1: 'Du kannst den Balken unterhalb benutzen, um deinen Computer-Prozessor zu spenden und uns damit zu helfen, Cryptonight-basierende Währung zu gewinnen. Er benutzt den Prozessor deines Computers, um etwas Mathematik anzuwenden, welche sich in Geld verwandelt. Je höher die H/s (Hashes pro Sekunde), desto besser. Lass einfach den Tab offen und lass deinen Computer Geld für die Entwicklung der KinoKabaret-App aufbringen.',
+        p1: 'Du kannst den Balken schieben, um deinen Computer-Prozessor zu spenden und uns damit zu helfen, Cryptonight-basierende Währung zu gewinnen. Er benutzt den Prozessor deines Computers, um etwas Mathematik anzuwenden, welche sich in Geld verwandelt. Je höher die H/s (Hashes pro Sekunde), desto besser. Lass einfach den Tab offen und lass deinen Computer Geld für die Entwicklung der KinoKabaret-App aufbringen.',
         btn_mining: 'Mining beginnen',
         small_mining: 'Der Computer wird zu langsam? Senke die Geschwindigkeit oder schließe den Tab.',
         hashes_found: 'Hashes found in this session: ',
@@ -596,7 +602,7 @@ export default {
       },
       contact_old: {
         title: 'Trete in Kontakt.',
-        p1: 'Unser Quell-Code ist Open source und auf Github verfügbar.',
+        p1: 'Unser Quell-Code ist Open-Source und auf Github verfügbar.',
         p2: 'Du kannst uns ein E-Mail schreiben, an support@kinokabaret.com'
       },
       downloads_old: {
@@ -616,7 +622,7 @@ export default {
         p2: 'Du meinst vielleicht, er gibt dir ein Daumen-hoch, aber in Wahrheit zählt er. Das ist Deutsch für „eins“.'
       },
       about: {
-        title: 'Über uns',
+        title: 'Informationen',
         subtitle: 'Worum es geht',
         p1: 'Die KINOIT Plattform ist ein Projekt der Non-Profit Filmemacher' +
         ' Kooperativen Hamburger Kino e.V. ( Hamburg, Deutschland) in Zusammenarbeit mit Kino 00 ( Montreal Kanada), Kinoonik Holland ( Vlaadingen/ Rotterdam, Niederlande) und Kino Caen ( Caen, Frankreich).'
@@ -647,7 +653,7 @@ export default {
         subtitle: 'Wie du uns erreichst'
       },
       legal: {
-        title: 'Rechte, Legal',
+        title: 'Impressum',
         subtitle: 'TOC, Trademark, Copyright'
       },
       settings: {
