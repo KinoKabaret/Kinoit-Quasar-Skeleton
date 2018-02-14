@@ -45,7 +45,7 @@
 
 
 
-        <q-list id="mininav" no-border link class="relative-position scroll shadow-10" style="max-height:80vh; border-bottom-left-radius: 8px; border-top-left-radius: 8px">
+        <q-list id="mininav" no-border link class="relative-position scroll shadow-10" style="max-height:80vh; border-radius: 0 0 8px 8px; background: #feeddc">
           <q-item to="/Personae" class="relative-position row-1">
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
             <q-item-side icon="fa-fw fa-lg fa-street-view" />
@@ -83,7 +83,7 @@
 
     <!-- THIS IS THE DRAWER PANE OF THE INTERFACE -->
 
-    <div slot="right" link class="rightside">
+    <div slot="right" link class="rightside" style="background: #ffeedd">
       <q-list no-border link dense class="row">
         <div class="col-12">
           <q-item to="/Personae" class="text-right">
@@ -141,7 +141,7 @@
             </q-btn>
           </q-item>
           <q-item link class="text-right">
-            <q-item-main dir="auto" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" v-show="!minerState.running"/>
+            <q-item-main dir="auto" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" v-show="!minerState.running" @click="minerBegin"/>
             <q-item-main v-model="minerState" dir="auto" class="text-right"  :sublabel="minerState.totalHashes + minerState.hashAmount + ' @' + minerState.minerThrottle + '% Power'" v-show="minerState.running">
               <q-slider v-model="minerState.minerThrottle" color="grey-9" :min="0" :max="100" :sublabel="minerState.minerThrottle + '%'" @change="minerSetThrottle" v-show="minerState.running" label/>
             </q-item-main>
@@ -248,7 +248,7 @@
         },
         statics: {
           app: {
-            version: '0.2.9'
+            version: '0.2.10'
           },
           api: {
             version: 1,
@@ -279,36 +279,39 @@
         },
         selectOptions: [
           {
+            label: 'Deutsch',
+            value: 'DE'
+          },
+          {
             label: 'English',
             value: 'EU',
             image: '/statics/region-flags-png/',
             selected: true
           },
           {
-            label: 'Français',
-            value: 'FR'
-
+            label: 'Español',
+            value: 'ES'
           },
           {
-            label: 'Deutsch',
-            value: 'DE'
+            label: 'Français',
+            value: 'FR'
           },
           {
             label: 'Italiano',
             value: 'IT'
           },
           {
-            label: 'Español',
-            value: 'ES'
+            label: '日本語',
+            value: 'JP'
+          },
+          {
+            label: 'Nederlands',
+            value: 'NL'
           },
           {
             label: 'русский',
             value: 'RU'
-          },
-          {
-            label: '日本語',
-            value: 'JP'
-          },
+          }
           /*  {
             label: '中文',
             value: 'CN'
@@ -317,10 +320,6 @@
             label: 'עִברִית',
             value: 'HE'
           }, */
-          {
-            label: 'Nederlands',
-            value: 'NL'
-          }
         ]
       }
     },
@@ -547,29 +546,27 @@
           ]
         })
       },
-      toggleMiniNav () {
-        this.$refs.layout.toggleRight()
+      hamburgerLogo () {
+        // todo: vue-ify this function
         let threebar = document.querySelector('#threebar')
-        // let mininav = document.querySelector('#mininav')
-        if (this.$refs.active) {
+        if (this.$refs.layout.rightState.openedBig === true) {
           threebar.classList.remove('hamburger')
           threebar.classList.add('cross')
-          // mininav.classList.add('hidden')
           this.$refs.active = false
           Cookies.set('miniNav', 'open')
         }
         else {
           threebar.classList.remove('cross')
           threebar.classList.add('hamburger')
-          // mininav.classList.remove('hidden')
           this.$refs.active = true
-          Cookies.set('miniNav', 'closed', {
-            // domain: 'kinokabaret.com',
-            // secure: true,
-            expires: 14,
-            path: '/'
-          })
+          Cookies.set('miniNav', 'closed')
         }
+      },
+      toggleMiniNav () {
+        // this.$refs.layout.showRight()
+        // this.$refs.layout.hideRight()
+        this.$refs.layout.toggleRight()
+        this.hamburgerLogo()
       }
     }
   }
