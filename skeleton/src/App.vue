@@ -135,6 +135,7 @@
             <q-btn small round class="languageButton sidebarBtn" style="margin:-4px -3px 0 10px">
               <q-item-side
                 :avatar="currentFlag()"
+                style="margin-top:1px"
               >
               </q-item-side>
             </q-btn>

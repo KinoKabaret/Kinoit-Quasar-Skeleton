@@ -995,7 +995,7 @@ export default {
       }
     }
   },
-  JA: {
+  JP: {
     lang: {
       native: '日本語',
       flag: 'JP'
