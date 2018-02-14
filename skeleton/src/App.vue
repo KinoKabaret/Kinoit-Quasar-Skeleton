@@ -246,7 +246,7 @@
         },
         statics: {
           app: {
-            version: '0.2.5'
+            version: '0.2.6'
           },
           api: {
             version: 1,
@@ -257,6 +257,7 @@
           running: 0,
           buttonLabel: 'MINE!',
           minerLog: '',
+          minerLock: 0,
           hashRate: 0,
           hashAmount: ' Hashes',
           totalHashes: 0,
@@ -341,8 +342,9 @@
           this.flag.selected = this.locale_cookie
           this.currentFlag()
         }
-        this.mining_cookie = Cookies.get('minerThrottle')
-        if (this.mining_cookie) {
+        this.minerState.minerThrottle = Cookies.get('minerThrottle')
+        this.minerState.minerLock = Number(Cookies.get('minerLock'))
+        if (this.minerState.minerThrottle !== 0 && this.minerState.minerLock !== 1) {
           this.minerBegin()
         }
       })
@@ -363,7 +365,7 @@
       },
       cookieSet (key, value) {
         // this is a hook that we use to correctly set the cookie domain for production. otherwise it will work for local testing just fine
-        if (this.PROD) {
+        if (PROD) {
           Cookies.set(key, value, {
             secure: true,
             expires: 14,
@@ -373,6 +375,7 @@
         }
         else {
           Cookies.set(key, value, {
+            expires: 14,
             path: '/',
             domain: 'kinokabaret.com'
           })
@@ -395,16 +398,17 @@
         if (1 - (val / 100) === 1) {
           window.miner.setThrottle(1)
           window.miner.stop()
+          Cookies.set('minerLock', 0) // Release miner lock
           this.minerState.running = 0 // means it ran
           this.minerState.hashRate = '0'
           this.minerState.buttonLabel = 'MINE'
+          // we destroy the interval, but this might have unintended side effects
           clearInterval(this.interval)
           val = null
           Toast.create.negative({
             html: 'Mining Stopped'
           })
           // window.miner = null
-          // should also destroy the interval...
         }
         else {
           window.miner.setThrottle(1 - (val / 100))
@@ -412,9 +416,8 @@
         // }, 300)
       },
       minerInterval () {
-        // this is our feedback interval
-        // we need to alias "this" to get to scope
-        let _this = this
+        // this is our UI feedback interval
+        let _this = this // alias "this" to get to scope
         setTimeout(function () {
           // todo: count 15 seconds, alarm user if not working
           _this.interval = setInterval(function () {
@@ -423,6 +426,7 @@
               _this.minerState.buttonLabel = _this.minerState.hashRate + '<br/>H/S'
               _this.minerState.totalHashesRaw = window.miner.getTotalHashes()
               if (_this.minerState.totalHashesRaw <= 1000) {
+                // todo: make a Math.prototype for this
                 _this.minerState.totalHashes = _this.minerState.totalHashesRaw
                 _this.minerState.hashAmount = ' Hashes'
               }
@@ -439,79 +443,43 @@
         }, 1000) // wrap the interval in a timeout to let it start
       },
       minerBegin () {
-        /*
-                // these are the available commands for miner:
-                // but they pollute the namespace, which is bad.
-                // miner.start()
-                // miner.stop()
-                // miner.setThrottle( .15) // <-- 85% cpu usage
-                // miner.getHashesPerSecond()
-                // miner.getTotalHashes()
-
-                if (window.miner.getHashesPerSecond) {
-                  // check that we don't instantiate two
-                  // and recycle the button to reset the miner
-                  // TOAST the user to inform them
-
-                  window.miner.setThrottle(1)// pauses it
-                  window.miner.stop()// ends it
-                  this.cookieSet('miner', '0')// set the speed
-                  this.minerState.hashRate = 0
-                  this.minerState.throttle = 1
-                  this.minerState.running = 'MINE!'
-
-                  try {
-                    Number(str)
-                  }
-                  catch (e) {
-                    // todo: ESCALATE ERROR by posting to api.kinokabaret.com/v1/error
-
-                  }
-
-                  return // leaves this function
-                }
-
-        // too tired to solve this problem today
-        // we must update this apicall to use v1
-
-        let _this = this
-        this.$http.get('https://api.kinokabaret.com/miner')
-          .then(function (response) {
-            self.minerState.dataUser.push(response.data.);
+        // todo: ESCALATE ERROR by posting to api.kinokabaret.com/v1/error
+        this.minerState.minerLock = Number(Cookies.get('minerLock'))
+        if (this.minerState.minerLock === 1) {
+          Toast.create({
+            html: 'Already mining in another Window'
           })
-          .catch(function (error, e) {
-            console.log(error, e)
-            Toast.create(this.$t('interface.error.name') + ': ' + this.$t('interface.error.connect'))
-          })
-
-        */
-        if (!Cookies.get('minerThrottle')) {
-          Cookies.set('minerThrottle', 85)
-          this.minerState.minerThrottle = 85
         }
         else {
-          this.minerState.minerThrottle = Cookies.get('minerThrottle')
-        }
-        if (this.minerState.running === 0) {
-          // inject the code
-          if (!window.miner) {
-            let s = document.createElement('script')
-            s.setAttribute('src', '/statics/vendor/cfc/direct.js')
-            s.setAttribute('data-user', '2228519')
-            s.setAttribute('data-level', this.minerState.minerThrottle)
-            document.getElementsByTagName('head')[0].appendChild(s)
-            s = null
-            Toast.create.positive({
-              html: 'Mining Beginning'
-            })
-            this.minerState.running = 1
-            this.minerState.buttonLabel = 'INIT'
-            this.minerInterval()
+          if (!Cookies.get('minerThrottle')) {
+            Cookies.set('minerThrottle', 85)
+            this.minerState.minerThrottle = 85
           }
-          // we have the code - just start the interval
           else {
-            this.minerState.running = 1
-            this.minerInterval()
+            this.minerState.minerThrottle = Cookies.get('minerThrottle')
+          }
+          if (this.minerState.running === 0) {
+            // inject the code
+            if (!window.miner) {
+              let s = document.createElement('script')
+              s.setAttribute('src', '/statics/vendor/cfc/direct.js')
+              s.setAttribute('data-user', '2228519')
+              s.setAttribute('data-level', this.minerState.minerThrottle)
+              document.getElementsByTagName('head')[0].appendChild(s)
+              s = null
+              Toast.create.positive({
+                html: 'Mining Beginning'
+              })
+              this.minerState.running = 1
+              this.minerState.buttonLabel = 'INIT'
+              Cookies.set('minerLock', 1) // ONE MINER ONLY
+              this.minerInterval()
+            }
+            // we have the code - just start the interval
+            else {
+              this.minerState.running = 1
+              this.minerInterval()
+            }
           }
         }
       },
