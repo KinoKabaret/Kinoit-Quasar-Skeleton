@@ -71,7 +71,7 @@
           <q-item class="relative-position row-1">
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
             <q-btn round small id="minerButton" class="sidebarBtn" @click="minerBegin">
-              <q-spinner v-model="minerState" :size="36" id="miningSpinner" style="position:absolute;z-index:1;height:46px;width:46px" class="text-grey-5" v-show="minerState.running"/>
+              <q-spinner v-model="minerState" :size="38" id="miningSpinner" style="position:absolute;z-index:1;height:48px;width:48px" class="text-grey-5" v-show="minerState.running"/>
               <q-item-side v-model="minerState" id="minerBtnLabel" class="miningActive label text-grey-7 text-bold" style="position:absolute;z-index:2" v-html="minerState.buttonLabel">
               </q-item-side>
             </q-btn>
@@ -133,7 +133,7 @@
           </q-item>-->
           <q-item class="text-right">
             <q-item-main dir="auto" :label="$t('lang.native')" :sublabel="$t('pages.settings.interface_lang')" @click="localeChange"/>
-            <q-btn small round class="languageButton sidebarBtn" style="margin:-4px -2px 0 10px">
+            <q-btn small round class="languageButton sidebarBtn" style="margin:-4px -3px 0 10px">
               <q-item-side
                 :avatar="currentFlag()"
                 @click="localeChange"
@@ -143,18 +143,18 @@
           </q-item>
           <q-item class="text-right">
             <q-item-main dir="auto" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" v-show="!minerState.running"/>
-            <q-item-main v-model="minerState" class="text-right"  :sublabel="minerState.totalHashes + minerState.hashAmount + ' @' + minerState.minerThrottle + '% Power'" v-show="minerState.running">
+            <q-item-main v-model="minerState" dir="auto" class="text-right"  :sublabel="minerState.totalHashes + minerState.hashAmount + ' @' + minerState.minerThrottle + '% Power'" v-show="minerState.running">
               <q-slider v-model="minerState.minerThrottle" color="grey-9" :min="0" :max="100" :sublabel="minerState.minerThrottle + '%'" @change="minerSetThrottle" v-show="minerState.running" label/>
             </q-item-main>
             <q-item-side>
-              <q-btn round small class="sidebarBtn" @click="minerBegin">
-                <q-spinner v-model="minerState" :size="36" style="position:absolute;z-index:1;height:48px;width:48px" class="text-grey-2" v-show="minerState.running"/>
+
+              <q-btn round small class="sidebarBtn" @click="minerBegin" style="margin-right:-3px">
+                <q-spinner v-model="minerState" :size="38" style="position:absolute;z-index:1;height:48px;width:48px" class="text-grey-5" v-show="minerState.running"/>
                 <q-item-side v-model="minerState"  class="miningActive label text-grey-7 text-bold" style="position:absolute;z-index:2" v-html="minerState.buttonLabel">
                 </q-item-side>
               </q-btn>
             </q-item-side>
           </q-item>
-
         </div>
       </q-list>
 
@@ -246,7 +246,7 @@
         },
         statics: {
           app: {
-            version: '0.2.4'
+            version: '0.2.5'
           },
           api: {
             version: 1,
