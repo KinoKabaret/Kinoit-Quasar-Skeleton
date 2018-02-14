@@ -1,4 +1,4 @@
-# Quasar Contributing Guide
+# Kinoït Contributing Guide
 
 Hi! We're really excited that you are interested in contributing to Quasar. Before submitting your contribution though, please make sure to take a moment and read through the following guidelines.
 
@@ -12,13 +12,7 @@ Hi! We're really excited that you are interested in contributing to Quasar. Befo
 
 - The issue list of this repo is **exclusively** for bug reports and feature requests. Non-conforming issues will be closed immediately.
 
-  - For simple beginner questions, you can get quick answers from [The Gitter chat room](https://gitter.im/quasarframework/Lobby).
-
-  - For more complicated questions, you can use [the official forum](http://forum.quasar-framework.org/). Make sure to provide enough information when asking your questions - this makes it easier for others to help you!
-
 - Try to search for your issue, it may have already been answered or even fixed in the development branch (`dev`).
-
-- Check if the issue is reproducible with the latest stable version of Quasar. If you are using a pre-release, please indicate the specific version you are using.
 
 - It is **required** that you clearly describe the steps necessary to reproduce the issue you are running into. Although we would love to help our users as much as possible, diagnosing issues without clear reproduction steps is extremely time-consuming and simply not sustainable.
 
@@ -81,7 +75,7 @@ $ npm run lint
 
 - **`build`**: contains build-related configuration files. In most cases you don't need to touch them.
 
-- **`src`**: contains the source code, obviously. The codebase is written in ES2015.
+- **`src`**: contains the source code, obviously. The codebase is written in ES2016.
 
   - **`components`**: JS and Stylus files (one for each theme) for Quasar Vue components
 
@@ -96,6 +90,7 @@ $ npm run lint
   - **`index.js`**: starting point for Quasar
 
 - **`dist`**: contains built files for distribution (only after a build). Note this directory is only updated when a release happens; they do not reflect the latest changes in development branches.
+
   - **`quasar.esm.js`**: ES6 formatted Quasar JS distributable. **This is set as the `main` field in `package.json` so it is the default export when you import Vue as an NPM package.**
 
   - **`quasar.esm.js`**: JS entry point for Quasar distributable.
@@ -109,4 +104,4 @@ $ npm run lint
 - **`dev`**: app with Quasar sources linked directly used for testing purposes. Each feature/component has its own `*.vue` file. Adding a new file automatically creates a route for it and adds it to the "homepage" list (based on the file name).
 
 ## Dev Server for Quasar
-Running `npm run dev [theme]` starts up a dev server which uses HMR (Hot Module Reload) for Quasar source code. You can easily test your changes by making necessary changes to `/dev` `*.vue` files.
+Running `quasar dev` starts up a dev server which uses HMR (Hot Module Reload) for Quasar source code. You can easily test your changes by making necessary changes to `/dev` `*.vue` files.

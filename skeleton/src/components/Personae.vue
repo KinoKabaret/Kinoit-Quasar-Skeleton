@@ -1,44 +1,44 @@
 <template>
-  <q-layout>
-    <div class="layout-padding">
-      <p dir="auto" v-html="$t('pages.personae.p1')"></p>
-      <p dir="auto" v-html="$t('pages.personae.p2')"></p>
+  <div class="layout-padding">
+    <p dir="auto" v-html="$t('pages.personae.p1')"></p>
+    <p dir="auto" v-html="$t('pages.personae.p2')"></p>
+    <h5 v-html=""></h5>
+    <q-btn push class="label text-white bg-primary padded2 pull-right" @click="launch('https://goo.gl/forms/YrJXYI6gLzuAZgDd2')">Register for the Beta</q-btn>
 
-      <q-btn push class="label text-white bg-primary padded2 pull-right" @click="launch('https://goo.gl/forms/YrJXYI6gLzuAZgDd2')">Register for the Beta</q-btn>
-
-      <q-data-table
-        :data="data"
-        :config="config"
-        :columns="columns"
-      >
-        <template slot="col-name" slot-scope="cell">
-          <strong class="bold">{{cell.data}}</strong>
-        </template>
-        <template slot="col-status" slot-scope="cell">
-          <span v-if="cell.data === 'Active'" class="label text-white padded bg-green-9">{{cell.data}}</span>
-          <span v-else-if="cell.data === 'Waiting'" class="label text-white bg-red-9 padded">{{cell.data}}</span>
-          <span v-else-if="cell.data === 'Research'" class="label text-black bg-yellow-9 padded">{{cell.data}}</span>
-          <span v-else class="label padded">{{cell.data}}</span>
-        </template>
-      </q-data-table>
-      <small>
-        Last Update: February 8th, 2018
-      </small>
-    </div>
-  </q-layout>
+    <q-data-table
+      :data="data"
+      :config="config"
+      :columns="columns"
+      @rowclick="tableDetail"
+    >
+      <template slot="col-name" slot-scope="cell">
+        <strong class="bold">{{cell.data}}</strong>
+      </template>
+      <template slot="col-status" slot-scope="cell">
+        <span v-if="cell.data === 'Active'" class="label text-white padded bg-green-9">{{cell.data}}</span>
+        <span v-else-if="cell.data === 'Waiting'" class="label text-white bg-red-9 padded">{{cell.data}}</span>
+        <span v-else-if="cell.data === 'Research'" class="label text-black bg-yellow-9 padded">{{cell.data}}</span>
+        <span v-else class="label padded">{{cell.data}}</span>
+      </template>
+      <template slot="col-description" slot-scope="cell">
+        <div class="light-paragraph">{{cell.data}}</div>
+      </template>
+    </q-data-table>
+    <small>
+      Last Update: February 8th, 2018
+    </small>
+  </div>
 </template>
 
 <script>
   import {
     openURL,
-    QLayout,
     QDataTable,
     QBtn
   } from 'quasar'
 
   export default {
     components: {
-      QLayout,
       QDataTable,
       QBtn
     },
@@ -46,6 +46,9 @@
     methods: {
       launch (url) {
         openURL(url)
+      },
+      tableDetail: (evt) => {
+        alert(evt.row.status)
       }
     },
     data () {
@@ -55,7 +58,7 @@
             label: 'Name',
             field: 'name',
             // [REQUIRED] Column width
-            width: '100px',
+            width: '80px',
             filter: true,
             sort: true,
             type: 'string'
@@ -73,7 +76,7 @@
             label: 'Beta',
             field: 'delivery',
             // [REQUIRED] Column width
-            width: '50px',
+            width: '70px',
             filter: true,
             sort: true,
             type: 'date'
@@ -82,7 +85,7 @@
             label: 'Status',
             field: 'status',
             // [REQUIRED] Column width
-            width: '50px',
+            width: '60px',
             filter: true,
             sort: true,
             type: 'string'
@@ -91,13 +94,10 @@
         config: {
           rowHeight: '30px',
           title: '<strong>Personæ Project List</strong>',
-          noHeader: true,
+          noHeader: false,
           refresh: false,
           columnPicker: false,
-          leftStickyColumns: 1,
-          bodyStyle: {
-            maxHeight: '500px'
-          },
+          leftStickyColumns: 2,
           pagination: {
             rowsPerPage: 5,
             options: [5, 10, 15, 30, 50, 500]

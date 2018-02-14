@@ -4,6 +4,9 @@
       <p>
         <strong>{{$t('pages.claim.title')}}:</strong> {{$t('pages.claim.subtitle')}}<br/>
         <br/>
+        <a href="/statics/Letter-of-intent_en.pdf">Letter of Intent for Partner Kino Chapters in EU English (pdf)</a><br/>
+        <a href="/statics/Fiduciary-License-Agreement-(MIT-GPL).pdf">Developer License Agreement in EU English (pdf)</a><br/>
+        <br/>
         <strong>Vorstand:</strong><br/>
         Lukas Scheper / lukas (at) hamburgerkino.de (Vorsitzender und Initiator)<br/>
         Shahin Shokoui / shahin (at) hamburgerkino.de (Künstlerischer Leiter)<br/>
