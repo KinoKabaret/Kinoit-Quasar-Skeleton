@@ -1,7 +1,7 @@
 <template>
   <q-layout>
     <div class="layout-padding row">
-      <div class="col-lg-8">
+      <div class="col-lg-7 col-md-12">
         <q-item dir="auto" v-html="$t('pages.about.p1')"></q-item>
         <div id="notLukas">
           <q-item dir="auto" class="notLukas" v-html="$t('pages.mailing.p1')"></q-item>
@@ -40,9 +40,9 @@
             <q-item dir="auto" v-html="$t('pages.lukas.p2')"></q-item>
           </div>
         </div>
+        <br/><br/>
       </div>
-
-      <q-list class="col-lg-4" link inset-delimiter>
+      <q-list class="col-lg-5 col-md-12 layout-padding" link inset-delimiter>
         <q-item @click="launch('mailto:web@kinokabaret.com')">
           <q-item-side icon="fa-at fa-fw" />
           <q-item-main label="Email" sublabel="web@kinokabaret.com" />

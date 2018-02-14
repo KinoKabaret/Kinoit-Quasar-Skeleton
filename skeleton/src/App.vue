@@ -60,10 +60,9 @@
           </q-item>
           <q-item class="relative-position row-1">
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-            <q-btn small round class="languageButton sidebarBtn">
+            <q-btn small round class="languageButton sidebarBtn" @click="localeChange">
               <q-item-side
                 :avatar="currentFlag()"
-                @click="localeChange"
               >
               </q-item-side>
             </q-btn>
@@ -133,10 +132,9 @@
           </q-item>-->
           <q-item class="text-right">
             <q-item-main dir="auto" :label="$t('lang.native')" :sublabel="$t('pages.settings.interface_lang')" @click="localeChange"/>
-            <q-btn small round class="languageButton sidebarBtn" style="margin:-4px -3px 0 10px">
+            <q-btn small round class="languageButton sidebarBtn" style="margin:-4px -3px 0 10px" @click="localeChange">
               <q-item-side
                 :avatar="currentFlag()"
-                @click="localeChange"
               >
               </q-item-side>
             </q-btn>
@@ -246,7 +244,7 @@
         },
         statics: {
           app: {
-            version: '0.2.6'
+            version: '0.2.7'
           },
           api: {
             version: 1,
