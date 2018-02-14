@@ -679,4 +679,10 @@
     opacity:0.5;
     margin-right:4px;
   }
+  .q-item.router-link-active{
+    background-color: rgba(211, 203, 194, 0.5);
+  }
+  .q-item.router-link-active:hover{
+    background-color: rgba(168, 161, 153, 0.5);
+  }
 </style>
