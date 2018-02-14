@@ -739,7 +739,7 @@ export default {
         ' geld verandert. Hoe hoger de H / s (hashes per seconde) des te beter het is. Laat' +
         ' je browsertabblad open, en je computer zamelt geld in voor de' +
         ' KinoKabaret App Ontwikkeling.',
-        btn_mining: 'Begin Mining',
+        btn_mining: 'Begin met mijnen',
         small_mining: 'Computer te langzaam? Schuif de schuif naar links of sluit het tabblad.',
         hashes_found: 'Hashes gevonden in deze sessie: ',
         hashes_small: '50 H / s is ongeveer 0,005 USD / uur'
