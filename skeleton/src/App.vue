@@ -60,10 +60,9 @@
           </q-item>
           <q-item class="relative-position row-1">
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-            <q-btn small round class="languageButton sidebarBtn">
+            <q-btn small round class="languageButton sidebarBtn" @click="localeChange">
               <q-item-side
                 :avatar="currentFlag()"
-                @click="localeChange"
               >
               </q-item-side>
             </q-btn>
@@ -133,10 +132,9 @@
           </q-item>-->
           <q-item class="text-right">
             <q-item-main dir="auto" :label="$t('lang.native')" :sublabel="$t('pages.settings.interface_lang')" @click="localeChange"/>
-            <q-btn small round class="languageButton sidebarBtn" style="margin:-4px -3px 0 10px">
+            <q-btn small round class="languageButton sidebarBtn" style="margin:-4px -3px 0 10px" @click="localeChange">
               <q-item-side
                 :avatar="currentFlag()"
-                @click="localeChange"
               >
               </q-item-side>
             </q-btn>
@@ -246,7 +244,7 @@
         },
         statics: {
           app: {
-            version: '0.2.6'
+            version: '0.2.7'
           },
           api: {
             version: 1,
@@ -328,22 +326,22 @@
       // this is kind of like your classical "onready event"
       this.$nextTick(function () {
         if (Cookies.get('miniNav') === 'closed') {
-          this.$refs.layout.toggleRight()
-          let threebar = document.querySelector('#threebar')
-          let mininav = document.querySelector('#mininav')
-          threebar.classList.remove('cross')
-          threebar.classList.add('hamburger')
-          mininav.classList.remove('hidden')
+          this.$refs.layout.toggleRight();
+          let threebar = document.querySelector('#threebar');
+          let mininav = document.querySelector('#mininav');
+          threebar.classList.remove('cross');
+          threebar.classList.add('hamburger');
+          mininav.classList.remove('hidden');
           this.$refs.active = true
         }
-        this.locale_cookie = Cookies.get('locale')
+        this.locale_cookie = Cookies.get('locale');
         if (this.locale_cookie) {
-          this.$i18n.locale = this.locale_cookie
-          this.flag.selected = this.locale_cookie
+          this.$i18n.locale = this.locale_cookie;
+          this.flag.selected = this.locale_cookie;
           this.currentFlag()
         }
-        this.minerState.minerThrottle = Cookies.get('minerThrottle')
-        this.minerState.minerLock = Number(Cookies.get('minerLock'))
+        this.minerState.minerThrottle = Cookies.get('minerThrottle');
+        this.minerState.minerLock = Number(Cookies.get('minerLock'));
         if (this.minerState.minerThrottle !== 0 && this.minerState.minerLock !== 1) {
           this.minerBegin()
         }
@@ -393,18 +391,18 @@
         // called by user interaction with the slider
         // throttle is an inverse logical operator
         // this.debounce(function () {
-        let val = Number(this.minerState.minerThrottle)
-        Cookies.set('minerThrottle', val)
+        let val = Number(this.minerState.minerThrottle);
+        Cookies.set('minerThrottle', val);
         if (1 - (val / 100) === 1) {
-          window.miner.setThrottle(1)
-          window.miner.stop()
-          Cookies.set('minerLock', 0) // Release miner lock
-          this.minerState.running = 0 // means it ran
-          this.minerState.hashRate = '0'
-          this.minerState.buttonLabel = 'MINE'
+          window.miner.setThrottle(1);
+          window.miner.stop();
+          Cookies.set('minerLock', 0); // Release miner lock
+          this.minerState.running = 0; // means it ran
+          this.minerState.hashRate = '0';
+          this.minerState.buttonLabel = 'MINE';
           // we destroy the interval, but this might have unintended side effects
-          clearInterval(this.interval)
-          val = null
+          clearInterval(this.interval);
+          val = null;
           Toast.create.negative({
             html: 'Mining Stopped'
           })
@@ -417,25 +415,25 @@
       },
       minerInterval () {
         // this is our UI feedback interval
-        let _this = this // alias "this" to get to scope
+        let _this = this; // alias "this" to get to scope
         setTimeout(function () {
           // todo: count 15 seconds, alarm user if not working
           _this.interval = setInterval(function () {
             if (window.miner.getTotalHashes()) {
-              _this.minerState.hashRate = (Math.floor(window.miner.getHashesPerSecond()))
-              _this.minerState.buttonLabel = _this.minerState.hashRate + '<br/>H/S'
-              _this.minerState.totalHashesRaw = window.miner.getTotalHashes()
+              _this.minerState.hashRate = (Math.floor(window.miner.getHashesPerSecond()));
+              _this.minerState.buttonLabel = _this.minerState.hashRate + '<br/>H/S';
+              _this.minerState.totalHashesRaw = window.miner.getTotalHashes();
               if (_this.minerState.totalHashesRaw <= 1000) {
                 // todo: make a Math.prototype for this
-                _this.minerState.totalHashes = _this.minerState.totalHashesRaw
+                _this.minerState.totalHashes = _this.minerState.totalHashesRaw;
                 _this.minerState.hashAmount = ' Hashes'
               }
               else if (_this.minerState.totalHashesRaw >= 1000) {
-                _this.minerState.totalHashes = parseFloat(_this.minerState.totalHashesRaw / 1000).toFixed(1)
+                _this.minerState.totalHashes = parseFloat(_this.minerState.totalHashesRaw / 1000).toFixed(1);
                 _this.minerState.hashAmount = ' KHashes'
               }
               else if (_this.minerState.totalHashesRaw >= 1000000) {
-                _this.minerState.totalHashes = parseFloat(_this.minerState.totalHashesRaw / 1000000).toFixed(1)
+                _this.minerState.totalHashes = parseFloat(_this.minerState.totalHashesRaw / 1000000).toFixed(1);
                 _this.minerState.hashAmount = ' MHashes'
               }
             }
@@ -444,7 +442,7 @@
       },
       minerBegin () {
         // todo: ESCALATE ERROR by posting to api.kinokabaret.com/v1/error
-        this.minerState.minerLock = Number(Cookies.get('minerLock'))
+        this.minerState.minerLock = Number(Cookies.get('minerLock'));
         if (this.minerState.minerLock === 1) {
           Toast.create({
             html: 'Already mining in another Window'
@@ -452,7 +450,7 @@
         }
         else {
           if (!Cookies.get('minerThrottle')) {
-            Cookies.set('minerThrottle', 85)
+            Cookies.set('minerThrottle', 85);
             this.minerState.minerThrottle = 85
           }
           else {
@@ -461,23 +459,23 @@
           if (this.minerState.running === 0) {
             // inject the code
             if (!window.miner) {
-              let s = document.createElement('script')
-              s.setAttribute('src', '/statics/vendor/cfc/direct.js')
-              s.setAttribute('data-user', '2228519')
-              s.setAttribute('data-level', this.minerState.minerThrottle)
-              document.getElementsByTagName('head')[0].appendChild(s)
-              s = null
+              let s = document.createElement('script');
+              s.setAttribute('src', '/statics/vendor/cfc/direct.js');
+              s.setAttribute('data-user', '2228519');
+              s.setAttribute('data-level', this.minerState.minerThrottle);
+              document.getElementsByTagName('head')[0].appendChild(s);
+              s = null;
               Toast.create.positive({
                 html: 'Mining Beginning'
-              })
-              this.minerState.running = 1
-              this.minerState.buttonLabel = 'INIT'
-              Cookies.set('minerLock', 1) // ONE MINER ONLY
+              });
+              this.minerState.running = 1;
+              this.minerState.buttonLabel = 'INIT';
+              Cookies.set('minerLock', 1); // ONE MINER ONLY
               this.minerInterval()
             }
             // we have the code - just start the interval
             else {
-              this.minerState.running = 1
+              this.minerState.running = 1;
               this.minerInterval()
             }
           }
@@ -491,11 +489,11 @@
       },
       localeHandler (data) {
         // arrow function brings in scope
-        this.flag.selected = data
-        this.$i18n.locale = data
-        Cookies.set('locale', data)
-        this.selectedLanguage = this.$t('lang.native')
-        this.currentFlag()
+        this.flag.selected = data;
+        this.$i18n.locale = data;
+        Cookies.set('locale', data);
+        this.selectedLanguage = this.$t('lang.native');
+        this.currentFlag();
         Toast.create.positive({
           html: this.$t('pages.settings.interface_lang') + ': ' + this.$t('lang.native')
         })
@@ -515,7 +513,7 @@
             },
             computed: {
               text () {
-                this.Dialog.selected = this.$i18n.locale
+                this.Dialog.selected = this.$i18n.locale;
                 return this.Dialog.selected
               }
             }
@@ -538,21 +536,21 @@
         })
       },
       toggleMiniNav () {
-        this.$refs.layout.toggleRight()
-        let threebar = document.querySelector('#threebar')
+        this.$refs.layout.toggleRight();
+        let threebar = document.querySelector('#threebar');
         // let mininav = document.querySelector('#mininav')
         if (this.$refs.active) {
-          threebar.classList.remove('hamburger')
-          threebar.classList.add('cross')
+          threebar.classList.remove('hamburger');
+          threebar.classList.add('cross');
           // mininav.classList.add('hidden')
-          this.$refs.active = false
+          this.$refs.active = false;
           Cookies.set('miniNav', 'open')
         }
         else {
-          threebar.classList.remove('cross')
-          threebar.classList.add('hamburger')
+          threebar.classList.remove('cross');
+          threebar.classList.add('hamburger');
           // mininav.classList.remove('hidden')
-          this.$refs.active = true
+          this.$refs.active = true;
           Cookies.set('miniNav', 'closed', {
             // domain: 'kinokabaret.com',
             // secure: true,
