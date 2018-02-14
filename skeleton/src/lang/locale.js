@@ -182,7 +182,7 @@ export default {
       mining: {
         title: 'Minando desde tu navegador',
         p1: 'Puedes usar el deslizador debajo para donar tu procesador para ayudarnos a minar la cryptomoneda Cryptonight. Tu procesador hace algunos cálculos y los convierte en dinero. Mientras más H/s (hashes por segundo), mejor. Solo mantén esta página abierta y deja que tu computadora haga dinero para el desarrollo de la KinoKabaret App.',
-        btn_mining: 'Begin Mining',
+        btn_mining: 'Comenzar a minar',
         small_mining: '¿Se pone lenta tu computadora? Baja el nivel en el deslizador o cierra esta página.',
         hashes_found: 'Hashes found in this session: ',
         hashes_small: '50 H/s is about 0.005 USD / hour'
@@ -461,7 +461,7 @@ export default {
       mining: {
         title: 'Mining tramite browser',
         p1: 'Puoi usare lo slider in basso per donare parte della capacità del processore del tuo computer per aiutarci a fare il “mining” della moneta basata su Cryptonight. Usa il processore del tuo computer per fare dei calcoli matematici che diventano denaro. Più sono alti gli H/s (hashes al secondo) meglio è. Lascia solo aperta questa barra del browser e lascia il tuo computer creare denaro per il KinoKabaret App Development.',
-        btn_mining: 'Begin Mining',
+        btn_mining: 'Cominciare a minare',
         small_mining: 'Il computer diventa troppo lento? Abbassa la quantità o chiudi questa tab del browser.',
         hashes_found: 'Hashes found in this session: ',
         hashes_small: '50 H/s is about 0.005 USD / hour'
@@ -734,12 +734,12 @@ export default {
         title: 'Browser Mining',
         p1: 'Je kunt de onderstaande schuif gebruiken om een beetje van' +
         ' je computer processor sterkte te doneren, allé. Het helpt ons om' +
-        ' Cryptoinght-gebaseerde cryptocurrency te maken.' +
+        ' Cryptonight-gebaseerde cryptocurrency te maken.' +
         ' Het gebruikt de processor van je computer om wat rekenwerk te doen dat in' +
         ' geld verandert. Hoe hoger de H / s (hashes per seconde) des te beter het is. Laat' +
         ' je browsertabblad open, en je computer zamelt geld in voor de' +
         ' KinoKabaret App Ontwikkeling.',
-        btn_mining: 'Begin Mining',
+        btn_mining: 'Begin met mijnen',
         small_mining: 'Computer te langzaam? Schuif de schuif naar links of sluit het tabblad.',
         hashes_found: 'Hashes gevonden in deze sessie: ',
         hashes_small: '50 H / s is ongeveer 0,005 USD / uur'
@@ -843,6 +843,155 @@ export default {
         this_year: 'dit jaar',
         last_year: 'vorige jaar',
         years_ago: '{$num} jaren geleden'
+      }
+    }
+  },
+  RU: {
+    lang: {
+      native: 'Русский',
+      flag: 'RU'
+    },
+    interface: {
+      close: 'Close',
+      error: {
+        name: 'Error',
+        connect: 'Could not connect with the server'
+      }
+    },
+    site: {
+      title: 'KINOÏT',
+      subtitle: 'Совместная работа с 1999 года',
+      welcome: 'Добро пожаловать.'
+    },
+    pages: {
+      undefined: {
+        title: '',
+        subtitle: ''
+      },
+      null: {
+        title: 'Совершенствуй свое кино!',
+        subtitle: ''
+      },
+      contributors: {
+        title: 'Contributors'
+      },
+      donate: {
+        title: 'Donate'
+      },
+      home: {
+        title: 'Совершенствуй свое кино!',
+        subtitle: 'Поделись, не копируй.',
+        p1: 'Мы начинаем путешествие в приложение для KinoKabaret, и мы нуждаемся в тебе!',
+        p2: 'Это приложение произведет революцию в том, как мы делаем фильмы. Больше никакого потерянного материала, никаких поисков часами на Vimeo фильмов прошлых лет, никакого распространения проектов многочисленным людям.',
+        p3: 'Легкий онлайновый и автономный доступ ко всем фильмам и их xxx (активы), поиск местонахождения, фото-мapping, информация о кино-клетках, встроенный скрининг-плеер и event-менеджер. Все вместе в одном приложении, на одной блочной цепочке и хранится в распределенной сети.'
+      },
+      mailing: {
+        title: 'Список имейлов',
+        p1: 'Мы приглашаем тебя зарегистрироваться в списке рассылки приложения KinoKabaret, чтобы быть в курсе наших успехов и просить тебя о помощи в случае необходимости. Мы никогда не будем отправлять более одного электронного письма в неделю (у кого есть время для этого?).',
+        form: {
+          email: 'Адрес электронной почты',
+          btn: 'Подпишись',
+          small: 'Мы используем MailChimp для наших кампаний по электронной почте.'
+        }
+      },
+      mining: {
+        title: 'Сбор данных',
+        p1: 'Ты можешь использовать слайдер ниже, чтобы пожертвовать процессор твоего компьютера, чтобы помочь нам использовать криптовалюты на основе Cryptonight. Он использует процессор твоего компьютера, для неких математических расчетов, которые превращаются в деньги. Чем выше H/с (хеши в секунду), тем лучше. Просто оставь эту вкладку браузера открытой и дай компьютеру собрать деньги для разработки Kino Kabaret приложений.',
+        btn_mining: 'Начинай добывать',
+        small_mining: 'Компьютер становится слишком медленным? Уменьшите скорость или закройте эту вкладку.',
+        hashes_found: 'Hashes found in this session: ',
+        hashes_small: '50 H/s is about 0.005 USD / hour'
+      },
+      contact_old: {
+        title: 'Свяжись с нами',
+        p1: 'Наш код является открытым исходным кодом, и ты можешь найти его в Github.',
+        p2: 'Ты можеш написать нам письмо по адресу support@kinokabaret.com'
+      },
+      downloads_old: {
+        p1: 'Мы будем делится материалом, который мы найдем или тем, которым KINOÏTS хотят поделиться. Ты можешь отправлять нам что-то хорошое, и если нам понравится, мы распространим это. Отправь твой материал по адрессу: submissions@kinokabaret.com',
+        link1: 'How to organize a KinoKabaret (EN)',
+        link2: 'Tasks & Event Management (EN)'
+      },
+      get_involved: {
+        title: 'Будь вовлечен',
+        wanna_help: 'Ты хочешь помочь?',
+        right_on: 'Вперед!',
+        hear_from: 'Мы надеемся услышать от тебя!',
+        win_a_prize: 'Ты должен выиграть приз!'
+      },
+      lukas: {
+        p1: 'YКстати, здесь у нас есть Лукас в его естественной среде.',
+        p2: 'Ты думаешь, что он показывает большим пальцем "молодец", но на самом деле он считает. На немецком это означает "один".'
+      },
+      about: {
+        title: 'О том',
+        subtitle: 'Что это?',
+        p1: 'Платформа KINOÏT - это проект некоммерческих кинематографистов, известных как HamburgerKino e.V. (Гамбург, Германия) в сотрудничестве с Kino00 (Монреаль, Канада), Kinoonik Holland (Влардинген / Роттердам, Нидерланды) и KinoCaen (Кан, Франция).'
+      },
+      personae: {
+        title: 'Персонажи',
+        subtitle: 'программа бета-доступа',
+        p1: 'Персонажи похожи на маленькие части платформы, с которыми ты можешь переключаться, чтобы использовать APP для разных частей твоих проектов.',
+        p2: 'Вот список (на английском языке):'
+      },
+      watch: {
+        title: 'Смотри',
+        subtitle: 'То что нужно увидеть прямо сейчас'
+      },
+      downloads: {
+        title: 'Скачивай',
+        subtitle: 'Классные вещи, которые люди как вы, прислают нам',
+        fname: 'File name',
+        fsize: 'Размер файла',
+        ftype: 'Тип файла',
+        flicence: 'Лицензия файла',
+        download: 'Скачать',
+        upload: 'Загрузить',
+        share: 'Поделиться'
+      },
+      contact: {
+        title: 'Контакт',
+        subtitle: 'свяжись с нами'
+      },
+      legal: {
+        title: 'Юридический',
+        subtitle: 'TOC, товарный знак, авторское право'
+      },
+      settings: {
+        title: 'Настройки',
+        subtitle: 'Язык и другие настройки',
+        interface_lang: 'Язык интерфейса',
+        writing: 'Язык для письма',
+        lang: {
+          label: 'Язык',
+          en: 'Английский',
+          de: 'Немецкий',
+          fr: 'Французский',
+          it: 'Итальянский',
+          es: 'Испанский',
+          ru: 'Русский',
+          ja: 'Японский',
+          ch: 'Китайский',
+          he: 'Иврит',
+          pl: 'Польский',
+          ne: 'Голландский'
+        },
+        save: 'Сохранить настройки',
+        clear: 'Очистить настройки',
+        cancel: 'Отмена'
+      },
+      claim: {
+        title: 'Права',
+        subtitle: 'HamburgerKino e.V. & Partners'
+      },
+      dates: {
+        today: 'сегодня',
+        yesterday: 'вчера',
+        days_ago: '{$ num} дней назад',
+        this_month: 'этот месяц',
+        this_year: 'в этом году',
+        last_year: 'в прошлом году',
+        years_ago: '{$ num} лет назад'
       }
     }
   }
