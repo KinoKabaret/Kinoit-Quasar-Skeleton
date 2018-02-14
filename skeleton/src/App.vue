@@ -247,7 +247,7 @@
         },
         statics: {
           app: {
-            version: '0.2.8'
+            version: '0.2.9'
           },
           api: {
             version: 1,
@@ -304,11 +304,11 @@
             label: 'русский',
             value: 'RU'
           },
-          /* {
+          {
             label: '日本語',
             value: 'JP'
           },
-          {
+          /*  {
             label: '中文',
             value: 'CN'
           },
@@ -678,5 +678,11 @@
   .sidebarBtn {
     opacity:0.5;
     margin-right:4px;
+  }
+  .q-item.router-link-active{
+    background-color: rgba(211, 203, 194, 0.5);
+  }
+  .q-item.router-link-active:hover{
+    background-color: rgba(168, 161, 153, 0.5);
   }
 </style>
