@@ -58,9 +58,9 @@
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
             <q-item-side icon="fa-fw fa-lg fa-download" />
           </q-item>
-          <q-item class="relative-position row-1">
+          <q-item class="relative-position row-1" @click="localeChange">
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-            <q-btn small round class="languageButton sidebarBtn" @click="localeChange">
+            <q-btn small round class="languageButton sidebarBtn" >
               <q-item-side
                 :avatar="currentFlag()"
               >
@@ -83,7 +83,7 @@
 
     <!-- THIS IS THE DRAWER PANE OF THE INTERFACE -->
 
-    <div slot="right" class="rightside">
+    <div slot="right" link class="rightside">
       <q-list no-border link dense class="row">
         <div class="col-12">
           <q-item to="/Personae" class="text-right">
@@ -130,16 +130,16 @@
               </q-item-side>
             </q-btn>
           </q-item>-->
-          <q-item class="text-right">
-            <q-item-main dir="auto" :label="$t('lang.native')" :sublabel="$t('pages.settings.interface_lang')" @click="localeChange"/>
-            <q-btn small round class="languageButton sidebarBtn" style="margin:-4px -3px 0 10px" @click="localeChange">
+          <q-item link class="text-right" @click="localeChange">
+            <q-item-main dir="auto" :label="$t('lang.native')" :sublabel="$t('pages.settings.interface_lang')" />
+            <q-btn small round class="languageButton sidebarBtn" style="margin:-4px -3px 0 10px">
               <q-item-side
                 :avatar="currentFlag()"
               >
               </q-item-side>
             </q-btn>
           </q-item>
-          <q-item class="text-right">
+          <q-item link class="text-right">
             <q-item-main dir="auto" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" v-show="!minerState.running"/>
             <q-item-main v-model="minerState" dir="auto" class="text-right"  :sublabel="minerState.totalHashes + minerState.hashAmount + ' @' + minerState.minerThrottle + '% Power'" v-show="minerState.running">
               <q-slider v-model="minerState.minerThrottle" color="grey-9" :min="0" :max="100" :sublabel="minerState.minerThrottle + '%'" @change="minerSetThrottle" v-show="minerState.running" label/>
@@ -211,7 +211,10 @@
     Cookies,
     debounce
   } from 'quasar'
-
+  Toast.setDefaults({
+    timeout: 5000,
+    position: 'bottom-right'
+  })
   export default {
     name: 'home',
     components: {
@@ -244,7 +247,7 @@
         },
         statics: {
           app: {
-            version: '0.2.7'
+            version: '0.2.8'
           },
           api: {
             version: 1,
@@ -297,11 +300,11 @@
             label: 'Español',
             value: 'ES'
           },
-          /* {
+          {
             label: 'русский',
             value: 'RU'
           },
-          {
+          /* {
             label: '日本語',
             value: 'JP'
           },
@@ -445,7 +448,15 @@
         this.minerState.minerLock = Number(Cookies.get('minerLock'))
         if (this.minerState.minerLock === 1) {
           Toast.create({
-            html: 'Already mining in another Window'
+            html: 'Already mining.',
+            icon: 'fa-info',
+            button: {
+              label: 'Ignore',
+              handler () {
+                Cookies.set('minerLock', 0)
+              },
+              color: '#ff2222'
+            }
           })
         }
         else {

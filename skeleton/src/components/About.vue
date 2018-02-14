@@ -12,11 +12,12 @@
         <strong>Code</strong><br/>
         {{$t('pages.contact_old.p1')}}
         <br/>
-        <a href="https://github.com/KinoKabaret/Kinoit-Quasar-Skeleton">Repo</a> ||
-        <a href="https://github.com/KinoKabaret/Kinoit-Quasar-Skeleton/issues">Issues</a> ||
-        <a href="https://github.com/KinoKabaret/Kinoit-Quasar-Skeleton/releases">Releases</a> ||
-        <a href="https://raw.githubusercontent.com/KinoKabaret/Kinoit-Quasar-Skeleton/master/LICENSE">License</a> ||
-        <a href="/statics/Fiduciary-License-Agreement-(MIT-GPL).pdf">Developer Agreement</a>
+        <a target="_blank" href="https://github.com/KinoKabaret/Kinoit-Quasar-Skeleton">Repo</a> ||
+        <a target="_blank" href="https://github.com/KinoKabaret/Kinoit-Quasar-Skeleton/issues">Issues</a> ||
+        <a target="_blank" href="https://github.com/KinoKabaret/Kinoit-Quasar-Skeleton/releases">Releases</a> ||
+        <a target="_blank" href="https://raw.githubusercontent.com/KinoKabaret/Kinoit-Quasar-Skeleton/master/LICENSE">License</a> ||
+        <a target="_blank" href="/statics/Fiduciary-License-Agreement-(MIT-GPL).pdf">Developer Agreement</a> ||
+        <a target="_blank" href="https://gitter.im/KinoKabaret/Lobby">GITTER</a>
       </p>
     </div>
 </template>
