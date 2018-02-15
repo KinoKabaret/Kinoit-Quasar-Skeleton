@@ -1,36 +1,42 @@
 <template>
-  <div class="layout-padding row" >
-    <q-list class="col-3" no-border dense link>
-      <div class="row" v-for="film in films" >
-        <q-item @click="loadIframe(film.id, film.title)" to="">
-          <small>{{ film.title }}<br/></small>
-          <img :src="'/statics/video-poster/' +
-             film.title + '.png'" width="100" height="auto"/>
-          <p></p>
-        </q-item>
+  <q-layout>
+    <div class="layout-padding row" >
+      <q-list class="col-4" no-border dense link>
+        <div class="row" v-for="film in films" >
+          <q-item @click="loadIframe(film.id, film.title)" class="column" to="">
+            <small class="row-12">{{ film.title }}</small>
+            <img class="row" :src="'/statics/video-poster/' +
+               film.title + '.png'" width="100" height="auto"/>
+          </q-item>
+        </div>
+      </q-list>
+      <div class="col-7">
+        <h5 v-text="banner"></h5>
+        <div ref="frame" class="loader" v-show="!iframe.loaded">
+          <h4 class="text-center light-paragraph">
+            <q-spinner :size="36"/>
+            <span>Loading</span>
+          </h4>
+        </div>
+        <iframe src="/statics/video-poster/Kino Kabaret blues.png" :src="iframe.src" ref="frame" @load="load" v-show="iframe.loaded" frameborder="0" allowfullscreen="true" autoplay="true">
+        </iframe>
       </div>
-
-    </q-list>
-    <div class="col-9">
-      <h5 v-text="banner"></h5>
-      <div ref="frame" class="loader" v-show="!iframe.loaded">
-        <h4 class="text-center light-paragraph">
-          <q-spinner :size="36"/>
-          <span>Loading</span>
-        </h4>
-      </div>
-      <iframe src="/statics/video-poster/Kino Kabaret blues.png" :src="iframe.src" ref="frame" @load="load" v-show="iframe.loaded" frameborder="0" allowfullscreen="true" autoplay="true">
-      </iframe>
     </div>
-  </div>
+  </q-layout>
 </template>
 <script>
   import {
+    QItem,
+    QList,
+    QLayout,
     QSpinner
   } from 'quasar'
   export default {
     name: 'downloads',
     components: {
+      QItem,
+      QList,
+      QLayout,
       QSpinner
     },
     data () {

@@ -79,7 +79,7 @@ export default {
       about: {
         title: 'About',
         subtitle: 'What is this?',
-        p1: 'The KINOÏT Platform is a project of the non-profit Filmmakers Cooperative known as HamburgerKino e.V. (Hamburg, Germany) in partnership with Kino00 (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Netherlands) and KinoCaen (Caen, France).'
+        p1: 'The KINOÏT Platform is a project of the non-profit Filmmakers Cooperative known as HamburgerKino e.V. (Hamburg, Germany) in partnership with Kino Montréal (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Netherlands) and KinoCaen (Caen, France).'
       },
       personae: {
         title: 'Personæ',
@@ -211,7 +211,7 @@ export default {
       about: {
         title: 'Acerca de',
         subtitle: '¿Qué es esto?',
-        p1: 'La plataforma KINOÏT es un projecto de la cooperativa de cineastas sin fines de lucro conocida como HamburgerKino e.V. (Hamburgo, Alemania) en asociación con Kino00 (Montreal, Canadá), Kinoonik Holland (Vlaardingen/Roterdam, Holanda) y KinoCaen (Caen, Francia).'
+        p1: 'La plataforma KINOÏT es un projecto de la cooperativa de cineastas sin fines de lucro conocida como HamburgerKino e.V. (Hamburgo, Alemania) en asociación con Kino Montréal (Montreal, Canadá), Kinoonik Holland (Vlaardingen/Roterdam, Holanda) y KinoCaen (Caen, Francia).'
       },
       personae: {
         title: 'Personæ',
@@ -355,7 +355,7 @@ export default {
       about: {
         title: 'À propos',
         subtitle: 'Qu\'est-ce que c\'est ?',
-        p1: 'La plateforme KINOÏT est un projet de plusieurs associations sans but lucratif de vidéastes, connues en tant que HamburgerKino e.V. (Hambourg, Allemagne) en partenariat avec Kino00 (Montréal, Canada), Kinoonik Holland (Flardingue/Rotterdam, Pays-Bas) et KinoCaen (Caen, France.)'
+        p1: 'La plateforme KINOÏT est un projet de plusieurs associations sans but lucratif de vidéastes, connues en tant que HamburgerKino e.V. (Hambourg, Allemagne) en partenariat avec Kino Montréal (Montréal, Canada), Kinoonik Holland (Flardingue/Rotterdam, Pays-Bas) et KinoCaen (Caen, France.)'
       },
       personae: {
         title: 'Personæ',
@@ -490,7 +490,7 @@ export default {
       about: {
         title: 'Informazioni',
         subtitle: 'Che cos’è?',
-        p1: 'La Piattaforma KINOÏT è un progetto della cooperativa di filmmakers conosciuta come HamburgerKino e.V. (Amburgo, Germania) in partnership con Kino00 (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Olanda) e KinoCaen (Caen, Francia).'
+        p1: 'La Piattaforma KINOÏT è un progetto della cooperativa di filmmakers conosciuta come HamburgerKino e.V. (Amburgo, Germania) in partnership con Kino Montréal (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Olanda) e KinoCaen (Caen, Francia).'
       },
       personae: {
         title: 'Personæ',
@@ -774,7 +774,7 @@ export default {
         p1: 'Het KINOÏT Platform is een project van de non-profit Filmmakers' +
         ' Cooperative' +
         ' bekend als HamburgerKino e.V. (Hamburg, Duitsland) in samenwerking met ' +
-        ' Kino00' +
+        ' Kino Montréal' +
         ' (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Nederland) en' +
         ' KinoCaen (Caen, Frankrijk).'
       },
@@ -926,7 +926,7 @@ export default {
       about: {
         title: 'О том',
         subtitle: 'Что это?',
-        p1: 'Платформа KINOÏT - это проект некоммерческих кинематографистов, известных как HamburgerKino e.V. (Гамбург, Германия) в сотрудничестве с Kino00 (Монреаль, Канада), Kinoonik Holland (Влардинген / Роттердам, Нидерланды) и KinoCaen (Кан, Франция).'
+        p1: 'Платформа KINOÏT - это проект некоммерческих кинематографистов, известных как HamburgerKino e.V. (Гамбург, Германия) в сотрудничестве с Kino Montréal (Монреаль, Канада), Kinoonik Holland (Влардинген / Роттердам, Нидерланды) и KinoCaen (Кан, Франция).'
       },
       personae: {
         title: 'Персонажи',
@@ -992,6 +992,137 @@ export default {
         this_year: 'в этом году',
         last_year: 'в прошлом году',
         years_ago: '{$ num} лет назад'
+      }
+    }
+  },
+  JP: {
+    lang: {
+      native: '日本語',
+      flag: 'JP'
+    },
+    site: {
+      title: 'KINOÏT',
+      subtitle: '1999年以来一緒に働いています',
+      welcome: 'ようこそ！'
+    },
+    pages: {
+      null: {
+        title: 'キノをアップグレードしてください！',
+        subtitle: ''
+      },
+      home: {
+        title: 'キノをアップグレードしてください！',
+        subtitle: 'シェアしてください。コピーはしないでください。',
+        p1: '私たちはKinoKabaretアプリへの旅を始めようとしていて、あなたを必要としています！',
+        p2: 'このアプリは私たちがKinoをするためのやり方を革命を起こすでしょう。もう作品を失うこともなく、ネットやVimeoで数年前の映画を引っ掻き回して探すこともなく、何人もの人にプロジェクトのことを送る必要もありません。',
+        p3: 'オンラインやオフライン上で、全ての映画とその資源、ロケーションスカウト、写真マッピング、セル情報、統合映画プレーヤー、そしてイベント管理に簡単にアクセスができます。あらゆるものが一つのブロックチェーン上の一つのアプリに一緒にされ、分散したウェブ上に格納されます。'
+      },
+      mailing: {
+        title: 'メーリングリスト',
+        p1: 'KinoKabaretアプリのメーリングリストに参加していただき、私たちの進捗をお伝えし続け、必要に応じてお手伝いいただけたらと考えております。週に一通を超えるメールを送ることはありません。（誰もそのような時間はありません。）',
+        form: {
+          email: 'メールアドレス',
+          btn: '登録する',
+          small: 'メールキャンペーンにMailchimpを使用しています。'
+        }
+      },
+      mining: {
+        title: 'ブラウザマイニング',
+        p1: '下のスライダーを使い、コンピュータのプロセッサを寄付していただくことも可能です。それによって、暗号通貨がベースのCryptonightを採掘するのをお手伝いいただけます。そしてコンピュータのプロセッサを使いお金に変えるための計算をします。H/s (ハッシュ/秒)の数値が大きいほど、より多くの計算ができます。このページを開いたままにして、コンピュータにKinoKabaretのアプリ開発のためのお金を集めさせましょう。',
+        btn_mining: 'マイニング始める',
+        small_mining: 'コンピュータの動作が遅くなってきましたか？スライダーを下げて、このページを閉めてください。',
+        hashes_found: '今見つかったハッシュ：',
+        hashes_small: '５０「H / s」は約０.００５USD/時です'
+      },
+      contact_old: {
+        title: '連絡する',
+        p1: 'コードはオープンソースなので、Githubにて見つけることができます。',
+        p2: '気軽にsupport@kinokabaret.comへメールをください。'
+      },
+      downloads_old: {
+        p1: '私たちが見つけたものやKINOITESがシェアしたいものをプレゼントいたします。素敵なものを送っていただき、私たちの好みに合えば、お届けいたします。submissions@kinokabaret.comに作品をお送りください。',
+        link1: 'How to organize a KinoKabaret (EN)',
+        link2: 'Tasks & Event Management (EN)'
+      },
+      get_involved: {
+        title: '参加する',
+        wanna_help: '手伝ってもらえませんか？',
+        right_on: 'もちろんです!',
+        hear_from: 'ご連絡をお待ちしてます',
+        win_a_prize: 'きっと賞が当たるでしょう!'
+      },
+      lukas: {
+        p1: 'ちなみに、ルーカスさんが自然環境の中にいます。',
+        p2: 'ゴーサインを出しているように思われるでしょうが、実際は数を数えているのです。それがドイツ語での「一」なのです。'
+      },
+      about: {
+        title: '概要',
+        subtitle: 'これはなんですか',
+        p1: 'KINOÏTプラットフォームは、Kino Montréal（カナダ、モントリオール）、Kinoonik Holland（オランダのVlaardingen / Rotterdam）、KinoCaen（フランスのCaen）と協力しているHamburgerKino e.V.と呼ばれる非営利の映画制作者協同組合のプロジェクトです。'
+      },
+      personae: {
+        title: 'ペルソナ',
+        subtitle: 'ベータ版アクセスプログラム',
+        p1: 'ペルソナ（Personas）はプラットフォームの小さいパートです。ペルソナは、プロジェクトの様々な部分に対してアプリを使用するために切り替えることができます。',
+        p2: '以下にリストがあります：'
+      },
+      watch: {
+        title: '見る',
+        subtitle: '今すぐ見るもの'
+      },
+      downloads: {
+        title: 'ダウンロード',
+        subtitle: 'かっこいいもらた事',
+        fname: 'ファイル名',
+        fsize: 'ファイルのサイズ',
+        ftype: 'ファイルの種類',
+        flicence: 'ファイルのライセンス',
+        download: 'ダウンロード',
+        upload: 'アップロード',
+        share: 'シェア'
+      },
+      contact: {
+        title: 'コンタクト',
+        subtitle: '連絡を取り合って'
+      },
+      legal: {
+        title: 'リーガル',
+        subtitle: '目次、商標、著作権'
+      },
+      settings: {
+        title: '設定',
+        subtitle: '言語とその他の設定',
+        interface_lang: 'ウェブサイト言語',
+        writing: '書く言語',
+        lang: {
+          label: '言語',
+          en: '英語',
+          de: 'ドイツ語',
+          fr: 'フランス語',
+          it: 'イタリア語',
+          es: 'スペイン語',
+          ru: 'ロシア語',
+          ja: '日本語',
+          ch: '中国語',
+          he: 'ヘブライ語',
+          pl: 'ポーランド語'
+        },
+        save: '設定を保存する',
+        clear: '設定をクリアする',
+        cancel: 'キャンセル'
+      },
+      claim: {
+        title: '債権',
+        subtitle: 'HamburgerKino e.V. & Partners'
+      },
+      dates: {
+        today: '今日',
+        yesterday: '昨日',
+        days_ago: '{$num} 日前',
+        this_month: '今月',
+        this_year: '今年',
+        last_year: '昨年',
+        years_ago: '{$num} 年前'
       }
     }
   }

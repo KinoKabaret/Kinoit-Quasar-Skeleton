@@ -6,7 +6,7 @@
     reveal
   >
 
-    <q-toolbar slot="header" color="brand"  class="shadow-10">
+    <q-toolbar slot="header" color="brand" class="shadow-10">
       <q-toolbar-title dir="auto">
         <h5 class="text-bold">
           <a class="text-tertiary" @click="$router.push('/')" >{{$t('site.title')}}</a>
@@ -40,12 +40,16 @@
           <router-view></router-view>
         </div>
 
-      <!-- THIS IS THE FIXED ICON PANE OF THE INTERFACE -->
+      <!-- THIS IS THE FIXED ICON PANE OF THE INTERFACE
+
+      feeddc
+      f1d996
+      -->
 
 
 
 
-        <q-list id="mininav" no-border link class="relative-position scroll shadow-10" style="max-height:80vh; border-bottom-left-radius: 8px; border-top-left-radius: 8px">
+        <q-list id="mininav" no-border link class="relative-position scroll shadow-10" style="max-height:80vh; border-radius: 0 0 8px 8px; background: #f1dfbb">
           <q-item to="/Personae" class="relative-position row-1">
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
             <q-item-side icon="fa-fw fa-lg fa-street-view" />
@@ -69,7 +73,7 @@
           </q-item>
           <q-item class="relative-position row-1">
             <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-            <q-btn round small id="minerButton" class="sidebarBtn" @click="minerBegin">
+            <q-btn round small id="minerButton" class="sidebarBtn" @click="minerBegin" style="background:#feeddc; margin-right:5px">
               <q-spinner v-model="minerState" :size="38" id="miningSpinner" style="position:absolute;z-index:1;height:48px;width:48px" class="text-grey-5" v-show="minerState.running"/>
               <q-item-side v-model="minerState" id="minerBtnLabel" class="miningActive label text-grey-7 text-bold" style="position:absolute;z-index:2" v-html="minerState.buttonLabel">
               </q-item-side>
@@ -83,8 +87,8 @@
 
     <!-- THIS IS THE DRAWER PANE OF THE INTERFACE -->
 
-    <div slot="right" link class="rightside">
-      <q-list no-border link dense class="row">
+    <div slot="right" link class="rightside" style="padding-right:8px">
+      <q-list no-border link dense class="row nav">
         <div class="col-12">
           <q-item to="/Personae" class="text-right">
             <q-item-main dir="auto" :label="$t('pages.personae.title')" :sublabel="$t('pages.personae.subtitle')"  />
@@ -98,55 +102,24 @@
             <q-item-main dir="auto" :label="$t('pages.downloads.title')" :sublabel="$t('pages.downloads.subtitle')" />
             <q-item-side icon="fa-fw fa-lg fa-download" />
           </q-item>
-          <!--
-
-              THIS WAS A TEST FOR A DROPDOWN
-              IN THE SIDEBAR - COOL, BUT HARD
-              TO STYLE. It works though...
-
-          <q-item class="text-right">
-            <q-collapsible class="text-right" style="text-align: right!important">
-              <q-item-main dir="auto" class="text-right" :label="$t('pages.settings.interface_lang')"></q-item-main>
-              <div class="scroll" style="max-height: 400px">
-               <q-side-link
-                class="text-right"
-                item
-                v-for="language in selectOptions"
-                :key="label"
-                to=""
-                >
-
-                  <q-item-main v-bind:label="language.label" @click="localeHandler(language.value)"/>
-                  <q-item-side
-                    :avatar="flag.stub + language.value + flag.mime"
-                    @click="localeHandler(language.value)"/>
-                </q-side-link>
-              </div>
-            </q-collapsible>
-            <q-btn small round class="languageButton sidebarBtn">
-              <q-item-side
-                :avatar="currentFlag()"
-              >
-              </q-item-side>
-            </q-btn>
-          </q-item>-->
           <q-item link class="text-right" @click="localeChange">
             <q-item-main dir="auto" :label="$t('lang.native')" :sublabel="$t('pages.settings.interface_lang')" />
-            <q-btn small round class="languageButton sidebarBtn" style="margin:-4px -3px 0 10px">
+            <q-btn small round class="languageButton sidebarBtn" style="margin:-4px -4px 0 12px">
               <q-item-side
                 :avatar="currentFlag()"
+                style="margin-top:1px"
               >
               </q-item-side>
             </q-btn>
           </q-item>
           <q-item link class="text-right">
-            <q-item-main dir="auto" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" v-show="!minerState.running"/>
+            <q-item-main dir="auto" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" v-show="!minerState.running" @click="minerBegin"/>
             <q-item-main v-model="minerState" dir="auto" class="text-right"  :sublabel="minerState.totalHashes + minerState.hashAmount + ' @' + minerState.minerThrottle + '% Power'" v-show="minerState.running">
               <q-slider v-model="minerState.minerThrottle" color="grey-9" :min="0" :max="100" :sublabel="minerState.minerThrottle + '%'" @change="minerSetThrottle" v-show="minerState.running" label/>
             </q-item-main>
             <q-item-side>
 
-              <q-btn round small class="sidebarBtn" @click="minerBegin" style="margin-right:-3px">
+              <q-btn round small class="sidebarBtn" @click="minerBegin" style="margin-right:-4px; background:#feeddc">
                 <q-spinner v-model="minerState" :size="38" style="position:absolute;z-index:1;height:48px;width:48px" class="text-grey-5" v-show="minerState.running"/>
                 <q-item-side v-model="minerState"  class="miningActive label text-grey-7 text-bold" style="position:absolute;z-index:2" v-html="minerState.buttonLabel">
                 </q-item-side>
@@ -160,17 +133,21 @@
       <div id="cfc_donate" style="position:absolute; left:-10000px"></div>
 
     </div>
-    <q-toolbar slot="footer" class="bg-brand text-black">
-      <q-list no-border link dense class="row">
-        <q-item to="/About">
-          <q-item-main dir="auto" :label="$t('pages.about.title')"/>
-        </q-item>
-        <q-item to="/Contact">
-          <q-item-main dir="auto" :label="$t('pages.contact.title')"/>
-        </q-item>
-        <q-item to="/Legal">
-          <q-item-main dir="auto" :label="$t('pages.legal.title')"/>
-        </q-item>
+    <q-toolbar slot="footer" class="text-grey-9 no-shadow" style="background:#aa9988">
+        <q-list no-border link dense class="row" style="height:18px;margin-bottom:2px;font-weight:700">
+          <q-item to="/About">
+            <q-item-main dir="auto" class="text-grey-9 with-padding">{{$t('pages.about.title')}}
+            </q-item-main>
+          </q-item>
+          <q-item to="/Contact">
+            <q-item-main  dir="auto" class="text-grey-9 with-padding">{{$t('pages.contact.title')}}
+            </q-item-main>
+          </q-item>
+          <q-item to="/Legal">
+            <q-item-main dir="auto" class="text-grey-9 with-padding">{{$t('pages.legal.title')}}
+            </q-item-main >
+          </q-item>
+        </q-list>
         <!--
         <q-item to="/Contributors">
           <q-item-main dir="auto" :label="$t('pages.contributors.title')"/>
@@ -179,10 +156,11 @@
           <q-item-main dir="auto" :label="$t('pages.donate.title')"/>
         </q-item>
         -->
-      </q-list>
-      <small id="minerlog" dir="auto" class="label text-white bg-grey-9 padded text-center full-width absolute-bottom">
-        v{{statics.app.version}} © 2018, HamburgerKino e.V. & Partners
-      </small>
+      <div>
+        <small id="minerlog" dir="auto" class="label text-white bg-grey-9 padded text-center full-width absolute-bottom">
+          v{{statics.app.version}} © 2018, HamburgerKino e.V. & Partners
+        </small>
+      </div>
     </q-toolbar>
   </q-layout>
 </template>
@@ -247,7 +225,7 @@
         },
         statics: {
           app: {
-            version: '0.2.8'
+            version: '0.2.11'
           },
           api: {
             version: 1,
@@ -278,37 +256,40 @@
         },
         selectOptions: [
           {
+            label: 'Deutsch',
+            value: 'DE'
+          },
+          {
             label: 'English',
             value: 'EU',
             image: '/statics/region-flags-png/',
             selected: true
           },
           {
-            label: 'Français',
-            value: 'FR'
-
+            label: 'Español',
+            value: 'ES'
           },
           {
-            label: 'Deutsch',
-            value: 'DE'
+            label: 'Français',
+            value: 'FR'
           },
           {
             label: 'Italiano',
             value: 'IT'
           },
           {
-            label: 'Español',
-            value: 'ES'
-          },
-          {
-            label: 'русский',
-            value: 'RU'
-          },
-          /* {
             label: '日本語',
             value: 'JP'
           },
           {
+            label: 'Nederlands',
+            value: 'NL'
+          },
+          {
+            label: 'русский',
+            value: 'RU'
+          }
+          /*  {
             label: '中文',
             value: 'CN'
           },
@@ -316,10 +297,6 @@
             label: 'עִברִית',
             value: 'HE'
           }, */
-          {
-            label: 'Nederlands',
-            value: 'NL'
-          }
         ]
       }
     },
@@ -451,7 +428,7 @@
             html: 'Already mining.',
             icon: 'fa-info',
             button: {
-              label: 'Ignore',
+              label: 'Click this to reset.',
               handler () {
                 Cookies.set('minerLock', 0)
               },
@@ -546,29 +523,27 @@
           ]
         })
       },
-      toggleMiniNav () {
-        this.$refs.layout.toggleRight()
+      hamburgerLogo () {
+        // todo: vue-ify this function
         let threebar = document.querySelector('#threebar')
-        // let mininav = document.querySelector('#mininav')
-        if (this.$refs.active) {
+        if (this.$refs.layout.rightState.openedBig === true) {
           threebar.classList.remove('hamburger')
           threebar.classList.add('cross')
-          // mininav.classList.add('hidden')
           this.$refs.active = false
           Cookies.set('miniNav', 'open')
         }
         else {
           threebar.classList.remove('cross')
           threebar.classList.add('hamburger')
-          // mininav.classList.remove('hidden')
           this.$refs.active = true
-          Cookies.set('miniNav', 'closed', {
-            // domain: 'kinokabaret.com',
-            // secure: true,
-            expires: 14,
-            path: '/'
-          })
+          Cookies.set('miniNav', 'closed')
         }
+      },
+      toggleMiniNav () {
+        // this.$refs.layout.showRight()
+        // this.$refs.layout.hideRight()
+        this.$refs.layout.toggleRight()
+        this.hamburgerLogo()
       }
     }
   }
@@ -581,6 +556,7 @@
   }
   body {
     -ms-overflow-style: none;
+    background:#fffcf9;
   }
   p {
     text-justify: newspaper;
@@ -611,22 +587,25 @@
   }
   /*
   found at https://stackoverflow.com/questions/35626116/css-transform-from-hamburger-icon-to-cross-to-arrow#35626531
+
+  This is my modification of it to turn into our logo instead of a boring X
    */
   #threebar {
     cursor: pointer;
     position: relative;
     top:-16px;
-    right: 0px;
-    height: 22px;
+    right: -3px;
+    height: 26px;
     margin: 0 30px 0 2px;
   }
   #threebar .bar {
     position: absolute;
     width: 30px;
-    height: 6px;
+    height: 5px;
+    padding:2px;
     background: #987;
-    top: 33px;
-    transition: all 0.5s ease;
+    top: 34px;
+    transition: all 0.5s ease-in;
   }
   #threebar .bar:nth-child(1) {
     transform: translateY(-150%);
@@ -635,13 +614,13 @@
     transform: translateY(150%);
   }
   #threebar.cross .bar:nth-child(1) {
-    transform: rotate(45deg);
+    transform: rotate(45deg) scaleX(0.32) translateX(-105%);
   }
   #threebar.cross .bar:nth-child(3) {
-    transform: rotate(-45deg);
+    transform: rotate(45deg) scaleX(0.5) translateX(50%);
   }
   #threebar.cross .bar:nth-child(2) {
-    opacity: 0;
+    transform: rotate(-45deg);
   }
   #threebar.arrow .bar:nth-child(1) {
     transform-origin: right center;
@@ -678,5 +657,14 @@
   .sidebarBtn {
     opacity:0.5;
     margin-right:4px;
+  }
+  .q-item-main.router-link-active{
+    background-color: rgba(201, 193, 184, 0.8);
+  }
+  .q-item-main.router-link-active:hover{
+    background-color: rgba(168, 161, 153, 0.5);
+  }
+  aside.layout-aside-right {
+    background-color: #f1dfbb;
   }
 </style>
