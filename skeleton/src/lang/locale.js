@@ -79,7 +79,7 @@ export default {
       about: {
         title: 'About',
         subtitle: 'What is this?',
-        p1: 'The KINOÏT Platform is a project of the non-profit Filmmakers Cooperative known as HamburgerKino e.V. (Hamburg, Germany) in partnership with Kino00 (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Netherlands) and KinoCaen (Caen, France).'
+        p1: 'The KINOÏT Platform is a project of the non-profit Filmmakers Cooperative known as HamburgerKino e.V. (Hamburg, Germany) in partnership with Kino Montréal (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Netherlands) and KinoCaen (Caen, France).'
       },
       personae: {
         title: 'Personæ',
@@ -211,7 +211,7 @@ export default {
       about: {
         title: 'Acerca de',
         subtitle: '¿Qué es esto?',
-        p1: 'La plataforma KINOÏT es un projecto de la cooperativa de cineastas sin fines de lucro conocida como HamburgerKino e.V. (Hamburgo, Alemania) en asociación con Kino00 (Montreal, Canadá), Kinoonik Holland (Vlaardingen/Roterdam, Holanda) y KinoCaen (Caen, Francia).'
+        p1: 'La plataforma KINOÏT es un projecto de la cooperativa de cineastas sin fines de lucro conocida como HamburgerKino e.V. (Hamburgo, Alemania) en asociación con Kino Montréal (Montreal, Canadá), Kinoonik Holland (Vlaardingen/Roterdam, Holanda) y KinoCaen (Caen, Francia).'
       },
       personae: {
         title: 'Personæ',
@@ -355,7 +355,7 @@ export default {
       about: {
         title: 'À propos',
         subtitle: 'Qu\'est-ce que c\'est ?',
-        p1: 'La plateforme KINOÏT est un projet de plusieurs associations sans but lucratif de vidéastes, connues en tant que HamburgerKino e.V. (Hambourg, Allemagne) en partenariat avec Kino00 (Montréal, Canada), Kinoonik Holland (Flardingue/Rotterdam, Pays-Bas) et KinoCaen (Caen, France.)'
+        p1: 'La plateforme KINOÏT est un projet de plusieurs associations sans but lucratif de vidéastes, connues en tant que HamburgerKino e.V. (Hambourg, Allemagne) en partenariat avec Kino Montréal (Montréal, Canada), Kinoonik Holland (Flardingue/Rotterdam, Pays-Bas) et KinoCaen (Caen, France.)'
       },
       personae: {
         title: 'Personæ',
@@ -490,7 +490,7 @@ export default {
       about: {
         title: 'Informazioni',
         subtitle: 'Che cos’è?',
-        p1: 'La Piattaforma KINOÏT è un progetto della cooperativa di filmmakers conosciuta come HamburgerKino e.V. (Amburgo, Germania) in partnership con Kino00 (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Olanda) e KinoCaen (Caen, Francia).'
+        p1: 'La Piattaforma KINOÏT è un progetto della cooperativa di filmmakers conosciuta come HamburgerKino e.V. (Amburgo, Germania) in partnership con Kino Montréal (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Olanda) e KinoCaen (Caen, Francia).'
       },
       personae: {
         title: 'Personæ',
@@ -774,7 +774,7 @@ export default {
         p1: 'Het KINOÏT Platform is een project van de non-profit Filmmakers' +
         ' Cooperative' +
         ' bekend als HamburgerKino e.V. (Hamburg, Duitsland) in samenwerking met ' +
-        ' Kino00' +
+        ' Kino Montréal' +
         ' (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Nederland) en' +
         ' KinoCaen (Caen, Frankrijk).'
       },
@@ -926,7 +926,7 @@ export default {
       about: {
         title: 'О том',
         subtitle: 'Что это?',
-        p1: 'Платформа KINOÏT - это проект некоммерческих кинематографистов, известных как HamburgerKino e.V. (Гамбург, Германия) в сотрудничестве с Kino00 (Монреаль, Канада), Kinoonik Holland (Влардинген / Роттердам, Нидерланды) и KinoCaen (Кан, Франция).'
+        p1: 'Платформа KINOÏT - это проект некоммерческих кинематографистов, известных как HamburgerKino e.V. (Гамбург, Германия) в сотрудничестве с Kino Montréal (Монреаль, Канада), Kinoonik Holland (Влардинген / Роттердам, Нидерланды) и KinoCaen (Кан, Франция).'
       },
       personae: {
         title: 'Персонажи',
@@ -1058,7 +1058,7 @@ export default {
       about: {
         title: '概要',
         subtitle: 'これはなんですか',
-        p1: 'KINOÏTプラットフォームは、Kino00（カナダ、モントリオール）、Kinoonik Holland（オランダのVlaardingen / Rotterdam）、KinoCaen（フランスのCaen）と協力しているHamburgerKino e.V.と呼ばれる非営利の映画制作者協同組合のプロジェクトです。'
+        p1: 'KINOÏTプラットフォームは、Kino Montréal（カナダ、モントリオール）、Kinoonik Holland（オランダのVlaardingen / Rotterdam）、KinoCaen（フランスのCaen）と協力しているHamburgerKino e.V.と呼ばれる非営利の映画制作者協同組合のプロジェクトです。'
       },
       personae: {
         title: 'ペルソナ',
