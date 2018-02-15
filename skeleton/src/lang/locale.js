@@ -258,7 +258,8 @@ export default {
           ja: 'Japonés',
           ch: 'Chino',
           he: 'Hebreo',
-          pl: 'Polaco'
+          pl: 'Polaco',
+          ne: 'Flamenco'
         },
         save: 'Guardar Ajustes',
         clear: 'Borrar Ajustes',
@@ -1000,6 +1001,13 @@ export default {
       native: '日本語',
       flag: 'JP'
     },
+    interface: {
+      close: '閉じる',
+      error: {
+        name: 'Error',
+        connect: 'Could not connect with the server'
+      }
+    },
     site: {
       title: 'KINOÏT',
       subtitle: '1999年以来一緒に働いています',
@@ -1105,7 +1113,8 @@ export default {
           ja: '日本語',
           ch: '中国語',
           he: 'ヘブライ語',
-          pl: 'ポーランド語'
+          pl: 'ポーランド語',
+          ne: 'フラマン語'
         },
         save: '設定を保存する',
         clear: '設定をクリアする',
@@ -1122,6 +1131,145 @@ export default {
         this_month: '今月',
         this_year: '今年',
         last_year: '昨年',
+        years_ago: '{$num} 年前'
+      }
+    }
+  },
+  CN: {
+    lang: {
+      native: '中文',
+      flag: 'CN'
+    },
+    interface: {
+      close: '關閉',
+      error: {
+        name: 'Error',
+        connect: 'Could not connect with the server'
+      }
+    },
+    site: {
+      title: 'KINOÏT',
+      subtitle: '從1999年開始一起工作',
+      welcome: '歡迎你'
+    },
+    pages: {
+      null: {
+        title: '升級你的Kino!',
+        subtitle: ''
+      },
+      home: {
+        title: '升級你的Kino!',
+        subtitle: '分享，請勿拷貝',
+        p1: '我們即將打造全新的 KinoKabaret App，所以我們需要你！',
+        p2: '這個App將會重新創造我們Kino的方式。不會再失去的珍貴的影片資料、不用浪費數小時在網路上尋找數前年的影片、不再需要將專案轉發給多數人。',
+        p3: '簡單又快速的搜尋到線上與線下的影片、它們的材料、拍攝地點、相片縮圖、微小資料、現場播放頻道、和活動管理系統。所有東西都包含在一個App裡、在一個Blockchain 和儲存在分散式的網站。'
+      },
+      mailing: {
+        title: '郵件列表',
+        p1: '我們邀請你訂閱我們的KinoKabaret app新訊，這樣當我們有新的進展或我們需要支援時，我們有辦法通知你。每個禮拜你不會收到超過一封信。（誰會有這時間？)',
+        form: {
+          email: 'Email',
+          btn: '訂閱',
+          small: '我們利用Mailchimp來郵寄新訊。'
+        }
+      },
+      mining: {
+        title: '瀏覽器採礦',
+        p1: '请透过您的电脑挖掘网路货币来协助我们! 点及下方按键，利用您电脑多余的运算量可用来赚取基于加密协定Cryptonight的加密货币。杂凑值运算速度(hashes per second)越快越好。您可让浏览器分页保持开启，来资助我们开发KinoKabaret。',
+        btn_mining: '開始採礦',
+        small_mining: '你的電腦變慢了嗎？ 關閉這個頁面。',
+        hashes_found: '發現散列函數(Hashes):',
+        hashes_small: '50 H/s 約0.005 USD/小時'
+      },
+      contact_old: {
+        title: '聯絡我們',
+        p1: '我們的程式碼是公開資源，你可以在Github找到它。',
+        p2: '你可以寫信到這裡給我們support@kinokabaret.com'
+      },
+      downloads_old: {
+        p1: '我們將會公布我們發現的和KINOÏTS想要分享的東西。你可以寄給我們一些你認為好的作品給我們，如果我們也很喜歡，我們將會發表與大家分享。歡迎將你的作品寄給我們:submissions@kinokabaret.com',
+        link1: 'How to organize a KinoKabaret (EN)',
+        link2: 'Tasks & Event Management (EN)'
+      },
+      get_involved: {
+        title: '一起和我們合作!',
+        wanna_help: '想來加入嗎?',
+        right_on: '就是現在!',
+        hear_from: '希望能聽到你的想法!',
+        win_a_prize: '你應該得到你應得的!'
+      },
+      lukas: {
+        p1: '你可能以為人見人愛的Lukas正在給你豎大拇指，',
+        p2: '但他其實是在數數而已，德國人是這麼數一的喔!'
+      },
+      about: {
+        title: '關於',
+        subtitle: '這是什麼',
+        p1: 'KINOÏT平台是由HamburgerKino e.V. (Hamburg, Germany)與合作夥伴Kino00 (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Netherlands), KinoCaen (Caen, France)的非營利電影製作人協會共同發起的計畫。'
+      },
+      personae: {
+        title: '人物誌',
+        subtitle: 'Beta版連結程式',
+        p1: 'Personas 可被用來前往不同app選項不同選項呈現你電影計畫的不同部分',
+        p2: '請看以下清單:'
+      },
+      watch: {
+        title: '看',
+        subtitle: '立即確認'
+      },
+      downloads: {
+        title: '下載',
+        subtitle: '來自酷的人,酷的事物',
+        fname: '檔名',
+        fsize: '檔案大小',
+        ftype: '檔案類別',
+        flicence: '檔案授權',
+        download: '下載',
+        upload: '上傳',
+        share: '分享'
+      },
+      contact: {
+        title: '接觸',
+        subtitle: '開始聯絡'
+      },
+      legal: {
+        title: '合法',
+        subtitle: '目次、商標、著作權'
+      },
+      settings: {
+        title: '設定',
+        subtitle: '語言和其它設定',
+        interface_lang: '語言介面',
+        writing: '書面用語',
+        lang: {
+          label: '語言',
+          en: '英語',
+          de: '德語',
+          fr: '法語',
+          it: '義大利語',
+          es: '西班牙語',
+          ru: '俄語',
+          ja: '日語',
+          ch: '中文',
+          he: '希伯來語',
+          pl: '波蘭語',
+          ne: '荷蘭語'
+        },
+        save: '保存設定',
+        clear: '清除設定',
+        cancel: '取消'
+      },
+      claim: {
+        title: '所有權',
+        subtitle: 'HamburgerKino e.V. & Partners'
+      },
+      dates: {
+        today: '今天',
+        yesterday: '昨天',
+        days_ago: '{$num} 天前',
+        this_month: '這個月',
+        this_year: '今年',
+        last_year: '去年',
         years_ago: '{$num} 年前'
       }
     }
