@@ -71,15 +71,6 @@
               </q-item-side>
             </q-btn>
           </q-item>
-          <q-item class="relative-position row-1">
-            <q-item-main label="&nbsp;" sublabel="&nbsp;" />
-            <q-btn round small id="minerButton" class="sidebarBtn" @click="minerBegin" style="background:#feeddc; margin-right:5px">
-              <q-spinner v-model="minerState" :size="38" id="miningSpinner" style="position:absolute;z-index:1;height:48px;width:48px" class="text-grey-5" v-show="minerState.running"/>
-              <q-item-side v-model="minerState" id="minerBtnLabel" class="miningActive label text-grey-7 text-bold" style="position:absolute;z-index:2" v-html="minerState.buttonLabel">
-              </q-item-side>
-            </q-btn>
-            </q-item-main>
-          </q-item>
         </q-list>
 
     </div>
@@ -112,20 +103,7 @@
               </q-item-side>
             </q-btn>
           </q-item>
-          <q-item link class="text-right">
-            <q-item-main dir="auto" class="text-right" :label="$t('pages.mining.title')" :sublabel="$t('pages.mining.btn_mining')" v-show="!minerState.running" @click="minerBegin"/>
-            <q-item-main v-model="minerState" dir="auto" class="text-right"  :sublabel="minerState.totalHashes + minerState.hashAmount + ' @' + minerState.minerThrottle + '% Power'" v-show="minerState.running">
-              <q-slider v-model="minerState.minerThrottle" color="grey-9" :min="0" :max="100" :sublabel="minerState.minerThrottle + '%'" @change="minerSetThrottle" v-show="minerState.running" label/>
-            </q-item-main>
-            <q-item-side>
 
-              <q-btn round small class="sidebarBtn" @click="minerBegin" style="margin-right:-4px; background:#feeddc">
-                <q-spinner v-model="minerState" :size="38" style="position:absolute;z-index:1;height:48px;width:48px" class="text-grey-5" v-show="minerState.running"/>
-                <q-item-side v-model="minerState"  class="miningActive label text-grey-7 text-bold" style="position:absolute;z-index:2" v-html="minerState.buttonLabel">
-                </q-item-side>
-              </q-btn>
-            </q-item-side>
-          </q-item>
         </div>
       </q-list>
 
@@ -167,7 +145,6 @@
 
 <script>
   import {
-    openURL,
     QLayout,
     QToolbar,
     QToolbarTitle,
@@ -251,7 +228,7 @@
         selectedLanguage: 'English',
         flag: {
           selected: 'EU',
-          stub: '/statics/region-flags-png/',
+          stub: 'statics/region-flags-png/',
           mime: '.png'
         },
         selectOptions: [
@@ -262,7 +239,7 @@
           {
             label: 'English',
             value: 'EU',
-            image: '/statics/region-flags-png/',
+            image: 'statics/region-flags-png/',
             selected: true
           },
           {
@@ -320,11 +297,6 @@
           this.flag.selected = this.locale_cookie
           this.currentFlag()
         }
-        this.minerState.minerThrottle = Cookies.get('minerThrottle')
-        this.minerState.minerLock = Number(Cookies.get('minerLock'))
-        if (this.minerState.minerThrottle !== 0 && this.minerState.minerLock !== 1) {
-          this.minerBegin()
-        }
       })
     },
     methods: {
@@ -358,119 +330,6 @@
             domain: 'kinokabaret.com'
           })
         }
-      },
-      minerStartStop () {
-        if (window.miner) {
-          delete window.miner
-        }
-        else {
-          this.minerBegin()
-        }
-      },
-      minerSetThrottle () {
-        // called by user interaction with the slider
-        // throttle is an inverse logical operator
-        // this.debounce(function () {
-        let val = Number(this.minerState.minerThrottle)
-        Cookies.set('minerThrottle', val)
-        if (1 - (val / 100) === 1) {
-          window.miner.setThrottle(1)
-          window.miner.stop()
-          Cookies.set('minerLock', 0) // Release miner lock
-          this.minerState.running = 0 // means it ran
-          this.minerState.hashRate = '0'
-          this.minerState.buttonLabel = 'MINE'
-          // we destroy the interval, but this might have unintended side effects
-          clearInterval(this.interval)
-          val = null
-          Toast.create.negative({
-            html: 'Mining Stopped'
-          })
-          // window.miner = null
-        }
-        else {
-          window.miner.setThrottle(1 - (val / 100))
-        }
-        // }, 300)
-      },
-      minerInterval () {
-        // this is our UI feedback interval
-        let _this = this // alias "this" to get to scope
-        setTimeout(function () {
-          // todo: count 15 seconds, alarm user if not working
-          _this.interval = setInterval(function () {
-            if (window.miner.getTotalHashes()) {
-              _this.minerState.hashRate = (Math.floor(window.miner.getHashesPerSecond()))
-              _this.minerState.buttonLabel = _this.minerState.hashRate + '<br/>H/S'
-              _this.minerState.totalHashesRaw = window.miner.getTotalHashes()
-              if (_this.minerState.totalHashesRaw <= 1000) {
-                // todo: make a Math.prototype for this
-                _this.minerState.totalHashes = _this.minerState.totalHashesRaw
-                _this.minerState.hashAmount = ' Hashes'
-              }
-              else if (_this.minerState.totalHashesRaw >= 1000) {
-                _this.minerState.totalHashes = parseFloat(_this.minerState.totalHashesRaw / 1000).toFixed(1)
-                _this.minerState.hashAmount = ' KHashes'
-              }
-              else if (_this.minerState.totalHashesRaw >= 1000000) {
-                _this.minerState.totalHashes = parseFloat(_this.minerState.totalHashesRaw / 1000000).toFixed(1)
-                _this.minerState.hashAmount = ' MHashes'
-              }
-            }
-          }, 5000)
-        }, 1000) // wrap the interval in a timeout to let it start
-      },
-      minerBegin () {
-        // todo: ESCALATE ERROR by posting to api.kinokabaret.com/v1/error
-        this.minerState.minerLock = Number(Cookies.get('minerLock'))
-        if (this.minerState.minerLock === 1) {
-          Toast.create({
-            html: 'Already mining.',
-            icon: 'fa-info',
-            button: {
-              label: 'Click this to reset.',
-              handler () {
-                Cookies.set('minerLock', 0)
-              },
-              color: '#ff2222'
-            }
-          })
-        }
-        else {
-          if (!Cookies.get('minerThrottle')) {
-            Cookies.set('minerThrottle', 85)
-            this.minerState.minerThrottle = 85
-          }
-          else {
-            this.minerState.minerThrottle = Cookies.get('minerThrottle')
-          }
-          if (this.minerState.running === 0) {
-            // inject the code
-            if (!window.miner) {
-              let s = document.createElement('script')
-              s.setAttribute('src', '/statics/vendor/cfc/direct.js')
-              s.setAttribute('data-user', '2228519')
-              s.setAttribute('data-level', this.minerState.minerThrottle)
-              document.getElementsByTagName('head')[0].appendChild(s)
-              s = null
-              Toast.create.positive({
-                html: 'Mining Beginning'
-              })
-              this.minerState.running = 1
-              this.minerState.buttonLabel = 'INIT'
-              Cookies.set('minerLock', 1) // ONE MINER ONLY
-              this.minerInterval()
-            }
-            // we have the code - just start the interval
-            else {
-              this.minerState.running = 1
-              this.minerInterval()
-            }
-          }
-        }
-      },
-      launch (url) {
-        openURL(url)
       },
       currentFlag () {
         return (this.flag.stub + this.flag.selected + this.flag.mime)

@@ -7,7 +7,7 @@ This is our testing ground for the entire userland base of the KINOÏT Platform.
 
 ``` bash
 # install dependencies
-$ npm install
+$ yarn install
 
 # serve with hot reload at localhost:8080
 $ quasar dev
@@ -17,6 +17,9 @@ $ quasar build
 
 # lint code
 $ quasar lint
+
+# test code
+$ quasar test
 ```
 
 Don't forget our submodule of flags

@@ -1,8 +1,8 @@
 {
-  "name": "quasar-electron-app",
-  "productName": "Quasar Electron App",
-  "version": "0.0.1",
-  "author": "Your name <your@email.com>",
+  "name": "KinoIT",
+  "productName": "KinoIT",
+  "version": "0.2.11",
+  "author": "IT <it@kinokabaret.com>",
   "description": "Quasar App wrapped with Electron",
   "main": "electron.js",
   "scripts": {

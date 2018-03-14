@@ -19,7 +19,8 @@ module.exports = {
 
   build: {
     env: require('./prod.env'),
-    publicPath: '/',
+    publicPath: '', // for binaries
+    // publicPath: '/', // for web
     productionSourceMap: false,
 
     // Remove unused CSS

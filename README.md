@@ -5,5 +5,6 @@ This is the scaffolding app for all front end personae in the kinokabaret ecosys
 
 Please see the skeleton folder for more insight.
 
-[![Join the chat at https://gitter.im/KinoKabaret/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/KinoKabaret/Lobby)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 

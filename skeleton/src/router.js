@@ -21,7 +21,8 @@ export default new VueRouter({
    * build publicPath back to '' so Cordova builds work again.
    */
 
-  mode: 'history',
+  // mode: 'history', // web
+  mode: 'hash', // binaries
   scrollBehavior: () => ({ y: 0 }),
 
   routes: [

@@ -1,0 +1,150 @@
+
+en_EU: {
+  lang: {
+    native: 'English',
+    flag: 'EU'
+  },
+  interface: {
+    close: 'Close',
+    error: {
+      name: 'Error',
+      connect: 'Could not connect with the server'
+    }
+  },
+  site: {
+    title: 'KINOÏT',
+    subtitle: 'Working together since 1999',
+    welcome: 'Welcome'
+  },
+  pages: {
+    undefined: {
+      title: '',
+      subtitle: ''
+    },
+    null: {
+      title: 'Upgrade your Kino!',
+      subtitle: ''
+    },
+    contributors: {
+      title: 'Contributors'
+    },
+    donate: {
+      title: 'Donate'
+    },
+    home: {
+      title: 'Upgrade your Kino!',
+      subtitle: 'Share, don\'t copy',
+      p1: 'We are starting the journey towards the KinoKabaret app and we need you!',
+      p2: 'This app will revolutionize the way we Kino. No more lost material, no more hours of foraging the net or Vimeo for a film from years past, no more forwarding to multiple people about a project.',
+      p3: 'Easier online and offline access to all the movies and their assets, location scouting, photo mapping, cell information, integrated screening player and event management. Everything together in one app, on one blockchain and stored on the distributed web.'
+    },
+    mailing: {
+      title: 'Mailing List',
+      p1: 'We would like to invite you to join the KinoKabaret App mailing list so we can keep you informed about our progress and ask for help when we need it. We will never send more than one email per week. (Who has the time for that?)',
+      form: {
+        email: 'Email address',
+        btn: 'Subscribe',
+        small: 'We use Mailchimp for our Email campaigns.'
+      }
+    },
+    mining: {
+      title: 'Browser Mining',
+      p1: 'You can use the slider to donate your computer\'s processor to help us mine Cryptonight based cryptocurrency. It uses your computer\'s processor to do some math that turns into money. The higher the H/s (hashes per second) the better. Just leave this browser tab open and let your computer raise money for KinoKabaret App Development.',
+      btn_mining: 'Begin Mining',
+      small_mining: 'Computer getting too slow? Lower the rate or close this tab.',
+      hashes_found: 'Hashes found in this session: ',
+      hashes_small: '50 H/s is about 0.005 USD / hour'
+    },
+    contact_old: {
+      title: 'Get in touch.',
+      p1: 'Our code is open source and you can find it at Github',
+      p2: 'You can write us an email at support@kinokabaret.com'
+    },
+    downloads_old: {
+      p1: 'We\'ll be putting up things we find or that KINOÏTS want to share. You can send us something nice, and if we like it we\'ll transmit it. Send your stuff to: submissions@kinokabaret.com',
+      link1: 'How to organize a KinoKabaret (EN)',
+      link2: 'Tasks & Event Management (EN)'
+    },
+    get_involved: {
+      title: 'Get Involved',
+      wanna_help: 'Want to help?',
+      right_on: 'Right on!',
+      hear_from: 'Hope to hear from you!',
+      win_a_prize: 'You should win a prize!'
+    },
+    lukas: {
+      p1: 'BTW, here we have a Lukas in his native environment.',
+      p2: 'You may think that he is giving you the thumbs up, but really he is counting. That is German for "one".'
+    },
+    about: {
+      title: 'About',
+      subtitle: 'What is this?',
+      p1: 'The KINOÏT Platform is a project of the non-profit Filmmakers Cooperative known as HamburgerKino e.V. (Hamburg, Germany) in partnership with Kino Montréal (Montreal, Canada), Kinoonik Holland (Vlaardingen/Rotterdam, Netherlands) and KinoCaen (Caen, France).'
+    },
+    personae: {
+      title: 'Personæ',
+      subtitle: 'Beta Access Program',
+      p1: 'Personæ are like little parts of the platform that you can switch between in order to use the APP for different parts of your projects. ',
+      p2: 'Here is a list (in English):'
+    },
+    watch: {
+      title: 'Watch',
+      subtitle: 'Things to Watch Right Now'
+    },
+    downloads: {
+      title: 'Downloads',
+      subtitle: 'Cool Stuff People like You Send Us',
+      fname: 'File Name',
+      fsize: 'File Size',
+      ftype: 'File Type',
+      flicence: 'File License',
+      download: 'Download',
+      upload: 'Upload',
+      share: 'Share'
+    },
+    contact: {
+      title: 'Contact',
+      subtitle: 'Get in Touch with Us'
+    },
+    legal: {
+      title: 'Legal',
+      subtitle: 'TOC, Trademark, Copyright'
+    },
+    settings: {
+      title: 'Settings',
+      subtitle: 'Language and Other Settings',
+      interface_lang: 'Interface Language',
+      writing: 'Language for Writing',
+      lang: {
+        label: 'Language',
+        en: 'English',
+        de: 'German',
+        fr: 'French',
+        it: 'Italian',
+        es: 'Spanish',
+        ru: 'Russian',
+        ja: 'Japanese',
+        ch: 'Chinese',
+        he: 'Hebrew',
+        pl: 'Polish',
+        ne: 'Flemish'
+      },
+      save: 'Save Settings',
+      clear: 'Clear Settings',
+      cancel: 'Cancel'
+    },
+    claim: {
+      title: 'Claim',
+      subtitle: 'HamburgerKino e.V. & Partners'
+    },
+    dates: {
+      today: 'today',
+      yesterday: 'yesterday',
+      days_ago: '{$num} days ago',
+      this_month: 'this month',
+      this_year: 'this year',
+      last_year: 'last year',
+      years_ago: '{$num} years ago'
+    }
+  }
+}
